@@ -9,31 +9,27 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+     </properties>
 
-    </properties>
     <!--<build>
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.2</version>
                 <configuration>
-                    <useSystemClassLoader>false</useSystemClassLoader>
-                    <testFailureIgnore>true</testFailureIgnore>
+                    <testFailureIgnore>false</testFailureIgnore>
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.8.10/aspectjweaver-1.8.10.jar"
                     </argLine>
-                    <properties>
-                        <property>
-                            <name>listener</name>
-                            <value>io.qameta.allure.junit5.AllureJunit5</value>
-                        </property>
-                    </properties>
                     <systemProperties>
+                        <property>
+                            <name>junit.jupiter.extensions.autodetection.enabled</name>
+                            <value>true</value>
+                        </property>
                         <property>
                             <name>allure.results.directory</name>
                             <value>${project.build.directory}/allure-results</value>
@@ -42,47 +38,89 @@
                 </configuration>
                 <dependencies>
                     <dependency>
+                        <groupId>org.junit.platform</groupId>
+                        <artifactId>junit-platform-surefire-provider</artifactId>
+                        <version>1.1.0</version>
+                    </dependency>
+                    <dependency>
                         <groupId>org.aspectj</groupId>
                         <artifactId>aspectjweaver</artifactId>
                         <version>1.8.10</version>
                     </dependency>
                 </dependencies>
             </plugin>
-            <plugin>
-                <groupId>io.qameta.allure</groupId>
-                <artifactId>allure-maven</artifactId>
-                <version>2.10.0</version>
-                <configuration>
-                    <reportVersion>2.13.8</reportVersion>
-                </configuration>
-            </plugin>
-            <plugin>
-                <artifactId>maven-resources-plugin</artifactId>
-                <version>3.2.0</version>
-                <executions>
-                    <execution>
-                        <id>copy-resources</id>
-                        <phase>validate</phase>
-                        <goals>
-                            <goal>copy-resources</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>target/allure-results</outputDirectory>
-                            <resources>
-                                <resource>
-                                    <directory>src/test/resources</directory>
-                                    <includes>
-                                        <include>environment.properties</include>
-                                    </includes>
-                                </resource>
-                            </resources>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
 
         </plugins>
     </build>-->
+      <build>
+          <plugins>
+              <plugin>
+                  <groupId>org.apache.maven.plugins</groupId>
+                  <artifactId>maven-surefire-plugin</artifactId>
+                  <version>2.22.2</version>
+                  <configuration>
+                      <useSystemClassLoader>false</useSystemClassLoader>
+                      <testFailureIgnore>true</testFailureIgnore>
+                      <argLine>
+                          -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.8.10/aspectjweaver-1.8.10.jar"
+                      </argLine>
+                      <properties>
+                          <property>
+                              <name>listener</name>
+                              <value>io.qameta.allure.junit5.AllureJunit5</value>
+                          </property>
+                      </properties>
+                      <systemProperties>
+                          <property>
+                              <name>allure.results.directory</name>
+                              <value>${project.build.directory}/allure-results</value>
+                          </property>
+                      </systemProperties>
+                  </configuration>
+                  <dependencies>
+                      <dependency>
+                          <groupId>org.aspectj</groupId>
+                          <artifactId>aspectjweaver</artifactId>
+                          <version>1.8.10</version>
+                      </dependency>
+                  </dependencies>
+              </plugin>
+              <plugin>
+                  <groupId>io.qameta.allure</groupId>
+                  <artifactId>allure-maven</artifactId>
+                  <version>2.10.0</version>
+                  <configuration>
+                      <reportVersion>2.13.8</reportVersion>
+                  </configuration>
+              </plugin>
+              <plugin>
+                  <artifactId>maven-resources-plugin</artifactId>
+                  <version>3.2.0</version>
+                  <executions>
+                      <execution>
+                          <id>copy-resources</id>
+                          <phase>validate</phase>
+                          <goals>
+                              <goal>copy-resources</goal>
+                          </goals>
+                          <configuration>
+                              <outputDirectory>target/allure-results</outputDirectory>
+                              <resources>
+                                  <resource>
+                                      <directory>src/test/resources</directory>
+                                     <!-- <includes>
+                                          <include>environment.properties</include>
+                                      </includes>-->
+                                  </resource>
+                              </resources>
+                          </configuration>
+                      </execution>
+                  </executions>
+              </plugin>
+
+          </plugins>
+      </build>
+
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine -->
         <dependency>
