@@ -1,0 +1,8 @@
+pages/ServiceOptionPage.class
+pages/ApplicationStatusPage.class
+data/Administrator.class
+pages/CitizenDataPage.class
+data/User.class
+pages/AuthorizationPage.class
+pages/ApplicantDataPage.class
+pages/ServiceDataPage.class
