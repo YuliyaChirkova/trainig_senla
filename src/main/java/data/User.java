@@ -9,18 +9,38 @@ public class User {
     public String citizenFirstName;
     public String citizenLastName;
     public String citizenMiddleName;
-   // public String citizenBirthDate;
+    public String citizenBirthDate;
     public String citizenPassportNumber;
     public String citizenGender;
-    public String registrationDate;
-    // public String newLastName;
+    public String marriageRegistrationDate;
+    public String spouseNewLastName;
+
+
+
     public String spouseLastName;
     public String spouseFirstName;
     public String spouseMiddleName;
     public String spouseBirthDate;
     public String spousePassportNumber;
 
+    public User(String marriageRegistrationDate, String spouseNewLastName, String spouseLastName, String spouseFirstName, String spouseMiddleName, String spouseBirthDate, String spousePassportNumber) {
+        this.marriageRegistrationDate = marriageRegistrationDate;
+        this.spouseNewLastName = spouseNewLastName;
+        this.spouseLastName = spouseLastName;
+        this.spouseFirstName = spouseFirstName;
+        this.spouseMiddleName = spouseMiddleName;
+        this.spouseBirthDate = spouseBirthDate;
+        this.spousePassportNumber = spousePassportNumber;
+    }
 
+    public User(String citizenFirstName, String citizenLastName, String citizenMiddleName, String citizenBirthDate, String citizenPassportNumber, String citizenGender) {
+        this.citizenFirstName = citizenFirstName;
+        this.citizenLastName = citizenLastName;
+        this.citizenMiddleName = citizenMiddleName;
+        this.citizenBirthDate = citizenBirthDate;
+        this.citizenPassportNumber = citizenPassportNumber;
+        this.citizenGender = citizenGender;
+    }
 
     public User(String userFirstName, String userLastName, String userMiddleName, String userPhoneNumber, String userPassportNumber) {
         this.applicantFirstName = userFirstName;
@@ -30,6 +50,9 @@ public class User {
         this.applicantPassportNumber = userPassportNumber;
     }
 
+    public String getSpouseNewLastName() {
+        return spouseNewLastName;
+    }
     public String getApplicantFirstName() {
         return applicantFirstName;
     }
@@ -49,8 +72,33 @@ public class User {
     public String getApplicantPassportNumber() {
         return applicantPassportNumber;
     }
-    public String getRegistrationDate() {
-        return registrationDate;
+
+    public String getCitizenFirstName() {
+        return citizenFirstName;
+    }
+
+    public String getCitizenLastName() {
+        return citizenLastName;
+    }
+
+    public String getCitizenMiddleName() {
+        return citizenMiddleName;
+    }
+
+    public String getCitizenBirthDate() {
+        return citizenBirthDate;
+    }
+
+    public String getCitizenPassportNumber() {
+        return citizenPassportNumber;
+    }
+
+    public String getCitizenGender() {
+        return citizenGender;
+    }
+
+    public String getMarriageRegistrationDate() {
+        return marriageRegistrationDate;
     }
 
     public String getSpouseLastName() {
