@@ -1,5 +1,6 @@
 package pages;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
@@ -23,6 +24,13 @@ public class ServiceOptionPage {
     @Step("Выбрать Регистрацию смерти")
     public void clickDeathApplicationButton(){
         deathApplicationButton.click();
+    }
+
+    @Step("Проверить наличие всех кнопок")
+    public void checkAllButtons(){
+        marriageApplicationButton.should(Condition.exist);
+        birthApplicationButton.should(Condition.exist);
+        deathApplicationButton.should(Condition.exist);
     }
 
 }

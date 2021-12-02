@@ -7,4 +7,5 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class ApplicationStatusPage {
     public SelenideElement statusMessage =$(byXpath("//span[text() = 'Ваша заявка отправлена на рассмотрение. ']"));
+    public SelenideElement buttonCreateNewApplication =$(byXpath("//button[text() = 'Создать новую заявку']"));
 }
