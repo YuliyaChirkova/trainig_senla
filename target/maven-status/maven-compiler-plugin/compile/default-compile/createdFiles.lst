@@ -1,8 +1,8 @@
-pages/ServiceOptionPage.class
-pages/ApplicationStatusPage.class
-data/Administrator.class
-pages/CitizenDataPage.class
-data/User.class
-pages/AuthorizationPage.class
-pages/ApplicantDataPage.class
-pages/ServiceDataPage.class
+pages\ApplicantDataPage.class
+pages\ApplicationStatusPage.class
+pages\ServiceDataPage.class
+data\User.class
+pages\ServiceOptionPage.class
+pages\AuthorizationPage.class
+pages\CitizenDataPage.class
+data\Administrator.class

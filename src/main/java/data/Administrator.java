@@ -1,12 +1,12 @@
 package data;
 
 public class Administrator {
-    public String adminFirstName;
-    public String adminLastName;
-    public String adminMiddleName;
-    public String adminPhoneNumber;
-    public String adminPassportNumber;
-    public String adminBirthDate;
+    private String adminFirstName;
+    private String adminLastName;
+    private String adminMiddleName;
+    private String adminPhoneNumber;
+    private String adminPassportNumber;
+    private String adminBirthDate;
 
     public Administrator(String adminFirstName, String adminLastName, String adminMiddleName, String adminPhoneNumber, String adminPassportNumber, String adminBirthDate) {
         this.adminFirstName = adminFirstName;

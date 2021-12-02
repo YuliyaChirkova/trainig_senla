@@ -10,10 +10,14 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 public class AuthorizationPage {
-    public SelenideElement userButton =$(byXpath("//button[text() = 'Войти как пользователь']"));
-    public SelenideElement adminButton =$(byXpath("//button[text() = 'Войти как администратор']"));
-    public String url = "https://user:senlatest@regoffice.senla.eu/";
+    private SelenideElement userButton =$(byXpath("//button[text() = 'Войти как пользователь']"));
+    private SelenideElement adminButton =$(byXpath("//button[text() = 'Войти как администратор']"));
+    private String url = "https://user:senlatest@regoffice.senla.eu/";
     ApplicantDataPage applicantDataPage = new ApplicantDataPage();
+
+    public String getUrl() {
+        return url;
+    }
 
     @Step("Открытие страницы авторизации")
     public void openAuthorizationPage() {

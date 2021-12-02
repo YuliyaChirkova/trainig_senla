@@ -92,7 +92,7 @@ public class TestClass extends BeforeAfterEach{
         applicantDataPage.clickNextButton();
         serviceOptionPage.clickMarriageApplicationButton();
         citizenDataPage.setAllCitizenData(userCitizen);
-        citizenDataPage.nextButton.shouldBe(Condition.enabled);
+        citizenDataPage.checkNextButtonIsEnabled();
     }
 
     @Test
@@ -121,7 +121,7 @@ public class TestClass extends BeforeAfterEach{
         citizenDataPage.setAllCitizenData(userCitizen);
         citizenDataPage.clickNextButton();
         serviceDataPage.setAllMarriageServiceData(userService);
-        serviceDataPage.finishButton.should(Condition.enabled);
+        serviceDataPage.checkFinishButtonIsEnabled();
     }
 
     @Test
@@ -179,7 +179,7 @@ public class TestClass extends BeforeAfterEach{
         applicantDataPage.clickNextButton();
         serviceOptionPage.clickBirthApplicationButton();
         citizenDataPage.setAllCitizenData(userCitizen);
-        citizenDataPage.nextButton.shouldBe(Condition.enabled);
+        citizenDataPage.checkNextButtonIsEnabled();
     }
 
     @Test
@@ -207,7 +207,7 @@ public class TestClass extends BeforeAfterEach{
         citizenDataPage.setAllCitizenData(userCitizen);
         citizenDataPage.clickNextButton();
         serviceDataPage.setAllBirthServiceData(userService);
-        serviceDataPage.finishButton.should(Condition.enabled);
+        serviceDataPage.checkFinishButtonIsEnabled();
     }
 
     @Test
@@ -248,7 +248,7 @@ public class TestClass extends BeforeAfterEach{
         applicantDataPage.clickNextButton();
         serviceOptionPage.clickDeathApplicationButton();
         citizenDataPage.setAllCitizenData(userCitizen);
-        citizenDataPage.nextButton.shouldBe(Condition.enabled);
+        citizenDataPage.checkNextButtonIsEnabled();
     }
 
     @Test
@@ -276,7 +276,7 @@ public class TestClass extends BeforeAfterEach{
         citizenDataPage.setAllCitizenData(userCitizen);
         citizenDataPage.clickNextButton();
         serviceDataPage.setAllDeathServiceData(userService);
-        serviceDataPage.finishButton.should(Condition.enabled);
+        serviceDataPage.checkFinishButtonIsEnabled();
     }
 
     @Test
@@ -302,7 +302,7 @@ public class TestClass extends BeforeAfterEach{
     public void testSetAdminData(){
         authorizationPage.clickAdminButton();
         adminDataPage.setAllAdminData(administrator);
-        adminDataPage.nextButton.shouldBe(Condition.enabled);
+        adminDataPage.checkNextButtonIsEnabled();
     }
 
     @Test

@@ -1,53 +1,34 @@
 package data;
 
 public class User {
-    public String applicantFirstName;
-    public String applicantLastName;
-    public String applicantMiddleName;
-    public String applicantPhoneNumber;
-    public String applicantPassportNumber;
-    public String citizenFirstName;
-    public String citizenLastName;
-    public String citizenMiddleName;
-    public String citizenBirthDate;
-    public String citizenPassportNumber;
-    public String citizenGender;
-    public String marriageRegistrationDate;
 
+    private String applicantFirstName;
+    private String applicantLastName;
+    private String applicantMiddleName;
+    private String applicantPhoneNumber;
+    private String applicantPassportNumber;
+    private String citizenFirstName;
+    private String citizenLastName;
+    private String citizenMiddleName;
+    private String citizenBirthDate;
+    private String citizenPassportNumber;
+    private String citizenGender;
+    private String marriageRegistrationDate;
 
+    private String spouseNewLastName;
+    private String spouseLastName;
+    private String spouseFirstName;
+    private String spouseMiddleName;
+    private String spouseBirthDate;
+    private String spousePassportNumber;
 
-    public String spouseNewLastName;
-    public String spouseLastName;
-    public String spouseFirstName;
-    public String spouseMiddleName;
-    public String spouseBirthDate;
-    public String spousePassportNumber;
+    private String birthPlace;
+    private String motherName;
+    private String fatherName;
 
-    public String birthPlace;
-    public String motherName;
-    public String fatherName;
-    public String deathPlace;
+    private String deathPlace;
+    private String deathDate;
 
-    public String getDeathPlace() {
-        return deathPlace;
-    }
-
-    public String getDeathDate() {
-        return deathDate;
-    }
-
-    public String deathDate;
-    public String getBirthPlace() {
-        return birthPlace;
-    }
-
-    public String getMotherName() {
-        return motherName;
-    }
-
-    public String getFatherName() {
-        return fatherName;
-    }
 
     public User(String marriageRegistrationDate, String spouseNewLastName, String spouseLastName, String spouseFirstName, String spouseMiddleName, String spouseBirthDate, String spousePassportNumber, String birthPlace, String motherName, String fatherName, String deathPlace, String deathDate) {
         this.marriageRegistrationDate = marriageRegistrationDate;
@@ -63,16 +44,6 @@ public class User {
         this.deathPlace = deathPlace;
         this.deathDate = deathDate;
     }
-
-    /*public User(String marriageRegistrationDate, String spouseNewLastName, String spouseLastName, String spouseFirstName, String spouseMiddleName, String spouseBirthDate, String spousePassportNumber) {
-        this.marriageRegistrationDate = marriageRegistrationDate;
-        this.spouseNewLastName = spouseNewLastName;
-        this.spouseLastName = spouseLastName;
-        this.spouseFirstName = spouseFirstName;
-        this.spouseMiddleName = spouseMiddleName;
-        this.spouseBirthDate = spouseBirthDate;
-        this.spousePassportNumber = spousePassportNumber;
-    }*/
 
     public User(String citizenFirstName, String citizenLastName, String citizenMiddleName, String citizenBirthDate, String citizenPassportNumber, String citizenGender) {
         this.citizenFirstName = citizenFirstName;
@@ -91,9 +62,30 @@ public class User {
         this.applicantPassportNumber = userPassportNumber;
     }
 
+    public String getDeathPlace() {
+        return deathPlace;
+    }
+
+    public String getDeathDate() {
+        return deathDate;
+    }
+
+    public String getBirthPlace() {
+        return birthPlace;
+    }
+
+    public String getMotherName() {
+        return motherName;
+    }
+
+    public String getFatherName() {
+        return fatherName;
+    }
+
     public String getSpouseNewLastName() {
         return spouseNewLastName;
     }
+
     public String getApplicantFirstName() {
         return applicantFirstName;
     }

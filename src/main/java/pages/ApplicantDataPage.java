@@ -11,11 +11,11 @@ import static com.codeborne.selenide.Selenide.$$;
 
 public class ApplicantDataPage {
 
-    public SelenideElement applicantLastName =$(byXpath("//label[text()='Фамилия']/following::input[1]"));
-    public SelenideElement applicantFirstName =$(byXpath("//label[text()='Имя']/following::input[1]"));
-    public SelenideElement applicantMiddleName =$(byXpath("//label[text()='Отчество']/following::input[1]"));
-    public SelenideElement applicantPhoneNumber =$(byXpath("//label[text()='Телефон']/following::input[1]"));
-    public SelenideElement applicantPassportNumber =$(byXpath("//label[text()='Номер паспорта']/following::input[1]"));
+    private SelenideElement applicantLastName =$(byXpath("//label[text()='Фамилия']/following::input[1]"));
+    private SelenideElement applicantFirstName =$(byXpath("//label[text()='Имя']/following::input[1]"));
+    private SelenideElement applicantMiddleName =$(byXpath("//label[text()='Отчество']/following::input[1]"));
+    private SelenideElement applicantPhoneNumber =$(byXpath("//label[text()='Телефон']/following::input[1]"));
+    private SelenideElement applicantPassportNumber =$(byXpath("//label[text()='Номер паспорта']/following::input[1]"));
     public SelenideElement nextButton =$(byXpath("//button[text()='Далее']"));
     public SelenideElement userMessage =$(byXpath("//span[text()='Вы вошли как пользователь']"));
     ServiceOptionPage serviceOptionPage = new ServiceOptionPage();
@@ -38,6 +38,7 @@ public class ApplicantDataPage {
         applicantPassportNumber.val(user.getApplicantPassportNumber());
         return this;
     }
+
     @Step("Нажать кнопку Далее")
     public ServiceOptionPage clickNextButton(){
         nextButton.shouldBe(Condition.enabled).click();

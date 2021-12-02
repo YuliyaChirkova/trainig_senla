@@ -15,7 +15,9 @@ import static com.codeborne.selenide.WebDriverConditions.url;
 
 
 public class BeforeAfterEach {
+
     AuthorizationPage authorizationPage = new AuthorizationPage();
+
     @BeforeEach
     public void setUp() {
         SelenideLogger.addListener("AllureSelenide",
@@ -23,7 +25,7 @@ public class BeforeAfterEach {
         Configuration.startMaximized = true;
        // Configuration.browser = "firefox";
         authorizationPage.openAuthorizationPage();
-        webdriver().shouldHave(url(authorizationPage.url));
+        webdriver().shouldHave(url(authorizationPage.getUrl()));
     }
 
     @AfterAll

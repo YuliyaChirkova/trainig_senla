@@ -10,14 +10,16 @@ import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
 public class AdminDataPage {
-    public SelenideElement adminLastName =$(byXpath("//label[text()='Фамилия']/following::input[1]"));
-    public SelenideElement adminFirstName =$(byXpath("//label[text()='Имя']/following::input[1]"));
-    public SelenideElement adminMiddleName =$(byXpath("//label[text()='Отчество']/following::input[1]"));
-    public SelenideElement adminPhoneNumber =$(byXpath("//label[text()='Телефон']/following::input[1]"));
-    public SelenideElement adminPassportNumber =$(byXpath("//label[text()='Номер паспорта']/following::input[1]"));
-    public SelenideElement adminBirthDate =$(byXpath("//label[text()='Дата рождения']/following::input[1]"));
-    public SelenideElement nextButton =$(byXpath("//button[text()='Далее']"));
+
+    private SelenideElement adminLastName =$(byXpath("//label[text()='Фамилия']/following::input[1]"));
+    private SelenideElement adminFirstName =$(byXpath("//label[text()='Имя']/following::input[1]"));
+    private SelenideElement adminMiddleName =$(byXpath("//label[text()='Отчество']/following::input[1]"));
+    private SelenideElement adminPhoneNumber =$(byXpath("//label[text()='Телефон']/following::input[1]"));
+    private SelenideElement adminPassportNumber =$(byXpath("//label[text()='Номер паспорта']/following::input[1]"));
+    private SelenideElement adminBirthDate =$(byXpath("//label[text()='Дата рождения']/following::input[1]"));
+    private SelenideElement nextButton =$(byXpath("//button[text()='Далее']"));
     public SelenideElement adminMessage =$(byXpath("//span[text()='Вы вошли как администратор']"));
+
     ServiceOptionPage serviceOptionPage = new ServiceOptionPage();
 
     @Step("Проверить наличие всех полей формы Данные регистрации")
@@ -39,9 +41,15 @@ public class AdminDataPage {
         adminPassportNumber.val(administrator.getAdminPassportNumber());
         adminBirthDate.val(administrator.getAdminBirthDate());
     }
+
     @Step("Нажать кнопку Далее")
     public ServiceOptionPage clickNextButton(){
         nextButton.shouldBe(Condition.enabled).click();
         return serviceOptionPage;
+    }
+
+    @Step("Проверить, что кнопка Далее кликабельна")
+    public void checkNextButtonIsEnabled(){
+        nextButton.shouldBe(Condition.enabled);
     }
 }

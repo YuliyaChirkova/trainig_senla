@@ -10,14 +10,14 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class CitizenDataPage {
 
-    public SelenideElement message =$(byXpath("//span[text() = 'Регистрация брака']"));
-    public SelenideElement citizenLastName =$(byXpath("//label[text()='Фамилия']/following::input[1]"));
-    public SelenideElement citizenFirstName =$(byXpath("//label[text()='Имя']/following::input[1]"));
-    public SelenideElement citizenMiddleName =$(byXpath("//label[text()='Отчество']/following::input[1]"));
-    public SelenideElement citizenBirthDate =$(byXpath("//label[text()='Дата рождения']/following::input[1]"));
-    public SelenideElement citizenPassportNumber =$(byXpath("//label[text()='Номер паспорта']/following::input[1]"));
-    public SelenideElement citizenGender =$(byXpath("//label[text()='Пол']/following::input[1]"));
-    public SelenideElement nextButton =$(byXpath("//button [text()='Далее']"));
+    private SelenideElement message =$(byXpath("//span[text() = 'Регистрация брака']"));
+    private SelenideElement citizenLastName =$(byXpath("//label[text()='Фамилия']/following::input[1]"));
+    private SelenideElement citizenFirstName =$(byXpath("//label[text()='Имя']/following::input[1]"));
+    private SelenideElement citizenMiddleName =$(byXpath("//label[text()='Отчество']/following::input[1]"));
+    private SelenideElement citizenBirthDate =$(byXpath("//label[text()='Дата рождения']/following::input[1]"));
+    private SelenideElement citizenPassportNumber =$(byXpath("//label[text()='Номер паспорта']/following::input[1]"));
+    private SelenideElement citizenGender =$(byXpath("//label[text()='Пол']/following::input[1]"));
+    private SelenideElement nextButton =$(byXpath("//button [text()='Далее']"));
 
     @Step("Проверить наличие полей в форме Данные гражданина")
     public void checkFieldsAtCitizenDataPage(){
@@ -40,5 +40,10 @@ public class CitizenDataPage {
     @Step("Нажать кнопку Далее")
     public void clickNextButton(){
         nextButton.shouldBe(Condition.enabled).click();
+    }
+
+    @Step("Проверить, что кнопка Далее кликабельна")
+    public void checkNextButtonIsEnabled(){
+        nextButton.shouldBe(Condition.enabled);
     }
 }
