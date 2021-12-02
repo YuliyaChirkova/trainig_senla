@@ -13,17 +13,43 @@ public class User {
     public String citizenPassportNumber;
     public String citizenGender;
     public String marriageRegistrationDate;
+
+
+
     public String spouseNewLastName;
-
-
-
     public String spouseLastName;
     public String spouseFirstName;
     public String spouseMiddleName;
     public String spouseBirthDate;
     public String spousePassportNumber;
 
-    public User(String marriageRegistrationDate, String spouseNewLastName, String spouseLastName, String spouseFirstName, String spouseMiddleName, String spouseBirthDate, String spousePassportNumber) {
+    public String birthPlace;
+    public String motherName;
+    public String fatherName;
+    public String deathPlace;
+
+    public String getDeathPlace() {
+        return deathPlace;
+    }
+
+    public String getDeathDate() {
+        return deathDate;
+    }
+
+    public String deathDate;
+    public String getBirthPlace() {
+        return birthPlace;
+    }
+
+    public String getMotherName() {
+        return motherName;
+    }
+
+    public String getFatherName() {
+        return fatherName;
+    }
+
+    public User(String marriageRegistrationDate, String spouseNewLastName, String spouseLastName, String spouseFirstName, String spouseMiddleName, String spouseBirthDate, String spousePassportNumber, String birthPlace, String motherName, String fatherName, String deathPlace, String deathDate) {
         this.marriageRegistrationDate = marriageRegistrationDate;
         this.spouseNewLastName = spouseNewLastName;
         this.spouseLastName = spouseLastName;
@@ -31,7 +57,22 @@ public class User {
         this.spouseMiddleName = spouseMiddleName;
         this.spouseBirthDate = spouseBirthDate;
         this.spousePassportNumber = spousePassportNumber;
+        this.birthPlace = birthPlace;
+        this.motherName = motherName;
+        this.fatherName = fatherName;
+        this.deathPlace = deathPlace;
+        this.deathDate = deathDate;
     }
+
+    /*public User(String marriageRegistrationDate, String spouseNewLastName, String spouseLastName, String spouseFirstName, String spouseMiddleName, String spouseBirthDate, String spousePassportNumber) {
+        this.marriageRegistrationDate = marriageRegistrationDate;
+        this.spouseNewLastName = spouseNewLastName;
+        this.spouseLastName = spouseLastName;
+        this.spouseFirstName = spouseFirstName;
+        this.spouseMiddleName = spouseMiddleName;
+        this.spouseBirthDate = spouseBirthDate;
+        this.spousePassportNumber = spousePassportNumber;
+    }*/
 
     public User(String citizenFirstName, String citizenLastName, String citizenMiddleName, String citizenBirthDate, String citizenPassportNumber, String citizenGender) {
         this.citizenFirstName = citizenFirstName;

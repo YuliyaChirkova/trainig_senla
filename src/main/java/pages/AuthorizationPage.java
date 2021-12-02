@@ -12,10 +12,8 @@ import static com.codeborne.selenide.Selenide.open;
 public class AuthorizationPage {
     public SelenideElement userButton =$(byXpath("//button[text() = 'Войти как пользователь']"));
     public SelenideElement adminButton =$(byXpath("//button[text() = 'Войти как администратор']"));
-    public SelenideElement userMessage =$(byText("Вы вошли как пользователь"));
-    public SelenideElement adminMessage =$(byText("Вы вошли как администратор"));
-
     public String url = "https://user:senlatest@regoffice.senla.eu/";
+    ApplicantDataPage applicantDataPage = new ApplicantDataPage();
 
     @Step("Открытие страницы авторизации")
     public void openAuthorizationPage() {
@@ -23,8 +21,9 @@ public class AuthorizationPage {
     }
 
     @Step("Войти как пользователь")
-    public void clickUserButton(){
+    public ApplicantDataPage clickUserButton(){
         userButton.click();
+        return applicantDataPage;
     }
 
     @Step("Войти как администратор")
