@@ -7,18 +7,16 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
 import pages.*;
 
-//@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class TestClass extends BeforeAfterEach{
+public class TestUser extends BeforeAfterEach{
+
     AuthorizationPage authorizationPage = new AuthorizationPage();
     ApplicantDataPage applicantDataPage = new ApplicantDataPage();
     ServiceOptionPage serviceOptionPage = new ServiceOptionPage();
     CitizenDataPage citizenDataPage = new CitizenDataPage();
     ServiceDataPage serviceDataPage = new ServiceDataPage();
     ApplicationStatusPage applicationStatusPage = new ApplicationStatusPage();
-    AdminDataPage adminDataPage = new AdminDataPage();
-    ApplicationListPage applicationListPage = new ApplicationListPage();
-
 
     User userApplicant = new User("Ealon", "Mask",
             "James", "3333333", "1234567");
@@ -28,8 +26,7 @@ public class TestClass extends BeforeAfterEach{
             "Petrova", "Olga", "Petrovna", "13131996",
             "4444444", "Brest", "Nonna", "Sebastian",
             "Deli", "01012011");
-    Administrator administrator = new Administrator("Sergei", "Sergeev",
-            "Sergeevich", "5555555", "7777777", "03031993");
+
 
     @Test
     @Description("Тест: войти как пользователь")
@@ -37,16 +34,7 @@ public class TestClass extends BeforeAfterEach{
     @Severity(SeverityLevel.BLOCKER)
     public void testUser(){
         authorizationPage.clickUserButton();
-        applicantDataPage.userMessage.should(Condition.exist);
-    }
-
-    @Test
-    @Description("Тест: войти как администратор")
-    @Feature("Авторизация")
-    @Severity(SeverityLevel.BLOCKER)
-    public void testAdmin(){
-        authorizationPage.clickAdminButton();
-        adminDataPage.adminMessage.should(Condition.exist);
+        applicantDataPage.userMessage.shouldHave(Condition.exactText("Вы вошли как пользователь"));
     }
 
     @Test
@@ -55,8 +43,8 @@ public class TestClass extends BeforeAfterEach{
     @Severity(SeverityLevel.CRITICAL)
     public void testSetApplicantData(){
         authorizationPage.clickUserButton()
-                .setAllApplicantData(userApplicant).
-                nextButton.shouldBe(Condition.enabled);
+                .setAllApplicantData(userApplicant)
+                .checkNextButtonIsEnabled();
     }
 
     @Test
@@ -195,6 +183,7 @@ public class TestClass extends BeforeAfterEach{
         citizenDataPage.clickNextButton();
         serviceDataPage.checkFieldsAtServiceDataPageBirth();
     }
+
     @Test
     @Description("Тест: заполнить все поля в форме Данные услуги / регистрация рождения")
     @Feature("Регистрация")
@@ -264,6 +253,7 @@ public class TestClass extends BeforeAfterEach{
         citizenDataPage.clickNextButton();
         serviceDataPage.checkFieldsAtServiceDataPageDeath();
     }
+
     @Test
     @Description("Тест: заполнить все поля в форме Данные услуги / регистрация смерти")
     @Feature("Регистрация")
@@ -293,26 +283,5 @@ public class TestClass extends BeforeAfterEach{
         serviceDataPage.setAllDeathServiceData(userService);
         serviceDataPage.clickFinishButton()
                 .statusMessage.should(Condition.exist);
-    }
-
-    @Test
-    @Description("Тест: заполнить данные администратора валидными данными")
-    @Feature("Регистрация админа")
-    @Severity(SeverityLevel.CRITICAL)
-    public void testSetAdminData(){
-        authorizationPage.clickAdminButton();
-        adminDataPage.setAllAdminData(administrator);
-        adminDataPage.checkNextButtonIsEnabled();
-    }
-
-    @Test
-    @Description("Тест: отправить заявку на регистрацию администратора")
-    @Feature("Регистрация админа")
-    @Severity(SeverityLevel.CRITICAL)
-    public void testSendAdminApplication(){
-        authorizationPage.clickAdminButton();
-        adminDataPage.setAllAdminData(administrator);
-        adminDataPage.clickNextButton();
-        applicationListPage.table.should(Condition.exist);
     }
 }

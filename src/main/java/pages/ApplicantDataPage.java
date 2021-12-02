@@ -16,7 +16,7 @@ public class ApplicantDataPage {
     private SelenideElement applicantMiddleName =$(byXpath("//label[text()='Отчество']/following::input[1]"));
     private SelenideElement applicantPhoneNumber =$(byXpath("//label[text()='Телефон']/following::input[1]"));
     private SelenideElement applicantPassportNumber =$(byXpath("//label[text()='Номер паспорта']/following::input[1]"));
-    public SelenideElement nextButton =$(byXpath("//button[text()='Далее']"));
+    private SelenideElement nextButton =$(byXpath("//button[text()='Далее']"));
     public SelenideElement userMessage =$(byXpath("//span[text()='Вы вошли как пользователь']"));
     ServiceOptionPage serviceOptionPage = new ServiceOptionPage();
 
@@ -43,5 +43,10 @@ public class ApplicantDataPage {
     public ServiceOptionPage clickNextButton(){
         nextButton.shouldBe(Condition.enabled).click();
         return serviceOptionPage;
+    }
+
+    @Step("Проверить, что кнопка Далее кликабельна")
+    public void checkNextButtonIsEnabled(){
+        nextButton.shouldBe(Condition.enabled);
     }
 }
