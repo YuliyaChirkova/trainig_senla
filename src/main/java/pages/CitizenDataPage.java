@@ -28,6 +28,7 @@ public class CitizenDataPage {
         citizenPassportNumber.should(Condition.exist);
         citizenGender.should(Condition.exist);
     }
+
     @Step("Заполнить все поля формы Данные гражданина")
     public void setAllCitizenData(User user){
         citizenLastName.val(user.getCitizenLastName());
@@ -37,6 +38,7 @@ public class CitizenDataPage {
         citizenPassportNumber.val(user.getCitizenPassportNumber());
         citizenGender.val(user.getCitizenGender());
     }
+
     @Step("Нажать кнопку Далее")
     public void clickNextButton(){
         nextButton.shouldBe(Condition.enabled).click();

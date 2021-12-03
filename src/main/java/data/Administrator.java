@@ -1,6 +1,7 @@
 package data;
 
 public class Administrator {
+
     private String adminFirstName;
     private String adminLastName;
     private String adminMiddleName;
@@ -17,9 +18,7 @@ public class Administrator {
         this.adminBirthDate = adminBirthDate;
     }
 
-    public String getAdminFirstName() {
-        return adminFirstName;
-    }
+    public String getAdminFirstName() { return adminFirstName;}
 
     public String getAdminLastName() {
         return adminLastName;

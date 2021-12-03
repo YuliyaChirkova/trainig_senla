@@ -1,18 +1,26 @@
 [
-{
-  "name": "Passed",
-  "matchedStatuses": ["passed"]
-},
-{
-"name": "Product defects",
-"matchedStatuses": ["failed"]
-},
-{
-"name": "Test defects",
-"matchedStatuses": ["broken"]
-},
-{
-"name": "Disabled",
-"matchedStatuses": ["skipped"]
-}
+  {
+    "name": "Passed",
+    "matchedStatuses": [
+      "passed"
+    ]
+  },
+  {
+    "name": "Product defects",
+    "matchedStatuses": [
+      "failed"
+    ]
+  },
+  {
+    "name": "Test defects",
+    "matchedStatuses": [
+      "broken"
+    ]
+  },
+  {
+    "name": "Disabled",
+    "matchedStatuses": [
+      "skipped"
+    ]
+  }
 ]

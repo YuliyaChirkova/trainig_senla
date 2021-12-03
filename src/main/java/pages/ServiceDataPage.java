@@ -4,11 +4,11 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import data.User;
 import io.qameta.allure.Step;
-
 import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
 public class ServiceDataPage {
+
     private SelenideElement marriageDataRegistration =$(byXpath("//label[text()='Дата регистрации']/following::input[1]"));
     private SelenideElement spouseNewLastName =$(byXpath("//label[text()='Новая фамилия']/following::input[1]"));
     private SelenideElement spouseLastName =$(byXpath("//label[text()='Фамилия супруга/и']/following::input[1]"));
@@ -47,6 +47,7 @@ public class ServiceDataPage {
         deathPlace.should(Condition.exist);
         deathDate.should(Condition.exist);
     }
+
     @Step("Заполнить все поля формы Данные гражданина / регистрация брака")
     public void setAllMarriageServiceData(User user){
         marriageDataRegistration.val(user.getMarriageRegistrationDate());

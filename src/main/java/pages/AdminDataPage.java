@@ -18,8 +18,7 @@ public class AdminDataPage {
     private SelenideElement adminPassportNumber =$(byXpath("//label[text()='Номер паспорта']/following::input[1]"));
     private SelenideElement adminBirthDate =$(byXpath("//label[text()='Дата рождения']/following::input[1]"));
     private SelenideElement nextButton =$(byXpath("//button[text()='Далее']"));
-    public SelenideElement adminMessage =$(byXpath("//span[text()='Вы вошли как администратор']"));
-
+    private SelenideElement adminMessage =$(byXpath("//span[text()='Вы вошли как администратор']"));
     ServiceOptionPage serviceOptionPage = new ServiceOptionPage();
 
     @Step("Проверить наличие всех полей формы Данные регистрации")
@@ -51,5 +50,10 @@ public class AdminDataPage {
     @Step("Проверить, что кнопка Далее кликабельна")
     public void checkNextButtonIsEnabled(){
         nextButton.shouldBe(Condition.enabled);
+    }
+
+    @Step("Проверить, что на странице содержится текст: Вы вошли как администратор")
+    public void checkMessageText(){
+        adminMessage.shouldHave(Condition.exactText("Вы вошли как администратор"));
     }
 }

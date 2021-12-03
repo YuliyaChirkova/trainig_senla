@@ -1,2 +1,5 @@
-tests\BeforeAfterEach.class
-tests\TestClass.class
+tests/BeforeAfterEach.class
+tests/TestUserDeathApplication.class
+tests/TestUserBirthApplication.class
+tests/TestAdministrator.class
+tests/TestUserMarriageApplication.class

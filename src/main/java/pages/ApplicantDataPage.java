@@ -17,7 +17,7 @@ public class ApplicantDataPage {
     private SelenideElement applicantPhoneNumber =$(byXpath("//label[text()='Телефон']/following::input[1]"));
     private SelenideElement applicantPassportNumber =$(byXpath("//label[text()='Номер паспорта']/following::input[1]"));
     private SelenideElement nextButton =$(byXpath("//button[text()='Далее']"));
-    public SelenideElement userMessage =$(byXpath("//span[text()='Вы вошли как пользователь']"));
+    private SelenideElement userMessage =$(byXpath("//span[text()='Вы вошли как пользователь']"));
     ServiceOptionPage serviceOptionPage = new ServiceOptionPage();
 
    @Step("Проверить наличие всех полей формы Данные заявителя")
@@ -48,5 +48,10 @@ public class ApplicantDataPage {
     @Step("Проверить, что кнопка Далее кликабельна")
     public void checkNextButtonIsEnabled(){
         nextButton.shouldBe(Condition.enabled);
+    }
+
+    @Step ("Проверить, что на странице содержится текст: Вы вошли как пользователь")
+    public void checkMessageText(){
+        userMessage.shouldHave(Condition.exactText("Вы вошли как пользователь"));
     }
 }
