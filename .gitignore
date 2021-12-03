@@ -6,3 +6,4 @@ target
 build
 .allure
 allure-results
+.log
