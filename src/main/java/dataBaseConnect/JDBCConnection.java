@@ -15,6 +15,7 @@ public class JDBCConnection {
     private static Statement stmt = null;
     private static ResultSet rs = null;
 
+
     public static Connection connectToDB() {
         Log.info("Connect to DB " + url + " by user " + user);
 
@@ -73,7 +74,7 @@ public class JDBCConnection {
         }
         return rs;
     }
-
+/*
     public static void deleteFromTable(String query) {
         try {
             Log.info("Send request to DB: " + query);
@@ -83,5 +84,18 @@ public class JDBCConnection {
         } catch (SQLException se) {
             Log.error("Data from table was not deleted. Reason:\n" + se.getMessage());
         }
+    }*/
+
+    public static int deleteFromTable(String query) {
+        int rows = 0;
+        try {
+            Log.info("Send request to DB: " + query);
+            stmt = connectToDB().createStatement();
+           rows = stmt.executeUpdate(query);
+            Log.info("Data from table was deleted successfully");
+        } catch (SQLException se) {
+            Log.error("Data from table was not deleted. Reason:\n" + se.getMessage());
+        }
+        return rows;
     }
 }
