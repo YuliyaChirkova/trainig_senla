@@ -83,9 +83,9 @@ public class TestDataBase {
         String selectQuery = "SELECT * FROM applications WHERE applicantid = 6751";
         ResultSet rs = JDBCConnection.selectFromTable(selectQuery);
         assertAll("Should return null data",
-                () -> assertNull(rs.getString("channel")),
-                () -> assertNull(rs.getString("statusofapplication")),
-                () -> assertNull( rs.getString("kindofapplication")));
+                () -> Assertions.assertNull(rs.getString("channel")),
+                () -> Assertions.assertNull(rs.getString("statusofapplication")),
+                () -> Assertions.assertNull( rs.getString("kindofapplication")));
     }
 
     @Test
@@ -97,11 +97,11 @@ public class TestDataBase {
         String selectQuery = "select * from citizens c where citizenid=6025";
         ResultSet rs = JDBCConnection.selectFromTable(selectQuery);
         assertAll("Should return null data",
-                () -> assertNull(rs.getString("surname")),
-                () -> assertNull(rs.getString("name")),
-                () -> assertNull( rs.getString("middlename")),
-                () -> assertNull(rs.getString("passportnumber")),
-                () -> assertNull(rs.getString("gender")));
+                () -> Assertions.assertNull(rs.getString("surname")),
+                () -> Assertions.assertNull(rs.getString("name")),
+                () -> Assertions.assertNull( rs.getString("middlename")),
+                () -> Assertions.assertNull(rs.getString("passportnumber")),
+                () -> Assertions.assertNull(rs.getString("gender")));
     }
 
     @Test
@@ -113,11 +113,11 @@ public class TestDataBase {
         String selectQuery = "select * from applicants where applicantid=6751";
         ResultSet rs = JDBCConnection.selectFromTable(selectQuery);
         assertAll("Should return null data",
-                () -> assertNull(rs.getString("surname")),
-                () -> assertNull(rs.getString("name")),
-                () -> assertNull( rs.getString("middlename")),
-                () -> assertNull(rs.getString("passportnumber")),
-                () -> assertNull(rs.getString("phonenumber")));
+                () -> Assertions.assertNull(rs.getString("surname")),
+                () -> Assertions.assertNull(rs.getString("name")),
+                () -> Assertions.assertNull( rs.getString("middlename")),
+                () -> Assertions.assertNull(rs.getString("passportnumber")),
+                () -> Assertions.assertNull(rs.getString("phonenumber")));
     }
 
     @Test
@@ -129,12 +129,12 @@ public class TestDataBase {
         String selectQuery = "select * from merrigecertificates where citizenid=6025";
         ResultSet rs = JDBCConnection.selectFromTable(selectQuery);
         assertAll("Should return null data",
-                () -> assertNull(rs.getString("dateofmarrige")),
-                () -> assertNull(rs.getString("surnameofspause")),
-                () -> assertNull(rs.getString("newsurnameofspause")),
-                () -> assertNull(rs.getString("nameofspouse")),
-                () -> assertNull(rs.getString("middlenameofspouse")),
-                () -> assertNull(rs.getString("dateofbirthofspouse")),
-                () -> assertNull( rs.getString("passportnumberofspouse")));
+                () -> Assertions.assertNull(rs.getString("dateofmarrige")),
+                () -> Assertions.assertNull(rs.getString("surnameofspause")),
+                () -> Assertions.assertNull(rs.getString("newsurnameofspause")),
+                () -> Assertions.assertNull(rs.getString("nameofspouse")),
+                () -> Assertions.assertNull(rs.getString("middlenameofspouse")),
+                () -> Assertions.assertNull(rs.getString("dateofbirthofspouse")),
+                () -> Assertions.assertNull( rs.getString("passportnumberofspouse")));
     }
 }
