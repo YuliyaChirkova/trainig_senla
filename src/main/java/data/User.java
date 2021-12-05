@@ -62,6 +62,32 @@ public class User {
         this.applicantPassportNumber = userPassportNumber;
     }
 
+    public User(String applicantFirstName, String applicantLastName, String applicantMiddleName, String applicantPhoneNumber, String applicantPassportNumber, String citizenFirstName, String citizenLastName, String citizenMiddleName, String citizenBirthDate, String citizenPassportNumber, String citizenGender, String marriageRegistrationDate, String spouseNewLastName, String spouseLastName, String spouseFirstName, String spouseMiddleName, String spouseBirthDate, String spousePassportNumber, String birthPlace, String motherName, String fatherName, String deathPlace, String deathDate) {
+        this.applicantFirstName = applicantFirstName;
+        this.applicantLastName = applicantLastName;
+        this.applicantMiddleName = applicantMiddleName;
+        this.applicantPhoneNumber = applicantPhoneNumber;
+        this.applicantPassportNumber = applicantPassportNumber;
+        this.citizenFirstName = citizenFirstName;
+        this.citizenLastName = citizenLastName;
+        this.citizenMiddleName = citizenMiddleName;
+        this.citizenBirthDate = citizenBirthDate;
+        this.citizenPassportNumber = citizenPassportNumber;
+        this.citizenGender = citizenGender;
+        this.marriageRegistrationDate = marriageRegistrationDate;
+        this.spouseNewLastName = spouseNewLastName;
+        this.spouseLastName = spouseLastName;
+        this.spouseFirstName = spouseFirstName;
+        this.spouseMiddleName = spouseMiddleName;
+        this.spouseBirthDate = spouseBirthDate;
+        this.spousePassportNumber = spousePassportNumber;
+        this.birthPlace = birthPlace;
+        this.motherName = motherName;
+        this.fatherName = fatherName;
+        this.deathPlace = deathPlace;
+        this.deathDate = deathDate;
+    }
+
     public String getDeathPlace() {
         return deathPlace;
     }
