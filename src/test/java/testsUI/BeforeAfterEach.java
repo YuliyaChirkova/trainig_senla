@@ -1,4 +1,4 @@
-package tests;
+package testsUI;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;

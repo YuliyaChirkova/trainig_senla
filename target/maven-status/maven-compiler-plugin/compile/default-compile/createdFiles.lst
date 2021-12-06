@@ -1,10 +1,14 @@
-pages/AdminDataPage.class
+dataBaseConnect/JDBCConnection.class
 pages/ServiceOptionPage.class
+utils/RegisterOfficeSpecification.class
+pages/AuthorizationPage.class
+pages/ApplicantDataPage.class
+pages/AdminDataPage.class
 pages/ApplicationStatusPage.class
 data/Administrator.class
+endpoints/RegisterOfficeEndpoints.class
 pages/ApplicationListPage.class
 pages/CitizenDataPage.class
 data/User.class
-pages/AuthorizationPage.class
-pages/ApplicantDataPage.class
+utils/Log.class
 pages/ServiceDataPage.class

@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "applicantid": {
+      "type": "integer"
+    },
+    "applicationid": {
+      "type": "integer"
+    },
+    "citizenid": {
+      "type": "integer"
+    },
+    "merrigecertificateid": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "applicantid",
+    "applicationid",
+    "citizenid",
+    "merrigecertificateid"
+  ]
+}

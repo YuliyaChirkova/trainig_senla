@@ -1,14 +1,12 @@
-package tests;
+package testsUI;
 
-import io.qameta.allure.Description;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class TestUserDeathApplication extends BeforeAfterEach{
+public class TestUserMarriageApplication extends BeforeAfterEach{
+
 
     @Test
     @Description("Тест: войти как пользователь")
@@ -40,54 +38,64 @@ public class TestUserDeathApplication extends BeforeAfterEach{
         applicantDataPage.clickNextButton()
                 .checkAllButtons();
     }
+
     @Test
-    @Description("Тест: выбрать услугу Регистрация смерти")
+    @Description("Тест: выбрать услугу Регистрация брака")
     @Feature("Регистрация")
     @Severity(SeverityLevel.CRITICAL)
     @Order(4)
-    public void testGetDeathApplication() {
-        serviceOptionPage.clickDeathApplicationButton();
+    public void testGetMarriageApplication() {
+        serviceOptionPage.clickMarriageApplicationButton();
         citizenDataPage.checkFieldsAtCitizenDataPage();
     }
 
     @Test
-    @Description("Тест: заполнить все поля в форме Данные гражданина / регистрация смерти")
+    @Description("Тест: заполнить все поля в форме Данные гражданина / регистрация брака")
     @Feature("Регистрация")
     @Severity(SeverityLevel.CRITICAL)
     @Order(5)
-    public void testSetCitizenDataDeath(){
+    public void testSetCitizenDataMarriage(){
         citizenDataPage.setAllCitizenData(userCitizen);
         citizenDataPage.checkNextButtonIsEnabled();
     }
 
     @Test
-    @Description("Тест: перейти на страницу Данные услуги / регистрация смерти")
+    @Description("Тест: перейти на страницу Данные услуги / регистрация брака")
     @Feature("Регистрация")
     @Severity(SeverityLevel.CRITICAL)
     @Order(6)
-    public void testGetServiceDataPageDeath(){
+    public void testGetServiceDataPage(){
         citizenDataPage.clickNextButton();
-        serviceDataPage.checkFieldsAtServiceDataPageDeath();
+        serviceDataPage.checkFieldsAtServiceDataPageMarriage();
     }
 
     @Test
-    @Description("Тест: заполнить все поля в форме Данные услуги / регистрация смерти")
+    @Description("Тест: заполнить все поля в форме Данные услуги / регистрация брака")
     @Feature("Регистрация")
     @Severity(SeverityLevel.CRITICAL)
     @Order(7)
-    public void testSetServiceDataDeath(){
-        serviceDataPage.setAllDeathServiceData(userService);
+    public void testSetServiceDataMarriage(){
+        serviceDataPage.setAllMarriageServiceData(userService);
         serviceDataPage.checkFinishButtonIsEnabled();
     }
 
     @Test
-    @Description("Тест: отправить заявку на регистрацию смерти ")
+    @Description("Тест: отправить заявку на регистрацию брака ")
     @Feature("Регистрация")
     @Severity(SeverityLevel.CRITICAL)
     @Order(8)
-    public void testSendDeathApplication(){
+    public void testSendMarriageApplication(){
         serviceDataPage.clickFinishButton()
                 .checkMessageText();
     }
 
+    @Test
+    @Description("Тест: создать новую заявку со страницы Статус заявки ")
+    @Feature("Регистрация")
+    @Severity(SeverityLevel.NORMAL)
+    @Order(9)
+        public void testCreateNewApplication(){
+            applicationStatusPage.clickCreateNewApplicationButton();
+            applicantDataPage.checkFieldsAtApplicantDataPage();
+    }
 }

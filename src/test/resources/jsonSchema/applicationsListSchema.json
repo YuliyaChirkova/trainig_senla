@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "applicantid": {
+      "type": "integer"
+    },
+    "applicationid": {
+      "type": "integer"
+    },
+    "citizenid": {
+      "type": "integer"
+    },
+    "dateofapplication": {
+      "type": "string"
+    },
+    "kindofapplication": {
+      "type": "string"
+    },
+    "statusofapplication": {
+      "type": "integer"
+    },
+    "staffid": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "applicantid",
+    "applicationid",
+    "citizenid",
+    "dateofapplication",
+    "kindofapplication",
+    "statusofapplication",
+    "staffid"
+  ]
+}

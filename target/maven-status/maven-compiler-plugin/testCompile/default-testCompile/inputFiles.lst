@@ -1,5 +1,8 @@
-/home/julia/IdeaProjects/untitled/src/test/java/tests/TestUserDeathApplication.java
-/home/julia/IdeaProjects/untitled/src/test/java/tests/TestUserBirthApplication.java
-/home/julia/IdeaProjects/untitled/src/test/java/tests/TestAdministrator.java
-/home/julia/IdeaProjects/untitled/src/test/java/tests/TestUserMarriageApplication.java
-/home/julia/IdeaProjects/untitled/src/test/java/tests/BeforeAfterEach.java
+/home/julia/IdeaProjects/untitled/src/test/java/testsUI/TestUserMarriageApplication.java
+/home/julia/IdeaProjects/untitled/src/test/java/testsUI/TestUserDeathApplication.java
+/home/julia/IdeaProjects/untitled/src/test/java/testsAPI/TestRegisterOffice.java
+/home/julia/IdeaProjects/untitled/src/test/java/testsDB/TestDataBase.java
+/home/julia/IdeaProjects/untitled/src/test/java/testsDB/TestSetups.java
+/home/julia/IdeaProjects/untitled/src/test/java/testsUI/TestUserBirthApplication.java
+/home/julia/IdeaProjects/untitled/src/test/java/testsUI/TestAdministrator.java
+/home/julia/IdeaProjects/untitled/src/test/java/testsUI/BeforeAfterEach.java

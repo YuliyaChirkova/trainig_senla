@@ -1,16 +1,14 @@
-package tests;
+package testsUI;
 
-import com.codeborne.selenide.Condition;
-import data.Administrator;
-import data.User;
-import io.qameta.allure.*;
+import io.qameta.allure.Description;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.*;
-import pages.*;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class TestUserMarriageApplication extends BeforeAfterEach{
-
+public class TestUserBirthApplication extends BeforeAfterEach{
 
     @Test
     @Description("Тест: войти как пользователь")
@@ -44,62 +42,52 @@ public class TestUserMarriageApplication extends BeforeAfterEach{
     }
 
     @Test
-    @Description("Тест: выбрать услугу Регистрация брака")
+    @Description("Тест: выбрать услугу Регистрация рождения")
     @Feature("Регистрация")
     @Severity(SeverityLevel.CRITICAL)
     @Order(4)
-    public void testGetMarriageApplication() {
-        serviceOptionPage.clickMarriageApplicationButton();
+    public void testGetBirthApplication() {
+        serviceOptionPage.clickBirthApplicationButton();
         citizenDataPage.checkFieldsAtCitizenDataPage();
     }
 
     @Test
-    @Description("Тест: заполнить все поля в форме Данные гражданина / регистрация брака")
+    @Description("Тест: заполнить все поля в форме Данные гражданина / регистрация рождения")
     @Feature("Регистрация")
     @Severity(SeverityLevel.CRITICAL)
     @Order(5)
-    public void testSetCitizenDataMarriage(){
+    public void testSetCitizenDataBirth(){
         citizenDataPage.setAllCitizenData(userCitizen);
         citizenDataPage.checkNextButtonIsEnabled();
     }
 
     @Test
-    @Description("Тест: перейти на страницу Данные услуги / регистрация брака")
+    @Description("Тест: перейти на страницу Данные услуги / регистрация рождения")
     @Feature("Регистрация")
     @Severity(SeverityLevel.CRITICAL)
     @Order(6)
-    public void testGetServiceDataPage(){
+    public void testGetServiceDataPageBirth(){
         citizenDataPage.clickNextButton();
-        serviceDataPage.checkFieldsAtServiceDataPageMarriage();
+        serviceDataPage.checkFieldsAtServiceDataPageBirth();
     }
 
     @Test
-    @Description("Тест: заполнить все поля в форме Данные услуги / регистрация брака")
+    @Description("Тест: заполнить все поля в форме Данные услуги / регистрация рождения")
     @Feature("Регистрация")
     @Severity(SeverityLevel.CRITICAL)
     @Order(7)
-    public void testSetServiceDataMarriage(){
-        serviceDataPage.setAllMarriageServiceData(userService);
+    public void testSetServiceDataBirth(){
+        serviceDataPage.setAllBirthServiceData(userService);
         serviceDataPage.checkFinishButtonIsEnabled();
     }
 
     @Test
-    @Description("Тест: отправить заявку на регистрацию брака ")
+    @Description("Тест: отправить заявку на регистрацию рождения ")
     @Feature("Регистрация")
     @Severity(SeverityLevel.CRITICAL)
     @Order(8)
-    public void testSendMarriageApplication(){
+    public void testSendBirthApplication(){
         serviceDataPage.clickFinishButton()
                 .checkMessageText();
-    }
-
-    @Test
-    @Description("Тест: создать новую заявку со страницы Статус заявки ")
-    @Feature("Регистрация")
-    @Severity(SeverityLevel.NORMAL)
-    @Order(9)
-        public void testCreateNewApplication(){
-            applicationStatusPage.clickCreateNewApplicationButton();
-            applicantDataPage.checkFieldsAtApplicantDataPage();
     }
 }

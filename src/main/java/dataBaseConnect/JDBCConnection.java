@@ -7,7 +7,8 @@ import java.sql.*;
 public class JDBCConnection {
     private static final String host = "86.57.161.116";
     private static final String DBName = "register_office";
-    private static final String url = "jdbc:postgresql://" + host + ":50432/" + DBName;
+    private static final String SCHEMANAME = "reg_office";
+    private static final String url = "jdbc:postgresql://" + host + ":50432/" + DBName + "?currentSchema=" + SCHEMANAME;
     private static final String user = "user";
     private static final String password = "user_senla";
 
@@ -74,7 +75,6 @@ public class JDBCConnection {
         }
         return rs;
     }
-/*
     public static void deleteFromTable(String query) {
         try {
             Log.info("Send request to DB: " + query);
@@ -84,18 +84,7 @@ public class JDBCConnection {
         } catch (SQLException se) {
             Log.error("Data from table was not deleted. Reason:\n" + se.getMessage());
         }
-    }*/
-
-    public static int deleteFromTable(String query) {
-        int rows = 0;
-        try {
-            Log.info("Send request to DB: " + query);
-            stmt = connectToDB().createStatement();
-           rows = stmt.executeUpdate(query);
-            Log.info("Data from table was deleted successfully");
-        } catch (SQLException se) {
-            Log.error("Data from table was not deleted. Reason:\n" + se.getMessage());
-        }
-        return rows;
     }
+
+
 }
