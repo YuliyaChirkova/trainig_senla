@@ -8,6 +8,7 @@ import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import pages.*;
+
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.webdriver;
 import static com.codeborne.selenide.WebDriverConditions.url;
@@ -27,7 +28,7 @@ public class BeforeAfterEach {
     User userApplicant = new User("Ealon", "Mask",
             "James", "3333333", "1234567");
     User userCitizen = new User("Ivanov", "Ivan",
-            "Ivanovich", "02021992", "2222222","male");
+            "Ivanovich", "02021992", "2222222", "male");
     User userService = new User("08082022", "Mask",
             "Petrova", "Olga", "Petrovna", "13131996",
             "4444444", "Brest", "Nonna", "Sebastian",
@@ -42,7 +43,7 @@ public class BeforeAfterEach {
         SelenideLogger.addListener("AllureSelenide",
                 new AllureSelenide().screenshots(true).savePageSource(false));
         Configuration.startMaximized = true;
-       // Configuration.browser = "firefox";
+        // Configuration.browser = "firefox";
         authorizationPage.openAuthorizationPage();
         webdriver().shouldHave(url(authorizationPage.getUrl()));
     }

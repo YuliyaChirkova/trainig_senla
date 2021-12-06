@@ -15,12 +15,14 @@ import utils.Log;
 import utils.RegisterOfficeSpecification;
 //import utilsAPI.ParseMethods;
 import org.junit.jupiter.api.*;
+
 import java.io.File;
 import java.io.IOException;
 
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import static io.restassured.RestAssured.given;
-import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchema;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchema;
 import static org.hamcrest.Matchers.equalTo;
 
@@ -35,12 +37,12 @@ public class TestRegisterOffice {
     protected static File responseJsonSchemaAdmin = new File("src/test/resources/jsonSchema/responseAdminJsonSchema.json");
     protected static File responseJsonAllApplications = new File("src/test/resources/jsonSchema/applicationsListSchema.json");
 
-    protected User userMarriege = new User("Ealon", "Mask",
-            "James", "3333333", "1234567","Ivanov", "Ivan",
-            "Ivanovich", "02021992", "2222222","male","08082022", "Mask",
+    protected User userMarriege = new User("wedding", "Ealon", "Mask",
+            "James", "3333333", "1234567", "Ivanov", "Ivan",
+            "Ivanovich", "02021992", "2222222", "male", "08082022", "Mask",
             "Petrova", "Olga", "Petrovna", "13131996",
-            "4444444", "Brest", "Nonna", "Sebastian",
-            "Deli", "01012011");
+            "4444444", "string", "string", "string",
+            "string", "string");
     Administrator administrator = new Administrator("Sergei", "Sergeev",
             "Sergeevich", "5555555", "7777777", "03031993");
 
@@ -48,7 +50,14 @@ public class TestRegisterOffice {
     @Order(1)
     @Description("Проверка создания заявки на регистрацию брака, валидация jsonSchema")
     public void testCreateUserValidationJsonScheme() {
-         given().spec(requestSpec)
+
+      /*  String jsonBody = "";
+        try {
+            jsonBody = OBJECT_MAPPER.writeValueAsString(userMarriege);
+        } catch (JsonProcessingException e) {
+            Log.error("Can't create jsonBody", e);
+        }*/
+        given().spec(requestSpec)
                 .when()
                 .body(userMarriege)
                 .post(RegisterOfficeEndpoints.CREATE_USER)
@@ -75,26 +84,26 @@ public class TestRegisterOffice {
 
     @Test
     @Order(3)
-    @Description("Получить статус заявки")
+    @Description("Проверка статуса заявки")
     public void testGetApplicationStatus() {
         given().spec(requestSpec)
                 .when()
-                .get(RegisterOfficeEndpoints.GET_APPLICATION_STATUS + "6795")
+                .get(RegisterOfficeEndpoints.GET_APPLICATION_STATUS + "5947")
                 .prettyPeek()
                 .then()
                 .body("statusofapplication", equalTo("under consideration"));
-
     }
 
     @Test
     @Order(4)
-    @Description("Получить список заявок")
+    @Description("Проверка получения списка заявок")
     public void testGetApplicationsList() {
         given().spec(requestSpec)
                 .when()
                 .get(RegisterOfficeEndpoints.GET_ALL_APPLICATIONS)
                 .prettyPeek()
                 .then()
+                .statusCode(200)
                 .body(matchesJsonSchema(responseJsonAllApplications));
 
     }

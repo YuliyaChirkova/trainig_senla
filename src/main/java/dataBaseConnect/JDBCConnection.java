@@ -5,12 +5,12 @@ import utils.Log;
 import java.sql.*;
 
 public class JDBCConnection {
-    private static final String host = "86.57.161.116";
-    private static final String DBName = "register_office";
-    private static final String SCHEMANAME = "reg_office";
-    private static final String url = "jdbc:postgresql://" + host + ":50432/" + DBName + "?currentSchema=" + SCHEMANAME;
+    private static final String HOST = "86.57.161.116";
+    private static final String DB_NANE = "register_office";
+    private static final String SCHEMA_NAME = "reg_office";
+    private static final String URL = "jdbc:postgresql://" + HOST + ":50432/" + DB_NANE + "?currentSchema=" + SCHEMA_NAME;
     private static final String user = "user";
-    private static final String password = "user_senla";
+    private static final String PASSWORD = "user_senla";
 
     private static Connection con = null;
     private static Statement stmt = null;
@@ -18,12 +18,11 @@ public class JDBCConnection {
 
 
     public static Connection connectToDB() {
-        Log.info("Connect to DB " + url + " by user " + user);
+        Log.info("Connect to DB " + URL + " by user " + user);
 
         try {
-
             Class.forName("org.postgresql.Driver");
-            con = DriverManager.getConnection(url, user, password);
+            con = DriverManager.getConnection(URL, user, PASSWORD);
             Log.info("Connection to DB successful!");
         } catch (ClassNotFoundException e) {
             Log.error(e.getMessage());
@@ -75,6 +74,7 @@ public class JDBCConnection {
         }
         return rs;
     }
+
     public static void deleteFromTable(String query) {
         try {
             Log.info("Send request to DB: " + query);

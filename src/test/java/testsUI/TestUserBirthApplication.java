@@ -1,5 +1,6 @@
 package testsUI;
 
+import com.codeborne.selenide.Condition;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
@@ -8,17 +9,21 @@ import org.junit.jupiter.api.*;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class TestUserBirthApplication extends BeforeAfterEach{
+public class TestUserBirthApplication extends BeforeAfterEach {
 
     @Test
     @Description("Тест: войти как пользователь")
     @Feature("Авторизация")
     @Severity(SeverityLevel.BLOCKER)
     @Order(1)
-    public void testUser(){
+    public void testUser() {
         authorizationPage.clickUserButton()
                 .checkMessageText();
-        applicantDataPage.checkFieldsAtApplicantDataPage();
+        applicantDataPage.getApplicantLastName().should(Condition.exist);
+        applicantDataPage.getApplicantFirstName().should(Condition.exist);
+        applicantDataPage.getApplicantMiddleName().should(Condition.exist);
+        applicantDataPage.getApplicantPhoneNumber().should(Condition.exist);
+        applicantDataPage.getApplicantPassportNumber().should(Condition.exist);
     }
 
     @Test
@@ -26,9 +31,9 @@ public class TestUserBirthApplication extends BeforeAfterEach{
     @Feature("Регистрация")
     @Severity(SeverityLevel.CRITICAL)
     @Order(2)
-    public void testSetApplicantData(){
+    public void testSetApplicantData() {
         applicantDataPage.setAllApplicantData(userApplicant)
-                .checkNextButtonIsEnabled();
+                .getNextButton().shouldBe(Condition.enabled);
     }
 
     @Test
@@ -36,9 +41,11 @@ public class TestUserBirthApplication extends BeforeAfterEach{
     @Feature("Регистрация")
     @Severity(SeverityLevel.CRITICAL)
     @Order(3)
-    public void testGetServiceOptionPage(){
-        applicantDataPage.clickNextButton()
-                .checkAllButtons();
+    public void testGetServiceOptionPage() {
+        applicantDataPage.clickNextButton();
+        serviceOptionPage.getMarriageApplicationButton().should(Condition.exist);
+        serviceOptionPage.getBirthApplicationButton().should(Condition.exist);
+        serviceOptionPage.getDeathApplicationButton().should(Condition.exist);
     }
 
     @Test
@@ -48,7 +55,12 @@ public class TestUserBirthApplication extends BeforeAfterEach{
     @Order(4)
     public void testGetBirthApplication() {
         serviceOptionPage.clickBirthApplicationButton();
-        citizenDataPage.checkFieldsAtCitizenDataPage();
+        citizenDataPage.getCitizenLastName().should(Condition.exist);
+        citizenDataPage.getCitizenFirstName().should(Condition.exist);
+        citizenDataPage.getCitizenMiddleName().should(Condition.exist);
+        citizenDataPage.getCitizenBirthDate().should(Condition.exist);
+        citizenDataPage.getCitizenPassportNumber().should(Condition.exist);
+        citizenDataPage.getCitizenGender().should(Condition.exist);
     }
 
     @Test
@@ -56,9 +68,9 @@ public class TestUserBirthApplication extends BeforeAfterEach{
     @Feature("Регистрация")
     @Severity(SeverityLevel.CRITICAL)
     @Order(5)
-    public void testSetCitizenDataBirth(){
+    public void testSetCitizenDataBirth() {
         citizenDataPage.setAllCitizenData(userCitizen);
-        citizenDataPage.checkNextButtonIsEnabled();
+        citizenDataPage.getNextButton().shouldBe(Condition.enabled);
     }
 
     @Test
@@ -66,9 +78,11 @@ public class TestUserBirthApplication extends BeforeAfterEach{
     @Feature("Регистрация")
     @Severity(SeverityLevel.CRITICAL)
     @Order(6)
-    public void testGetServiceDataPageBirth(){
+    public void testGetServiceDataPageBirth() {
         citizenDataPage.clickNextButton();
-        serviceDataPage.checkFieldsAtServiceDataPageBirth();
+        serviceDataPage.getBirthPlace().should(Condition.exist);
+        serviceDataPage.getMotherName().should(Condition.exist);
+        serviceDataPage.getFatherName().should(Condition.exist);
     }
 
     @Test
@@ -76,9 +90,9 @@ public class TestUserBirthApplication extends BeforeAfterEach{
     @Feature("Регистрация")
     @Severity(SeverityLevel.CRITICAL)
     @Order(7)
-    public void testSetServiceDataBirth(){
+    public void testSetServiceDataBirth() {
         serviceDataPage.setAllBirthServiceData(userService);
-        serviceDataPage.checkFinishButtonIsEnabled();
+        serviceDataPage.getFinishButton().shouldBe(Condition.enabled);
     }
 
     @Test
@@ -86,8 +100,8 @@ public class TestUserBirthApplication extends BeforeAfterEach{
     @Feature("Регистрация")
     @Severity(SeverityLevel.CRITICAL)
     @Order(8)
-    public void testSendBirthApplication(){
+    public void testSendBirthApplication() {
         serviceDataPage.clickFinishButton()
-                .checkMessageText();
+                .getStatusMessage().shouldHave(Condition.exactText("Ваша заявка отправлена на рассмотрение. "));
     }
 }

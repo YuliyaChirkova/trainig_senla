@@ -1,11 +1,12 @@
 package testsUI;
 
+import com.codeborne.selenide.Condition;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class TestUserMarriageApplication extends BeforeAfterEach{
+public class TestUserMarriageApplication extends BeforeAfterEach {
 
 
     @Test
@@ -13,10 +14,14 @@ public class TestUserMarriageApplication extends BeforeAfterEach{
     @Feature("Авторизация")
     @Severity(SeverityLevel.BLOCKER)
     @Order(1)
-    public void testUser(){
+    public void testUser() {
         authorizationPage.clickUserButton()
                 .checkMessageText();
-        applicantDataPage.checkFieldsAtApplicantDataPage();
+        applicantDataPage.getApplicantLastName().should(Condition.exist);
+        applicantDataPage.getApplicantFirstName().should(Condition.exist);
+        applicantDataPage.getApplicantMiddleName().should(Condition.exist);
+        applicantDataPage.getApplicantPhoneNumber().should(Condition.exist);
+        applicantDataPage.getApplicantPassportNumber().should(Condition.exist);
     }
 
     @Test
@@ -24,9 +29,9 @@ public class TestUserMarriageApplication extends BeforeAfterEach{
     @Feature("Регистрация")
     @Severity(SeverityLevel.CRITICAL)
     @Order(2)
-    public void testSetApplicantData(){
+    public void testSetApplicantData() {
         applicantDataPage.setAllApplicantData(userApplicant)
-                .checkNextButtonIsEnabled();
+                .getNextButton().shouldBe(Condition.enabled);
     }
 
     @Test
@@ -34,9 +39,11 @@ public class TestUserMarriageApplication extends BeforeAfterEach{
     @Feature("Регистрация")
     @Severity(SeverityLevel.CRITICAL)
     @Order(3)
-    public void testGetServiceOptionPage(){
-        applicantDataPage.clickNextButton()
-                .checkAllButtons();
+    public void testGetServiceOptionPage() {
+        applicantDataPage.clickNextButton();
+        serviceOptionPage.getMarriageApplicationButton().should(Condition.exist);
+        serviceOptionPage.getBirthApplicationButton().should(Condition.exist);
+        serviceOptionPage.getDeathApplicationButton().should(Condition.exist);
     }
 
     @Test
@@ -46,7 +53,12 @@ public class TestUserMarriageApplication extends BeforeAfterEach{
     @Order(4)
     public void testGetMarriageApplication() {
         serviceOptionPage.clickMarriageApplicationButton();
-        citizenDataPage.checkFieldsAtCitizenDataPage();
+        citizenDataPage.getCitizenLastName().should(Condition.exist);
+        citizenDataPage.getCitizenFirstName().should(Condition.exist);
+        citizenDataPage.getCitizenMiddleName().should(Condition.exist);
+        citizenDataPage.getCitizenBirthDate().should(Condition.exist);
+        citizenDataPage.getCitizenPassportNumber().should(Condition.exist);
+        citizenDataPage.getCitizenGender().should(Condition.exist);
     }
 
     @Test
@@ -54,9 +66,9 @@ public class TestUserMarriageApplication extends BeforeAfterEach{
     @Feature("Регистрация")
     @Severity(SeverityLevel.CRITICAL)
     @Order(5)
-    public void testSetCitizenDataMarriage(){
+    public void testSetCitizenDataMarriage() {
         citizenDataPage.setAllCitizenData(userCitizen);
-        citizenDataPage.checkNextButtonIsEnabled();
+        citizenDataPage.getNextButton().shouldBe(Condition.enabled);
     }
 
     @Test
@@ -64,9 +76,14 @@ public class TestUserMarriageApplication extends BeforeAfterEach{
     @Feature("Регистрация")
     @Severity(SeverityLevel.CRITICAL)
     @Order(6)
-    public void testGetServiceDataPage(){
+    public void testGetServiceDataPage() {
         citizenDataPage.clickNextButton();
-        serviceDataPage.checkFieldsAtServiceDataPageMarriage();
+        serviceDataPage.getMarriageDataRegistration().should(Condition.exist);
+        serviceDataPage.getSpouseNewLastName().should(Condition.exist);
+        serviceDataPage.getSpouseLastName().should(Condition.exist);
+        serviceDataPage.getSpouseFirstName().should(Condition.exist);
+        serviceDataPage.getSpouseMiddleName().should(Condition.exist);
+        serviceDataPage.getSpousePassportNumber().should(Condition.exist);
     }
 
     @Test
@@ -74,9 +91,9 @@ public class TestUserMarriageApplication extends BeforeAfterEach{
     @Feature("Регистрация")
     @Severity(SeverityLevel.CRITICAL)
     @Order(7)
-    public void testSetServiceDataMarriage(){
+    public void testSetServiceDataMarriage() {
         serviceDataPage.setAllMarriageServiceData(userService);
-        serviceDataPage.checkFinishButtonIsEnabled();
+        serviceDataPage.getFinishButton().shouldBe(Condition.enabled);
     }
 
     @Test
@@ -84,9 +101,9 @@ public class TestUserMarriageApplication extends BeforeAfterEach{
     @Feature("Регистрация")
     @Severity(SeverityLevel.CRITICAL)
     @Order(8)
-    public void testSendMarriageApplication(){
+    public void testSendMarriageApplication() {
         serviceDataPage.clickFinishButton()
-                .checkMessageText();
+       .getStatusMessage().shouldHave(Condition.exactText("Ваша заявка отправлена на рассмотрение. "));
     }
 
     @Test
@@ -94,8 +111,12 @@ public class TestUserMarriageApplication extends BeforeAfterEach{
     @Feature("Регистрация")
     @Severity(SeverityLevel.NORMAL)
     @Order(9)
-        public void testCreateNewApplication(){
-            applicationStatusPage.clickCreateNewApplicationButton();
-            applicantDataPage.checkFieldsAtApplicantDataPage();
+    public void testCreateNewApplication() {
+        applicationStatusPage.clickCreateNewApplicationButton();
+        applicantDataPage.getApplicantLastName().should(Condition.exist);
+        applicantDataPage.getApplicantFirstName().should(Condition.exist);
+        applicantDataPage.getApplicantMiddleName().should(Condition.exist);
+        applicantDataPage.getApplicantPhoneNumber().should(Condition.exist);
+        applicantDataPage.getApplicantPassportNumber().should(Condition.exist);
     }
 }

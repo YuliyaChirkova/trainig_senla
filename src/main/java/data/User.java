@@ -28,6 +28,7 @@ public class User {
 
     private String deathPlace;
     private String deathDate;
+    private String mode;
 
 
     public User(String marriageRegistrationDate, String spouseNewLastName, String spouseLastName, String spouseFirstName, String spouseMiddleName, String spouseBirthDate, String spousePassportNumber, String birthPlace, String motherName, String fatherName, String deathPlace, String deathDate) {
@@ -62,7 +63,8 @@ public class User {
         this.applicantPassportNumber = userPassportNumber;
     }
 
-    public User(String applicantFirstName, String applicantLastName, String applicantMiddleName, String applicantPhoneNumber, String applicantPassportNumber, String citizenFirstName, String citizenLastName, String citizenMiddleName, String citizenBirthDate, String citizenPassportNumber, String citizenGender, String marriageRegistrationDate, String spouseNewLastName, String spouseLastName, String spouseFirstName, String spouseMiddleName, String spouseBirthDate, String spousePassportNumber, String birthPlace, String motherName, String fatherName, String deathPlace, String deathDate) {
+    public User(String mode, String applicantFirstName, String applicantLastName, String applicantMiddleName, String applicantPhoneNumber, String applicantPassportNumber, String citizenFirstName, String citizenLastName, String citizenMiddleName, String citizenBirthDate, String citizenPassportNumber, String citizenGender, String marriageRegistrationDate, String spouseNewLastName, String spouseLastName, String spouseFirstName, String spouseMiddleName, String spouseBirthDate, String spousePassportNumber, String birthPlace, String motherName, String fatherName, String deathPlace, String deathDate) {
+        this.mode = mode;
         this.applicantFirstName = applicantFirstName;
         this.applicantLastName = applicantLastName;
         this.applicantMiddleName = applicantMiddleName;
@@ -86,6 +88,14 @@ public class User {
         this.fatherName = fatherName;
         this.deathPlace = deathPlace;
         this.deathDate = deathDate;
+    }
+
+    public String getApplicantPhoneNumber() {
+        return applicantPhoneNumber;
+    }
+
+    public String getMode() {
+        return mode;
     }
 
     public String getDeathPlace() {
@@ -180,5 +190,33 @@ public class User {
         return spousePassportNumber;
     }
 
-
+    @Override
+    public String toString() {
+        return "User{" +
+                "applicantFirstName='" + applicantFirstName + '\'' +
+                ", applicantLastName='" + applicantLastName + '\'' +
+                ", applicantMiddleName='" + applicantMiddleName + '\'' +
+                ", applicantPhoneNumber='" + applicantPhoneNumber + '\'' +
+                ", applicantPassportNumber='" + applicantPassportNumber + '\'' +
+                ", citizenFirstName='" + citizenFirstName + '\'' +
+                ", citizenLastName='" + citizenLastName + '\'' +
+                ", citizenMiddleName='" + citizenMiddleName + '\'' +
+                ", citizenBirthDate='" + citizenBirthDate + '\'' +
+                ", citizenPassportNumber='" + citizenPassportNumber + '\'' +
+                ", citizenGender='" + citizenGender + '\'' +
+                ", marriageRegistrationDate='" + marriageRegistrationDate + '\'' +
+                ", spouseNewLastName='" + spouseNewLastName + '\'' +
+                ", spouseLastName='" + spouseLastName + '\'' +
+                ", spouseFirstName='" + spouseFirstName + '\'' +
+                ", spouseMiddleName='" + spouseMiddleName + '\'' +
+                ", spouseBirthDate='" + spouseBirthDate + '\'' +
+                ", spousePassportNumber='" + spousePassportNumber + '\'' +
+                ", birthPlace='" + birthPlace + '\'' +
+                ", motherName='" + motherName + '\'' +
+                ", fatherName='" + fatherName + '\'' +
+                ", deathPlace='" + deathPlace + '\'' +
+                ", deathDate='" + deathDate + '\'' +
+                ", mode='" + mode + '\'' +
+                '}';
+    }
 }
