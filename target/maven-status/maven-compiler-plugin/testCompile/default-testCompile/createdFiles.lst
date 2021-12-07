@@ -1,8 +1,7 @@
 testsUI/TestAdministrator.class
 testsUI/TestUserDeathApplication.class
-testsDB/TestSetups.class
 testsAPI/TestRegisterOffice.class
-testsDB/TestDataBase.class
 testsUI/TestUserMarriageApplication.class
+testsUI/TestSetups.class
 testsUI/BeforeAfterEach.class
 testsUI/TestUserBirthApplication.class

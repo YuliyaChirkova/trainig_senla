@@ -1,4 +1,4 @@
-package testsDB;
+package testsUI;
 
 import dataBaseConnect.JDBCConnection;
 import org.junit.jupiter.api.AfterEach;

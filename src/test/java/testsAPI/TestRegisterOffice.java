@@ -2,25 +2,16 @@ package testsAPI;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.JsonParser;
 import data.Administrator;
 import data.User;
 import endpoints.RegisterOfficeEndpoints;
 import io.qameta.allure.Description;
-import io.restassured.response.Response;
-import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
 import org.junit.jupiter.api.*;
 import utils.Log;
 import utils.RegisterOfficeSpecification;
-//import utilsAPI.ParseMethods;
-import org.junit.jupiter.api.*;
-
+import io.restassured.response.Response;
 import java.io.File;
-import java.io.IOException;
-
-
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import static io.restassured.RestAssured.given;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchema;
@@ -40,26 +31,26 @@ public class TestRegisterOffice {
     protected User userMarriege = new User("wedding", "Ealon", "Mask",
             "James", "3333333", "1234567", "Ivanov", "Ivan",
             "Ivanovich", "02021992", "2222222", "male", "08082022", "Mask",
-            "Petrova", "Olga", "Petrovna", "13131996",
+            "Petrova", "Olga", "Petrovna", "2021-12-23",
             "4444444", "string", "string", "string",
             "string", "string");
     Administrator administrator = new Administrator("Sergei", "Sergeev",
-            "Sergeevich", "5555555", "7777777", "03031993");
+            "Sergeevich", "5555555", "7777777", "2021-12-23");
 
     @Test
     @Order(1)
     @Description("Проверка создания заявки на регистрацию брака, валидация jsonSchema")
     public void testCreateUserValidationJsonScheme() {
 
-      /*  String jsonBody = "";
+        String jsonBody = "";
         try {
-            jsonBody = OBJECT_MAPPER.writeValueAsString(userMarriege);
+            jsonBody = new ObjectMapper().writeValueAsString(userMarriege);
         } catch (JsonProcessingException e) {
             Log.error("Can't create jsonBody", e);
-        }*/
+        }
         given().spec(requestSpec)
                 .when()
-                .body(userMarriege)
+                .body(jsonBody)
                 .post(RegisterOfficeEndpoints.CREATE_USER)
                 .then()
                 .assertThat()
@@ -71,9 +62,16 @@ public class TestRegisterOffice {
     @Order(2)
     @Description("Проверка регистрации администратора, валидация jsonSchema")
     public void testCreateAdminValidationJsonScheme() {
-        given().spec(requestSpec)
+
+        String jsonBody = "";
+        try {
+            jsonBody = new ObjectMapper().writeValueAsString(administrator);
+        } catch (JsonProcessingException e) {
+            Log.error("Can't create jsonBody", e);
+        }
+       given().spec(requestSpec)
                 .when()
-                .body(administrator)
+                .body(jsonBody)
                 .post(RegisterOfficeEndpoints.CREATE_ADMIN)
                 .then()
                 .assertThat()
