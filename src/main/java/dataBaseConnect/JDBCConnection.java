@@ -85,17 +85,5 @@ public class JDBCConnection {
             Log.error("Data from table was not deleted. Reason:\n" + se.getMessage());
         }
     }
-   /* public static int deleteFromTable(String query) {
-        int row = 0;
-        try {
-            Log.info("Send request to DB: " + query);
-            stmt = connectToDB().createStatement();
-            row = stmt.executeUpdate(query);
-            Log.info("Data from table was deleted successfully");
-        } catch (SQLException se) {
-            Log.error("Data from table was not deleted. Reason:\n" + se.getMessage());
-        }
-        return row;
-    }*/
 
 }

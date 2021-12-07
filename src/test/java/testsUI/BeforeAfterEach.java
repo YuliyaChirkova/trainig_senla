@@ -8,18 +8,12 @@ import dataBaseConnect.JDBCConnection;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
-import org.openqa.selenium.chrome.ChromeDriver;
-
 import pages.*;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.webdriver;
 import static com.codeborne.selenide.WebDriverConditions.url;
-import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
-
 
 public class BeforeAfterEach {
 
@@ -44,53 +38,30 @@ public class BeforeAfterEach {
     Administrator administrator = new Administrator("Sergei", "Sergeev",
             "Sergeevich", "5555555", "7777777", "03031993");
 
-    int applicantid;
-    int citizenid;
+    protected int applicantid;
+    protected int citizenid;
 
-    public  int getApplicantID() throws SQLException {
-        String selectQuery ="select * from applicants where surname='Mask' order by applicantid desc limit 1";
+    public  int getApplicantID(String applicantSurname) throws SQLException {
+        String selectQuery ="select * from applicants where surname='" + applicantSurname+ "' order by applicantid desc limit 1";
         ResultSet rs = JDBCConnection.selectFromTable(selectQuery);
-        int applicantid = rs.getInt("applicantid");
-
+        applicantid = rs.getInt("applicantid");
         return applicantid;
     }
 
-    public  int getCitizenID() throws SQLException {
-        String selectQuery ="select citizenid from applications where applicantid=(select applicantid from applicants where surname='Mask'order by applicantid desc limit 1) order by applicantid desc limit 1";
+    public  int getCitizenID(String applicantSurname) throws SQLException {
+        String selectQuery ="select citizenid from applications where applicantid=(select applicantid from applicants where surname='" + applicantSurname + "' order by applicantid desc limit 1) order by applicantid desc limit 1";
         ResultSet rs = JDBCConnection.selectFromTable(selectQuery);
         citizenid = rs.getInt("citizenid");
-
         return citizenid;
     }
-
-
-
-
-
-
 
     @BeforeAll
     public void setUp() {
         SelenideLogger.addListener("AllureSelenide",
                 new AllureSelenide().screenshots(true).savePageSource(false));
         Configuration.startMaximized = true;
-        // Configuration.browser = "firefox";
         authorizationPage.openAuthorizationPage();
         webdriver().shouldHave(url(authorizationPage.getUrl()));
-
-      /*  ChromeDriver driver = (ChromeDriver) getWebDriver();
-        DevTools chromeDevTools = driver.getDevTools();
-        chromeDevTools.createSession();
-
-        chromeDevTools.addListener(Network.requestWillBeSent(), requestWillBeSent -> {
-            RequestId requestId = requestWillBeSent.getRequestId();
-            System.out.println(requestId);
-        });
-
-        chromeDevTools.addListener(Network.responseReceived(), l -> {
-            String response =  chromeDevTools.send(Network.getResponseBody(l.getRequestId())).getBody();
-            System.out.println("aaaaaaaaaa " + response);
-        });*/
     }
 
     @AfterAll

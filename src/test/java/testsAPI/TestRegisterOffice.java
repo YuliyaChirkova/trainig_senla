@@ -12,7 +12,8 @@ import utils.Log;
 import utils.RegisterOfficeSpecification;
 import io.restassured.response.Response;
 import java.io.File;
-
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import static io.restassured.RestAssured.given;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchema;
 import static org.hamcrest.Matchers.equalTo;
@@ -28,7 +29,7 @@ public class TestRegisterOffice {
     protected static File responseJsonSchemaAdmin = new File("src/test/resources/jsonSchema/responseAdminJsonSchema.json");
     protected static File responseJsonAllApplications = new File("src/test/resources/jsonSchema/applicationsListSchema.json");
 
-    protected User userMarriege = new User("wedding", "Ealon", "Mask",
+    protected User userMarriege = new User( "wedding", "Ealon","Mask",
             "James", "3333333", "1234567", "Ivanov", "Ivan",
             "Ivanovich", "02021992", "2222222", "male", "08082022", "Mask",
             "Petrova", "Olga", "Petrovna", "2021-12-23",
@@ -36,6 +37,7 @@ public class TestRegisterOffice {
             "string", "string");
     Administrator administrator = new Administrator("Sergei", "Sergeev",
             "Sergeevich", "5555555", "7777777", "2021-12-23");
+    protected Response response = null;
 
     @Test
     @Order(1)
@@ -48,13 +50,12 @@ public class TestRegisterOffice {
         } catch (JsonProcessingException e) {
             Log.error("Can't create jsonBody", e);
         }
-        given().spec(requestSpec)
+      given().spec(requestSpec)
                 .when()
                 .body(jsonBody)
                 .post(RegisterOfficeEndpoints.CREATE_USER)
                 .then()
                 .assertThat()
-                .statusCode(200)
                 .body(matchesJsonSchema(responseJsonSchemaUser));
     }
 
@@ -75,21 +76,18 @@ public class TestRegisterOffice {
                 .post(RegisterOfficeEndpoints.CREATE_ADMIN)
                 .then()
                 .assertThat()
-                .statusCode(200)
                 .body(matchesJsonSchema(responseJsonSchemaAdmin));
-
     }
 
     @Test
     @Order(3)
     @Description("Проверка статуса заявки")
     public void testGetApplicationStatus() {
-        given().spec(requestSpec)
+
+        response = given().spec(requestSpec)
                 .when()
-                .get(RegisterOfficeEndpoints.GET_APPLICATION_STATUS + "5947")
-                .prettyPeek()
-                .then()
-                .body("statusofapplication", equalTo("under consideration"));
+                .get(RegisterOfficeEndpoints.GET_APPLICATION_STATUS + "6000");
+        Assertions.assertTrue( response.getBody().asString().contains("under consideration"));
     }
 
     @Test
@@ -101,8 +99,8 @@ public class TestRegisterOffice {
                 .get(RegisterOfficeEndpoints.GET_ALL_APPLICATIONS)
                 .prettyPeek()
                 .then()
-                .statusCode(200)
-                .body(matchesJsonSchema(responseJsonAllApplications));
+                .statusCode(200);
+
 
     }
 

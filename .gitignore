@@ -1,9 +1,9 @@
-.idea
+.idea/
 *.iml
 *.ipr
 *.iws
-target
-build
+target/
+build/
 .allure
 allure-results
 .log

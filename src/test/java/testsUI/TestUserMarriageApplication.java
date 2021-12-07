@@ -119,7 +119,7 @@ public class TestUserMarriageApplication extends BeforeAfterEach {
     public void testSelectDataFromApplicationSchema() {
 
         try {
-            applicantid = getApplicantID();
+            applicantid = getApplicantID(userApplicant.getApplicantLastName());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -136,7 +136,7 @@ public class TestUserMarriageApplication extends BeforeAfterEach {
     public void testSelectDataFromCitizensSchema() {
 
         try {
-            citizenid = getCitizenID();
+            citizenid = getCitizenID(userApplicant.getApplicantLastName());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -156,7 +156,7 @@ public class TestUserMarriageApplication extends BeforeAfterEach {
     public void testSelectDataFromApplicantsSchema() {
 
         try {
-            applicantid = getApplicantID();
+            applicantid = getApplicantID(userApplicant.getApplicantLastName());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -176,7 +176,7 @@ public class TestUserMarriageApplication extends BeforeAfterEach {
     public void testSelectDataFromMarriagesertificatesSchema() {
 
         try {
-            citizenid = getCitizenID();
+            citizenid = getCitizenID(userApplicant.getApplicantLastName());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -198,7 +198,7 @@ public class TestUserMarriageApplication extends BeforeAfterEach {
     public void testDeleteRequestFromApplicationSchema() {
 
         try {
-            applicantid = getApplicantID();
+            applicantid = getApplicantID(userApplicant.getApplicantLastName());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -217,7 +217,7 @@ public class TestUserMarriageApplication extends BeforeAfterEach {
     public void testDeleteRequestFromCitizensSchema() {
 
         try {
-            citizenid = getCitizenID();
+            citizenid = getCitizenID(userApplicant.getApplicantLastName());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -239,12 +239,12 @@ public class TestUserMarriageApplication extends BeforeAfterEach {
     public void testDeleteRequestFromApplicantsSchema() {
 
         try {
-            applicantid = getApplicantID();
+            applicantid = getApplicantID(userApplicant.getApplicantLastName());
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        String query = "DELETE FROM from applicants where applicantid=" +applicantid;
+        String query = "DELETE FROM applicants where applicantid=" +applicantid;
         JDBCConnection.deleteFromTable(query);
         String selectQuery = "select * from applicants where applicantid=" +applicantid;
         ResultSet rs = JDBCConnection.selectFromTable(selectQuery);
@@ -262,7 +262,7 @@ public class TestUserMarriageApplication extends BeforeAfterEach {
     public void testDeleteRequestMarriagesertificatesSchema() {
 
         try {
-            citizenid = getCitizenID();
+            citizenid = getCitizenID(userApplicant.getApplicantLastName());
         } catch (SQLException e) {
             e.printStackTrace();
         }
