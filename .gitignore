@@ -4,6 +4,6 @@
 *.iws
 target/
 build/
-.allure
+.allure/
 allure-results
 .log
