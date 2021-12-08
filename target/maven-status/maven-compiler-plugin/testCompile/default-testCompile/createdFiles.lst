@@ -1,5 +1,7 @@
-tests/BeforeAfterEach.class
-tests/TestUserDeathApplication.class
-tests/TestUserBirthApplication.class
-tests/TestAdministrator.class
-tests/TestUserMarriageApplication.class
+testsAPI\TestRegisterOffice.class
+testsUI\TestUserBirthApplication.class
+testsUI\TestUserDeathApplication.class
+testsUI\TestSetups.class
+testsUI\TestUserMarriageApplication.class
+testsUI\TestAdministrator.class
+testsUI\BeforeAfterEach.class

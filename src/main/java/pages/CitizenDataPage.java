@@ -19,14 +19,36 @@ public class CitizenDataPage {
     private SelenideElement citizenGender =$(byXpath("//label[text()='Пол']/following::input[1]"));
     private SelenideElement nextButton =$(byXpath("//button [text()='Далее']"));
 
-    @Step("Проверить наличие полей в форме Данные гражданина")
-    public void checkFieldsAtCitizenDataPage(){
-        citizenLastName.should(Condition.exist);
-        citizenFirstName.should(Condition.exist);
-        citizenMiddleName.should(Condition.exist);
-        citizenBirthDate.should(Condition.exist);
-        citizenPassportNumber.should(Condition.exist);
-        citizenGender.should(Condition.exist);
+    public SelenideElement getMessage() {
+        return message;
+    }
+
+    public SelenideElement getCitizenLastName() {
+        return citizenLastName;
+    }
+
+    public SelenideElement getCitizenFirstName() {
+        return citizenFirstName;
+    }
+
+    public SelenideElement getCitizenMiddleName() {
+        return citizenMiddleName;
+    }
+
+    public SelenideElement getCitizenBirthDate() {
+        return citizenBirthDate;
+    }
+
+    public SelenideElement getCitizenPassportNumber() {
+        return citizenPassportNumber;
+    }
+
+    public SelenideElement getCitizenGender() {
+        return citizenGender;
+    }
+
+    public SelenideElement getNextButton() {
+        return nextButton;
     }
 
     @Step("Заполнить все поля формы Данные гражданина")
@@ -44,8 +66,5 @@ public class CitizenDataPage {
         nextButton.shouldBe(Condition.enabled).click();
     }
 
-    @Step("Проверить, что кнопка Далее кликабельна")
-    public void checkNextButtonIsEnabled(){
-        nextButton.shouldBe(Condition.enabled);
-    }
+
 }

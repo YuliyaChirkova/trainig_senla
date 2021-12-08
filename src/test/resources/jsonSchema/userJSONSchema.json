@@ -1,0 +1,100 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "mode": {
+      "type": "string"
+    },
+    "personalLastName": {
+      "type": "string"
+    },
+    "personalMiddleName": {
+      "type": "string"
+    },
+    "personalPhoneNumber": {
+      "type": "string"
+    },
+    "personalNumberOfPassport": {
+      "type": "string"
+    },
+    "citizenLastName": {
+      "type": "string"
+    },
+    "citizenFirstName": {
+      "type": "string"
+    },
+    "citizenMiddleName": {
+      "type": "string"
+    },
+    "citizenBirthDate": {
+      "type": "string"
+    },
+    "citizenNumberOfPassport": {
+      "type": "string"
+    },
+    "citizenGender": {
+      "type": "string"
+    },
+    "dateOfMarriage": {
+      "type": "string"
+    },
+    "newLastName": {
+      "type": "string"
+    },
+    "anotherPersonLastName": {
+      "type": "string"
+    },
+    "anotherPersonFirstName": {
+      "type": "string"
+    },
+    "anotherPersonMiddleName": {
+      "type": "string"
+    },
+    "birth_of_anotoherPerson": {
+      "type": "string"
+    },
+    "anotherPersonPassport": {
+      "type": "string"
+    },
+    "birth_place": {
+      "type": "string"
+    },
+    "birth_mother": {
+      "type": "string"
+    },
+    "birth_father": {
+      "type": "string"
+    },
+    "death_dateOfDeath": {
+      "type": "string"
+    },
+    "death_placeOfDeath": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "mode",
+    "personalLastName",
+    "personalMiddleName",
+    "personalPhoneNumber",
+    "personalNumberOfPassport",
+    "citizenLastName",
+    "citizenFirstName",
+    "citizenMiddleName",
+    "citizenBirthDate",
+    "citizenNumberOfPassport",
+    "citizenGender",
+    "dateOfMarriage",
+    "newLastName",
+    "anotherPersonLastName",
+    "anotherPersonFirstName",
+    "anotherPersonMiddleName",
+    "birth_of_anotoherPerson",
+    "anotherPersonPassport",
+    "birth_place",
+    "birth_mother",
+    "birth_father",
+    "death_dateOfDeath",
+    "death_placeOfDeath"
+  ]
+}
