@@ -2945,3 +2945,465 @@ ERROR: update or delete on table "citizens" violates foreign key constraint "fk_
 2021-12-08 17:34:36 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
 2021-12-08 17:34:36 INFO  Log:25 - Connection to DB successful!
 2021-12-08 17:34:36 INFO  Log:25 - Send request to DB: select * from merrigecertificates where citizenid=6443
+2021-12-09 11:20:23 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:20:23 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:20:23 INFO  Log:25 - Send request to DB: select * from applicants where surname='Mask' order by applicantid desc limit 1
+2021-12-09 11:20:23 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:20:23 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:20:23 INFO  Log:25 - Send request to DB: SELECT * FROM applications WHERE applicantid =7343
+2021-12-09 11:20:24 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:20:24 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:20:24 INFO  Log:25 - Send request to DB: select citizenid from applications where applicantid=(select applicantid from applicants where surname='Mask' order by applicantid desc limit 1) order by applicantid desc limit 1
+2021-12-09 11:20:24 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:20:24 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:20:24 INFO  Log:25 - Send request to DB: select * from citizens c where citizenid=6468
+2021-12-09 11:20:24 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:20:24 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:20:24 INFO  Log:25 - Send request to DB: select * from applicants where surname='Mask' order by applicantid desc limit 1
+2021-12-09 11:20:24 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:20:24 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:20:24 INFO  Log:25 - Send request to DB: select * from applicants where applicantid=7343
+2021-12-09 11:20:24 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:20:24 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:20:24 INFO  Log:25 - Send request to DB: select citizenid from applications where applicantid=(select applicantid from applicants where surname='Mask' order by applicantid desc limit 1) order by applicantid desc limit 1
+2021-12-09 11:20:24 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:20:24 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:20:24 INFO  Log:25 - Send request to DB: select * from merrigecertificates where citizenid=6468
+2021-12-09 11:20:25 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:20:25 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:20:25 INFO  Log:25 - Send request to DB: select * from applicants where surname='Mask' order by applicantid desc limit 1
+2021-12-09 11:20:25 INFO  Log:25 - Send request to DB: DELETE FROM applications WHERE applicantid =7343
+2021-12-09 11:20:25 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:20:25 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:20:25 INFO  Log:25 - Data from table was deleted successfully
+2021-12-09 11:20:25 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:20:25 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:20:25 INFO  Log:25 - Send request to DB: SELECT * FROM applications WHERE applicantid =7343
+2021-12-09 11:20:25 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:20:25 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:20:25 INFO  Log:25 - Send request to DB: select citizenid from applications where applicantid=(select applicantid from applicants where surname='Mask' order by applicantid desc limit 1) order by applicantid desc limit 1
+2021-12-09 11:20:25 INFO  Log:25 - Send request to DB: DELETE FROM citizens c where citizenid=6468
+2021-12-09 11:20:25 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:20:25 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:20:25 ERROR Log:46 - Data from table was not deleted. Reason:
+ERROR: update or delete on table "citizens" violates foreign key constraint "fk_citizen_id_3" on table "merrigecertificates"
+  Detail: Key (citizenid)=(6468) is still referenced from table "merrigecertificates".
+2021-12-09 11:20:25 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:20:26 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:20:26 INFO  Log:25 - Send request to DB: select * from citizens c where citizenid =6468
+2021-12-09 11:20:26 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:20:26 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:20:26 INFO  Log:25 - Send request to DB: select * from applicants where surname='Mask' order by applicantid desc limit 1
+2021-12-09 11:20:26 INFO  Log:25 - Send request to DB: DELETE FROM applicants where applicantid=7343
+2021-12-09 11:20:26 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:20:26 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:20:26 INFO  Log:25 - Data from table was deleted successfully
+2021-12-09 11:20:26 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:20:26 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:20:26 INFO  Log:25 - Send request to DB: select * from applicants where applicantid=7343
+2021-12-09 11:20:26 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:20:26 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:20:26 INFO  Log:25 - Send request to DB: select citizenid from applications where applicantid=(select applicantid from applicants where surname='Mask' order by applicantid desc limit 1) order by applicantid desc limit 1
+2021-12-09 11:20:26 INFO  Log:25 - Send request to DB: DELETE FROM merrigecertificates where citizenid=6467
+2021-12-09 11:20:26 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:20:26 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:20:26 INFO  Log:25 - Data from table was deleted successfully
+2021-12-09 11:20:26 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:20:26 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:20:26 INFO  Log:25 - Send request to DB: select * from merrigecertificates where citizenid=6467
+2021-12-09 11:22:14 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:22:14 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:22:14 INFO  Log:25 - Send request to DB: select * from applicants where surname='Mask' order by applicantid desc limit 1
+2021-12-09 11:22:14 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:22:14 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:22:14 INFO  Log:25 - Send request to DB: SELECT * FROM applications WHERE applicantid =7347
+2021-12-09 11:22:14 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:22:14 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:22:14 INFO  Log:25 - Send request to DB: select citizenid from applications where applicantid=(select applicantid from applicants where surname='Mask' order by applicantid desc limit 1) order by applicantid desc limit 1
+2021-12-09 11:22:15 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:22:15 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:22:15 INFO  Log:25 - Send request to DB: select * from citizens c where citizenid=6471
+2021-12-09 11:22:15 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:22:15 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:22:15 INFO  Log:25 - Send request to DB: select * from applicants where surname='Mask' order by applicantid desc limit 1
+2021-12-09 11:22:15 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:22:15 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:22:15 INFO  Log:25 - Send request to DB: select * from applicants where applicantid=7347
+2021-12-09 11:22:15 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:22:15 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:22:15 INFO  Log:25 - Send request to DB: select citizenid from applications where applicantid=(select applicantid from applicants where surname='Mask' order by applicantid desc limit 1) order by applicantid desc limit 1
+2021-12-09 11:22:15 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:22:15 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:22:15 INFO  Log:25 - Send request to DB: select * from merrigecertificates where citizenid=6471
+2021-12-09 11:22:15 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:22:16 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:22:16 INFO  Log:25 - Send request to DB: select * from applicants where surname='Mask' order by applicantid desc limit 1
+2021-12-09 11:22:16 INFO  Log:25 - Send request to DB: DELETE FROM applications WHERE applicantid =7347
+2021-12-09 11:22:16 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:22:16 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:22:16 INFO  Log:25 - Data from table was deleted successfully
+2021-12-09 11:22:16 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:22:16 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:22:16 INFO  Log:25 - Send request to DB: SELECT * FROM applications WHERE applicantid =7347
+2021-12-09 11:22:16 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:22:16 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:22:16 INFO  Log:25 - Send request to DB: select citizenid from applications where applicantid=(select applicantid from applicants where surname='Mask' order by applicantid desc limit 1) order by applicantid desc limit 1
+2021-12-09 11:22:16 INFO  Log:25 - Send request to DB: DELETE FROM citizens c where citizenid=6471
+2021-12-09 11:22:16 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:22:16 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:22:16 ERROR Log:46 - Data from table was not deleted. Reason:
+ERROR: update or delete on table "citizens" violates foreign key constraint "fk_citizen_id_3" on table "merrigecertificates"
+  Detail: Key (citizenid)=(6471) is still referenced from table "merrigecertificates".
+2021-12-09 11:22:16 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:22:16 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:22:16 INFO  Log:25 - Send request to DB: select * from citizens c where citizenid =6471
+2021-12-09 11:22:16 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:22:17 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:22:17 INFO  Log:25 - Send request to DB: select * from applicants where surname='Mask' order by applicantid desc limit 1
+2021-12-09 11:22:17 INFO  Log:25 - Send request to DB: DELETE FROM applicants where applicantid=7347
+2021-12-09 11:22:17 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:22:17 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:22:17 INFO  Log:25 - Data from table was deleted successfully
+2021-12-09 11:22:17 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:22:17 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:22:17 INFO  Log:25 - Send request to DB: select * from applicants where applicantid=7347
+2021-12-09 11:22:17 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:22:17 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:22:17 INFO  Log:25 - Send request to DB: select citizenid from applications where applicantid=(select applicantid from applicants where surname='Mask' order by applicantid desc limit 1) order by applicantid desc limit 1
+2021-12-09 11:22:17 INFO  Log:25 - Send request to DB: DELETE FROM merrigecertificates where citizenid=6470
+2021-12-09 11:22:17 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:22:17 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:22:17 INFO  Log:25 - Data from table was deleted successfully
+2021-12-09 11:22:17 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:22:17 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:22:17 INFO  Log:25 - Send request to DB: select * from merrigecertificates where citizenid=6470
+2021-12-09 11:26:28 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:26:28 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:26:28 INFO  Log:25 - Send request to DB: select * from applicants where surname='Mask' order by applicantid desc limit 1
+2021-12-09 11:26:28 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:26:28 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:26:28 INFO  Log:25 - Send request to DB: SELECT * FROM applications WHERE applicantid =7352
+2021-12-09 11:26:28 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:26:28 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:26:28 INFO  Log:25 - Send request to DB: select citizenid from applications where applicantid=(select applicantid from applicants where surname='Mask' order by applicantid desc limit 1) order by applicantid desc limit 1
+2021-12-09 11:26:28 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:26:28 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:26:28 INFO  Log:25 - Send request to DB: select * from citizens c where citizenid=6474
+2021-12-09 11:26:28 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:26:29 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:26:29 INFO  Log:25 - Send request to DB: select * from applicants where surname='Mask' order by applicantid desc limit 1
+2021-12-09 11:26:29 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:26:29 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:26:29 INFO  Log:25 - Send request to DB: select * from applicants where applicantid=7352
+2021-12-09 11:26:29 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:26:29 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:26:29 INFO  Log:25 - Send request to DB: select citizenid from applications where applicantid=(select applicantid from applicants where surname='Mask' order by applicantid desc limit 1) order by applicantid desc limit 1
+2021-12-09 11:26:29 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:26:29 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:26:29 INFO  Log:25 - Send request to DB: select * from merrigecertificates where citizenid=6474
+2021-12-09 11:26:29 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:26:30 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:26:30 INFO  Log:25 - Send request to DB: select * from applicants where surname='Mask' order by applicantid desc limit 1
+2021-12-09 11:26:30 INFO  Log:25 - Send request to DB: DELETE FROM applications WHERE applicantid =7352
+2021-12-09 11:26:30 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:26:30 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:26:30 INFO  Log:25 - Data from table was deleted successfully
+2021-12-09 11:26:30 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:26:30 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:26:30 INFO  Log:25 - Send request to DB: SELECT * FROM applications WHERE applicantid =7352
+2021-12-09 11:26:30 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:26:30 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:26:30 INFO  Log:25 - Send request to DB: select citizenid from applications where applicantid=(select applicantid from applicants where surname='Mask' order by applicantid desc limit 1) order by applicantid desc limit 1
+2021-12-09 11:26:30 INFO  Log:25 - Send request to DB: DELETE FROM citizens c where citizenid=6474
+2021-12-09 11:26:30 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:26:30 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:26:30 ERROR Log:46 - Data from table was not deleted. Reason:
+ERROR: update or delete on table "citizens" violates foreign key constraint "fk_citizen_id_3" on table "merrigecertificates"
+  Detail: Key (citizenid)=(6474) is still referenced from table "merrigecertificates".
+2021-12-09 11:26:30 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:26:30 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:26:30 INFO  Log:25 - Send request to DB: select * from citizens c where citizenid =6474
+2021-12-09 11:26:30 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:26:30 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:26:30 INFO  Log:25 - Send request to DB: select * from applicants where surname='Mask' order by applicantid desc limit 1
+2021-12-09 11:26:30 INFO  Log:25 - Send request to DB: DELETE FROM applicants where applicantid=7352
+2021-12-09 11:26:30 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:26:31 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:26:31 INFO  Log:25 - Data from table was deleted successfully
+2021-12-09 11:26:31 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:26:31 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:26:31 INFO  Log:25 - Send request to DB: select * from applicants where applicantid=7352
+2021-12-09 11:26:31 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:26:31 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:26:31 INFO  Log:25 - Send request to DB: select citizenid from applications where applicantid=(select applicantid from applicants where surname='Mask' order by applicantid desc limit 1) order by applicantid desc limit 1
+2021-12-09 11:26:31 INFO  Log:25 - Send request to DB: DELETE FROM merrigecertificates where citizenid=6473
+2021-12-09 11:26:31 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:26:31 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:26:31 INFO  Log:25 - Data from table was deleted successfully
+2021-12-09 11:26:31 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:26:31 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:26:31 INFO  Log:25 - Send request to DB: select * from merrigecertificates where citizenid=6473
+2021-12-09 11:33:16 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:33:16 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:33:16 INFO  Log:25 - Send request to DB: select * from applicants where surname='Mask' order by applicantid desc limit 1
+2021-12-09 11:33:16 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:33:16 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:33:16 INFO  Log:25 - Send request to DB: SELECT * FROM applications WHERE applicantid =7356
+2021-12-09 11:33:16 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:33:16 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:33:16 INFO  Log:25 - Send request to DB: select citizenid from applications where applicantid=(select applicantid from applicants where surname='Mask' order by applicantid desc limit 1) order by applicantid desc limit 1
+2021-12-09 11:33:16 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:33:16 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:33:16 INFO  Log:25 - Send request to DB: select * from citizens c where citizenid=6477
+2021-12-09 11:33:16 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:33:16 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:33:16 INFO  Log:25 - Send request to DB: select * from applicants where surname='Mask' order by applicantid desc limit 1
+2021-12-09 11:33:16 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:33:17 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:33:17 INFO  Log:25 - Send request to DB: select * from applicants where applicantid=7356
+2021-12-09 11:33:17 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:33:17 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:33:17 INFO  Log:25 - Send request to DB: select citizenid from applications where applicantid=(select applicantid from applicants where surname='Mask' order by applicantid desc limit 1) order by applicantid desc limit 1
+2021-12-09 11:33:17 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:33:17 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:33:17 INFO  Log:25 - Send request to DB: select * from merrigecertificates where citizenid=6477
+2021-12-09 11:33:17 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:33:17 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:33:17 INFO  Log:25 - Send request to DB: select * from applicants where surname='Mask' order by applicantid desc limit 1
+2021-12-09 11:33:17 INFO  Log:25 - Send request to DB: DELETE FROM applications WHERE applicantid =7356
+2021-12-09 11:33:17 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:33:17 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:33:17 INFO  Log:25 - Data from table was deleted successfully
+2021-12-09 11:33:17 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:33:18 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:33:18 INFO  Log:25 - Send request to DB: SELECT * FROM applications WHERE applicantid =7356
+2021-12-09 11:33:18 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:33:18 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:33:18 INFO  Log:25 - Send request to DB: select citizenid from applications where applicantid=(select applicantid from applicants where surname='Mask' order by applicantid desc limit 1) order by applicantid desc limit 1
+2021-12-09 11:33:18 INFO  Log:25 - Send request to DB: DELETE FROM citizens c where citizenid=6477
+2021-12-09 11:33:18 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:33:18 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:33:18 ERROR Log:46 - Data from table was not deleted. Reason:
+ERROR: update or delete on table "citizens" violates foreign key constraint "fk_citizen_id_3" on table "merrigecertificates"
+  Detail: Key (citizenid)=(6477) is still referenced from table "merrigecertificates".
+2021-12-09 11:33:18 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:33:18 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:33:18 INFO  Log:25 - Send request to DB: select * from citizens c where citizenid =6477
+2021-12-09 11:33:18 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:33:18 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:33:18 INFO  Log:25 - Send request to DB: select * from applicants where surname='Mask' order by applicantid desc limit 1
+2021-12-09 11:33:18 INFO  Log:25 - Send request to DB: DELETE FROM applicants where applicantid=7356
+2021-12-09 11:33:18 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:33:18 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:33:18 INFO  Log:25 - Data from table was deleted successfully
+2021-12-09 11:33:18 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:33:19 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:33:19 INFO  Log:25 - Send request to DB: select * from applicants where applicantid=7356
+2021-12-09 11:33:19 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:33:19 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:33:19 INFO  Log:25 - Send request to DB: select citizenid from applications where applicantid=(select applicantid from applicants where surname='Mask' order by applicantid desc limit 1) order by applicantid desc limit 1
+2021-12-09 11:33:19 INFO  Log:25 - Send request to DB: DELETE FROM merrigecertificates where citizenid=6476
+2021-12-09 11:33:19 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:33:19 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:33:19 INFO  Log:25 - Data from table was deleted successfully
+2021-12-09 11:33:19 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:33:19 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:33:19 INFO  Log:25 - Send request to DB: select * from merrigecertificates where citizenid=6476
+2021-12-09 11:48:52 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:48:52 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:48:52 INFO  Log:25 - Send request to DB: select * from applicants where surname='Mask' order by applicantid desc limit 1
+2021-12-09 11:48:52 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:48:52 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:48:52 INFO  Log:25 - Send request to DB: SELECT * FROM applications WHERE applicantid =7360
+2021-12-09 11:48:52 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:48:52 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:48:52 INFO  Log:25 - Send request to DB: select citizenid from applications where applicantid=(select applicantid from applicants where surname='Mask' order by applicantid desc limit 1) order by applicantid desc limit 1
+2021-12-09 11:48:52 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:48:52 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:48:52 INFO  Log:25 - Send request to DB: select * from citizens c where citizenid=6480
+2021-12-09 11:48:52 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:48:53 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:48:53 INFO  Log:25 - Send request to DB: select * from applicants where surname='Mask' order by applicantid desc limit 1
+2021-12-09 11:48:53 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:48:53 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:48:53 INFO  Log:25 - Send request to DB: select * from applicants where applicantid=7360
+2021-12-09 11:48:53 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:48:53 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:48:53 INFO  Log:25 - Send request to DB: select citizenid from applications where applicantid=(select applicantid from applicants where surname='Mask' order by applicantid desc limit 1) order by applicantid desc limit 1
+2021-12-09 11:48:53 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:48:53 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:48:53 INFO  Log:25 - Send request to DB: select * from merrigecertificates where citizenid=6480
+2021-12-09 11:48:53 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:48:53 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:48:53 INFO  Log:25 - Send request to DB: select * from applicants where surname='Mask' order by applicantid desc limit 1
+2021-12-09 11:48:53 INFO  Log:25 - Send request to DB: DELETE FROM applications WHERE applicantid =7360
+2021-12-09 11:48:53 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:48:54 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:48:54 INFO  Log:25 - Data from table was deleted successfully
+2021-12-09 11:48:54 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:48:54 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:48:54 INFO  Log:25 - Send request to DB: SELECT * FROM applications WHERE applicantid =7360
+2021-12-09 11:48:54 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:48:54 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:48:54 INFO  Log:25 - Send request to DB: select citizenid from applications where applicantid=(select applicantid from applicants where surname='Mask' order by applicantid desc limit 1) order by applicantid desc limit 1
+2021-12-09 11:48:54 INFO  Log:25 - Send request to DB: DELETE FROM citizens c where citizenid=6480
+2021-12-09 11:48:54 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:48:54 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:48:54 ERROR Log:46 - Data from table was not deleted. Reason:
+ERROR: update or delete on table "citizens" violates foreign key constraint "fk_citizen_id_3" on table "merrigecertificates"
+  Detail: Key (citizenid)=(6480) is still referenced from table "merrigecertificates".
+2021-12-09 11:48:54 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:48:54 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:48:54 INFO  Log:25 - Send request to DB: select * from citizens c where citizenid =6480
+2021-12-09 11:48:54 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:48:54 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:48:54 INFO  Log:25 - Send request to DB: select * from applicants where surname='Mask' order by applicantid desc limit 1
+2021-12-09 11:48:54 INFO  Log:25 - Send request to DB: DELETE FROM applicants where applicantid=7360
+2021-12-09 11:48:54 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:48:55 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:48:55 INFO  Log:25 - Data from table was deleted successfully
+2021-12-09 11:48:55 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:48:55 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:48:55 INFO  Log:25 - Send request to DB: select * from applicants where applicantid=7360
+2021-12-09 11:48:55 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:48:55 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:48:55 INFO  Log:25 - Send request to DB: select citizenid from applications where applicantid=(select applicantid from applicants where surname='Mask' order by applicantid desc limit 1) order by applicantid desc limit 1
+2021-12-09 11:48:55 INFO  Log:25 - Send request to DB: DELETE FROM merrigecertificates where citizenid=6479
+2021-12-09 11:48:55 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:48:55 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:48:55 INFO  Log:25 - Data from table was deleted successfully
+2021-12-09 11:48:55 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:48:55 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:48:55 INFO  Log:25 - Send request to DB: select * from merrigecertificates where citizenid=6479
+2021-12-09 11:49:35 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:49:35 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:49:35 INFO  Log:25 - Send request to DB: select * from applicants where surname='Mask' order by applicantid desc limit 1
+2021-12-09 11:49:35 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:49:36 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:49:36 INFO  Log:25 - Send request to DB: SELECT * FROM applications WHERE applicantid =7364
+2021-12-09 11:49:36 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:49:36 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:49:36 INFO  Log:25 - Send request to DB: select citizenid from applications where applicantid=(select applicantid from applicants where surname='Mask' order by applicantid desc limit 1) order by applicantid desc limit 1
+2021-12-09 11:49:36 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:49:36 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:49:36 INFO  Log:25 - Send request to DB: select * from citizens c where citizenid=6483
+2021-12-09 11:49:36 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:49:36 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:49:36 INFO  Log:25 - Send request to DB: select * from applicants where surname='Mask' order by applicantid desc limit 1
+2021-12-09 11:49:36 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:49:36 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:49:36 INFO  Log:25 - Send request to DB: select * from applicants where applicantid=7364
+2021-12-09 11:49:36 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:49:36 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:49:36 INFO  Log:25 - Send request to DB: select citizenid from applications where applicantid=(select applicantid from applicants where surname='Mask' order by applicantid desc limit 1) order by applicantid desc limit 1
+2021-12-09 11:49:36 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:49:37 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:49:37 INFO  Log:25 - Send request to DB: select * from merrigecertificates where citizenid=6483
+2021-12-09 11:49:37 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:49:37 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:49:37 INFO  Log:25 - Send request to DB: select * from applicants where surname='Mask' order by applicantid desc limit 1
+2021-12-09 11:49:37 INFO  Log:25 - Send request to DB: DELETE FROM applications WHERE applicantid =7364
+2021-12-09 11:49:37 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:49:37 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:49:37 INFO  Log:25 - Data from table was deleted successfully
+2021-12-09 11:49:37 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:49:37 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:49:37 INFO  Log:25 - Send request to DB: SELECT * FROM applications WHERE applicantid =7364
+2021-12-09 11:49:37 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:49:37 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:49:37 INFO  Log:25 - Send request to DB: select citizenid from applications where applicantid=(select applicantid from applicants where surname='Mask' order by applicantid desc limit 1) order by applicantid desc limit 1
+2021-12-09 11:49:37 INFO  Log:25 - Send request to DB: DELETE FROM citizens c where citizenid=6483
+2021-12-09 11:49:37 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:49:37 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:49:38 ERROR Log:46 - Data from table was not deleted. Reason:
+ERROR: update or delete on table "citizens" violates foreign key constraint "fk_citizen_id_3" on table "merrigecertificates"
+  Detail: Key (citizenid)=(6483) is still referenced from table "merrigecertificates".
+2021-12-09 11:49:38 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:49:38 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:49:38 INFO  Log:25 - Send request to DB: select * from citizens c where citizenid =6483
+2021-12-09 11:49:38 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:49:38 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:49:38 INFO  Log:25 - Send request to DB: select * from applicants where surname='Mask' order by applicantid desc limit 1
+2021-12-09 11:49:38 INFO  Log:25 - Send request to DB: DELETE FROM applicants where applicantid=7364
+2021-12-09 11:49:38 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:49:38 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:49:38 INFO  Log:25 - Data from table was deleted successfully
+2021-12-09 11:49:38 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:49:38 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:49:38 INFO  Log:25 - Send request to DB: select * from applicants where applicantid=7364
+2021-12-09 11:49:38 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:49:38 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:49:38 INFO  Log:25 - Send request to DB: select citizenid from applications where applicantid=(select applicantid from applicants where surname='Mask' order by applicantid desc limit 1) order by applicantid desc limit 1
+2021-12-09 11:49:38 INFO  Log:25 - Send request to DB: DELETE FROM merrigecertificates where citizenid=6482
+2021-12-09 11:49:38 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:49:38 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:49:38 INFO  Log:25 - Data from table was deleted successfully
+2021-12-09 11:49:38 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:49:39 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:49:39 INFO  Log:25 - Send request to DB: select * from merrigecertificates where citizenid=6482
+2021-12-09 11:51:18 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:51:18 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:51:18 INFO  Log:25 - Send request to DB: select * from applicants where surname='Mask' order by applicantid desc limit 1
+2021-12-09 11:51:19 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:51:19 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:51:19 INFO  Log:25 - Send request to DB: SELECT * FROM applications WHERE applicantid =7368
+2021-12-09 11:51:19 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:51:19 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:51:19 INFO  Log:25 - Send request to DB: select citizenid from applications where applicantid=(select applicantid from applicants where surname='Mask' order by applicantid desc limit 1) order by applicantid desc limit 1
+2021-12-09 11:51:19 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:51:19 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:51:19 INFO  Log:25 - Send request to DB: select * from citizens c where citizenid=6486
+2021-12-09 11:51:19 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:51:19 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:51:19 INFO  Log:25 - Send request to DB: select * from applicants where surname='Mask' order by applicantid desc limit 1
+2021-12-09 11:51:19 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:51:19 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:51:19 INFO  Log:25 - Send request to DB: select * from applicants where applicantid=7368
+2021-12-09 11:51:19 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:51:19 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:51:19 INFO  Log:25 - Send request to DB: select citizenid from applications where applicantid=(select applicantid from applicants where surname='Mask' order by applicantid desc limit 1) order by applicantid desc limit 1
+2021-12-09 11:51:19 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:51:20 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:51:20 INFO  Log:25 - Send request to DB: select * from merrigecertificates where citizenid=6486
+2021-12-09 11:51:20 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:51:20 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:51:20 INFO  Log:25 - Send request to DB: select * from applicants where surname='Mask' order by applicantid desc limit 1
+2021-12-09 11:51:20 INFO  Log:25 - Send request to DB: DELETE FROM applications WHERE applicantid =7368
+2021-12-09 11:51:20 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:51:20 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:51:20 INFO  Log:25 - Data from table was deleted successfully
+2021-12-09 11:51:20 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:51:20 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:51:20 INFO  Log:25 - Send request to DB: SELECT * FROM applications WHERE applicantid =7368
+2021-12-09 11:51:20 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:51:20 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:51:20 INFO  Log:25 - Send request to DB: select citizenid from applications where applicantid=(select applicantid from applicants where surname='Mask' order by applicantid desc limit 1) order by applicantid desc limit 1
+2021-12-09 11:51:20 INFO  Log:25 - Send request to DB: DELETE FROM citizens c where citizenid=6486
+2021-12-09 11:51:20 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:51:21 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:51:21 ERROR Log:46 - Data from table was not deleted. Reason:
+ERROR: update or delete on table "citizens" violates foreign key constraint "fk_citizen_id_3" on table "merrigecertificates"
+  Detail: Key (citizenid)=(6486) is still referenced from table "merrigecertificates".
+2021-12-09 11:51:21 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:51:21 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:51:21 INFO  Log:25 - Send request to DB: select * from citizens c where citizenid =6486
+2021-12-09 11:51:21 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:51:21 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:51:21 INFO  Log:25 - Send request to DB: select * from applicants where surname='Mask' order by applicantid desc limit 1
+2021-12-09 11:51:21 INFO  Log:25 - Send request to DB: DELETE FROM applicants where applicantid=7368
+2021-12-09 11:51:21 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:51:21 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:51:21 INFO  Log:25 - Data from table was deleted successfully
+2021-12-09 11:51:21 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:51:21 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:51:21 INFO  Log:25 - Send request to DB: select * from applicants where applicantid=7368
+2021-12-09 11:51:21 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:51:21 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:51:21 INFO  Log:25 - Send request to DB: select citizenid from applications where applicantid=(select applicantid from applicants where surname='Mask' order by applicantid desc limit 1) order by applicantid desc limit 1
+2021-12-09 11:51:21 INFO  Log:25 - Send request to DB: DELETE FROM merrigecertificates where citizenid=6485
+2021-12-09 11:51:21 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:51:21 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:51:21 INFO  Log:25 - Data from table was deleted successfully
+2021-12-09 11:51:21 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-09 11:51:22 INFO  Log:25 - Connection to DB successful!
+2021-12-09 11:51:22 INFO  Log:25 - Send request to DB: select * from merrigecertificates where citizenid=6485
