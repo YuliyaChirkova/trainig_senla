@@ -5,12 +5,16 @@ import data.User;
 import dataBaseConnect.JDBCConnection;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import static org.junit.Assert.assertNull;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+//@Execution(ExecutionMode.CONCURRENT)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class TestUserMarriageApplication extends BeforeAfterEach {

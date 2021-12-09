@@ -8,6 +8,8 @@ import dataBaseConnect.JDBCConnection;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
 import pages.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,6 +17,7 @@ import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.webdriver;
 import static com.codeborne.selenide.WebDriverConditions.url;
 
+//@Execution(ExecutionMode.CONCURRENT)
 public class BeforeAfterEach {
 
     AuthorizationPage authorizationPage = new AuthorizationPage();
@@ -60,6 +63,7 @@ public class BeforeAfterEach {
         SelenideLogger.addListener("AllureSelenide",
                 new AllureSelenide().screenshots(true).savePageSource(false));
         Configuration.startMaximized = true;
+        Configuration.browser = "firefox";
         authorizationPage.openAuthorizationPage();
         webdriver().shouldHave(url(authorizationPage.getUrl()));
     }
