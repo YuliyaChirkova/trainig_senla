@@ -67,7 +67,7 @@ public class BeforeAfterEach {
                 new AllureSelenide().screenshots(true).savePageSource(false));
         Configuration.startMaximized = true;
 //        Configuration.browser = "firefox";
-        System.setProperty("webdriver.chrome.driver", "C:\\path\\to\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("start-maximized"); // open Browser in maximized mode
         options.addArguments("disable-infobars"); // disabling infobars
