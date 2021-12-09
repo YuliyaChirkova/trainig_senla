@@ -23,7 +23,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M5</version>
                 <configuration>
-                    <useSystemClassLoader>true</useSystemClassLoader>
+                    <useSystemClassLoader>false</useSystemClassLoader>
                     <testFailureIgnore>true</testFailureIgnore>
                     <properties>
                         <configurationParameters>

@@ -20,7 +20,7 @@ import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.webdriver;
 import static com.codeborne.selenide.WebDriverConditions.url;
 
-//@Execution(ExecutionMode.CONCURRENT)
+
 public class BeforeAfterEach {
 
     AuthorizationPage authorizationPage = new AuthorizationPage();
@@ -66,7 +66,7 @@ public class BeforeAfterEach {
         SelenideLogger.addListener("AllureSelenide",
                 new AllureSelenide().screenshots(true).savePageSource(false));
         Configuration.startMaximized = true;
-//        Configuration.browser = "firefox";
+        Configuration.browser = "chrome";
 
         authorizationPage.openAuthorizationPage();
         webdriver().shouldHave(url(authorizationPage.getUrl()));
