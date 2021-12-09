@@ -5,9 +5,12 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import data.Administrator;
 import data.User;
 import dataBaseConnect.JDBCConnection;
+import io.github.bonigarcia.wdm.managers.ChromeDriverManager;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.BeforeClass;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.openqa.selenium.WebDriver;
@@ -46,6 +49,8 @@ public class BeforeAfterEach {
 
     protected int applicantid;
     protected int citizenid;
+    protected WebDriver driver;
+
 
     public  int getApplicantID(String applicantSurname) throws SQLException {
         String selectQuery ="select * from applicants where surname='" + applicantSurname+ "' order by applicantid desc limit 1";
