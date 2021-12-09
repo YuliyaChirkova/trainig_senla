@@ -10,6 +10,9 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import pages.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -64,8 +67,18 @@ public class BeforeAfterEach {
                 new AllureSelenide().screenshots(true).savePageSource(false));
         Configuration.startMaximized = true;
 //        Configuration.browser = "firefox";
-        authorizationPage.openAuthorizationPage();
-        webdriver().shouldHave(url(authorizationPage.getUrl()));
+        System.setProperty("webdriver.chrome.driver", "C:\\path\\to\\chromedriver.exe");
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("start-maximized"); // open Browser in maximized mode
+        options.addArguments("disable-infobars"); // disabling infobars
+        options.addArguments("--disable-extensions"); // disabling extensions
+        options.addArguments("--disable-gpu"); // applicable to windows os only
+        options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
+        options.addArguments("--no-sandbox"); // Bypass OS security model
+        WebDriver driver = new ChromeDriver(options);
+        driver.get("https://user:senlatest@regoffice.senla.eu/");
+       // authorizationPage.openAuthorizationPage();
+      //  webdriver().shouldHave(url(authorizationPage.getUrl()));
     }
 
     @AfterAll
