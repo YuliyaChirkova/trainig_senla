@@ -8,17 +8,12 @@ import endpoints.RegisterOfficeEndpoints;
 import io.qameta.allure.Description;
 import io.restassured.specification.RequestSpecification;
 import org.junit.jupiter.api.*;
-import org.junit.jupiter.api.parallel.Execution;
-import org.junit.jupiter.api.parallel.ExecutionMode;
-import utils.Log;
 import utils.RegisterOfficeSpecification;
 import io.restassured.response.Response;
 import java.io.File;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
+
 import static io.restassured.RestAssured.given;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchema;
-import static org.hamcrest.Matchers.equalTo;
 
 
 //@Execution(ExecutionMode.CONCURRENT)

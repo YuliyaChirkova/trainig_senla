@@ -1,7 +1,5 @@
 package dataBaseConnect;
 
-import utils.Log;
-
 import java.sql.*;
 
 public class JDBCConnection {
