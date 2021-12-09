@@ -29,9 +29,9 @@
                 <configuration>
                     <useSystemClassLoader>false</useSystemClassLoader>
                     <testFailureIgnore>true</testFailureIgnore>
-                    <argLine>
+                  <!--  <argLine>
                         -javaagent:${settings.localRepository}/org/aspectj/aspectjweaver/1.8.10/aspectjweaver-1.8.10.jar
-                    </argLine>
+                    </argLine>-->
                     <properties>
                         <configurationParameters>
                             junit.jupiter.execution.parallel.enabled=true

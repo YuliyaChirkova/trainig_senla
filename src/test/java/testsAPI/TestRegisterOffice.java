@@ -8,6 +8,7 @@ import endpoints.RegisterOfficeEndpoints;
 import io.qameta.allure.Description;
 import io.restassured.specification.RequestSpecification;
 import org.junit.jupiter.api.*;
+import utils.Log;
 import utils.RegisterOfficeSpecification;
 import io.restassured.response.Response;
 import java.io.File;
