@@ -67,18 +67,9 @@ public class BeforeAfterEach {
                 new AllureSelenide().screenshots(true).savePageSource(false));
         Configuration.startMaximized = true;
 //        Configuration.browser = "firefox";
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("start-maximized"); // open Browser in maximized mode
-        options.addArguments("disable-infobars"); // disabling infobars
-        options.addArguments("--disable-extensions"); // disabling extensions
-        options.addArguments("--disable-gpu"); // applicable to windows os only
-        options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
-        options.addArguments("--no-sandbox"); // Bypass OS security model
-        WebDriver driver = new ChromeDriver(options);
-        driver.get("https://user:senlatest@regoffice.senla.eu/");
-       // authorizationPage.openAuthorizationPage();
-      //  webdriver().shouldHave(url(authorizationPage.getUrl()));
+
+        authorizationPage.openAuthorizationPage();
+        webdriver().shouldHave(url(authorizationPage.getUrl()));
     }
 
     @AfterAll
