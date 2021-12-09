@@ -63,7 +63,7 @@ public class BeforeAfterEach {
         SelenideLogger.addListener("AllureSelenide",
                 new AllureSelenide().screenshots(true).savePageSource(false));
         Configuration.startMaximized = true;
-        Configuration.browser = "firefox";
+//        Configuration.browser = "firefox";
         authorizationPage.openAuthorizationPage();
         webdriver().shouldHave(url(authorizationPage.getUrl()));
     }
