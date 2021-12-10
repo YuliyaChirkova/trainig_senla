@@ -4056,6 +4056,7 @@ ERROR: update or delete on table "citizens" violates foreign key constraint "fk_
 2021-12-09 16:28:01 INFO  Log:25 - applicationid is 6285
 2021-12-09 16:30:00 INFO  Log:25 - applicationid is 6287
 2021-12-09 16:32:30 INFO  Log:25 - applicationid is 6289
+2021-12-10 11:23:43 INFO  Log:25 - applicationid is 6466
 2021-12-09 22:59:24 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
 2021-12-09 22:59:27 INFO  Log:25 - Connection to DB successful!
 2021-12-09 22:59:27 INFO  Log:25 - Send request to DB: select * from applicants where surname='Mask' order by applicantid desc limit 1
