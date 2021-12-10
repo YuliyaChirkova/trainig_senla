@@ -5,14 +5,9 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import data.Administrator;
 import data.User;
 import dataBaseConnect.JDBCConnection;
-import io.github.bonigarcia.wdm.managers.ChromeDriverManager;
 import io.qameta.allure.selenide.AllureSelenide;
-import org.junit.BeforeClass;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.parallel.Execution;
-import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -70,8 +65,24 @@ public class BeforeAfterEach {
     public void setUp() {
         SelenideLogger.addListener("AllureSelenide",
                 new AllureSelenide().screenshots(true).savePageSource(false));
-        Configuration.startMaximized = true;
-        authorizationPage.openAuthorizationPage();
+//        Configuration.startMaximized = true;
+
+        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver2.exe");
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--headless");
+
+//        options.addArguments("start-maximized"); // open Browser in maximized mode
+//        options.addArguments("disable-infobars"); // disabling infobars
+//        options.addArguments("--disable-extensions"); // disabling extensions
+//        options.addArguments("--disable-gpu"); // applicable to windows os only
+//        options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
+//        options.addArguments("--no-sandbox"); // Bypass OS security model
+        options.setExperimentalOption("useAutomationExtension", false);
+        driver = new ChromeDriver(options);
+//        driver.get("https://user:senlatest@regoffice.senla.eu/");
+       authorizationPage.openAuthorizationPage();
         webdriver().shouldHave(url(authorizationPage.getUrl()));
     }
 

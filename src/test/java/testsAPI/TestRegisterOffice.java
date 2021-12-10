@@ -72,17 +72,18 @@ public class TestRegisterOffice {
             "  \"personalNumberOfPassport\": \"33333\",\n" +
             "  \"personalPhoneNumber\": \"222222\"\n" +
             "}";
+
     @Test
     @Order(1)
     @Description("Проверка создания заявки на регистрацию брака, валидация jsonSchema")
     public void testCreateUserValidationJsonScheme() {
 
-        String jsonBody = "";
+      /*  String jsonBody = "";
         try {
             jsonBody = new ObjectMapper().writeValueAsString(userMarriege);
         } catch (JsonProcessingException e) {
             Log.error("Can't create jsonBody", e);
-        }
+        }*/
 
         given().spec(requestSpec)
                 .when()
@@ -98,12 +99,12 @@ public class TestRegisterOffice {
     @Description("Проверка регистрации администратора, валидация jsonSchema")
     public void testCreateAdminValidationJsonScheme() {
 
-        String jsonBody = "";
+      /*  String jsonBody = "";
         try {
             jsonBody = new ObjectMapper().writeValueAsString(administrator);
         } catch (JsonProcessingException e) {
             Log.error("Can't create jsonBody", e);
-        }
+        }*/
 
        given().spec(requestSpec)
                 .when()
