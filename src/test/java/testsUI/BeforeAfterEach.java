@@ -67,10 +67,11 @@ public class BeforeAfterEach {
                 new AllureSelenide().screenshots(true).savePageSource(false));
         Configuration.startMaximized = true;
 
-        Configuration.browserCapabilities.setCapability("useAutomationExtension", false);
-        Configuration.browserCapabilities.setCapability("--no-sandbox",true);
-        Configuration.browserCapabilities.setCapability("--disable-dev-shm-usage",true);
-        Configuration.browserCapabilities.setCapability("--headless",true);
+
+//        Configuration.browserCapabilities.setCapability("useAutomationExtension", false);
+//        Configuration.browserCapabilities.setCapability("--no-sandbox",false);
+//        Configuration.browserCapabilities.setCapability("--disable-dev-shm-usage",false);
+//        Configuration.browserCapabilities.setCapability("--headless",false);
 
 
        authorizationPage.openAuthorizationPage(); // здесь вызов метода open(url)
