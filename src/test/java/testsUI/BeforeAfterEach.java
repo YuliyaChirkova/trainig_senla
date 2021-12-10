@@ -66,9 +66,11 @@ public class BeforeAfterEach {
         SelenideLogger.addListener("AllureSelenide",
                 new AllureSelenide().screenshots(true).savePageSource(false));
         Configuration.startMaximized = true;
-    //    ChromeOptions options = new ChromeOptions();
-        Configuration.browserCapabilities.setCapability("useAutomationExtension", false);
-      //  driver = new ChromeDriver(options);
+
+        Configuration.browserCapabilities.setCapability("useAutomationExtension", true);
+        Configuration.browserCapabilities.setCapability("--no-sandbox",true);
+        Configuration.browserCapabilities.setCapability("--disable-dev-shm-usage",true);
+        Configuration.browserCapabilities.setCapability("--headless",true);
        authorizationPage.openAuthorizationPage(); // здесь вызов метода open(url)
         webdriver().shouldHave(url(authorizationPage.getUrl()));
     }
