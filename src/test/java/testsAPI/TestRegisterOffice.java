@@ -72,7 +72,7 @@ public class TestRegisterOffice {
             "  \"personalNumberOfPassport\": \"33333\",\n" +
             "  \"personalPhoneNumber\": \"222222\"\n" +
             "}";
-
+@Disabled
     @Test
     @Order(1)
     @Description("Проверка создания заявки на регистрацию брака, валидация jsonSchema")
@@ -93,7 +93,7 @@ public class TestRegisterOffice {
                 .assertThat()
                 .body(matchesJsonSchema(responseJsonSchemaUser));
     }
-
+    @Disabled
     @Test
     @Order(2)
     @Description("Проверка регистрации администратора, валидация jsonSchema")
