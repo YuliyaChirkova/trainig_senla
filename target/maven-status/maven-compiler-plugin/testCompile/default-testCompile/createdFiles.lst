@@ -1,7 +1,6 @@
-testsAPI\TestRegisterOffice.class
-testsUI\TestUserBirthApplication.class
-testsUI\TestUserDeathApplication.class
-testsUI\TestSetups.class
-testsUI\TestUserMarriageApplication.class
-testsUI\TestAdministrator.class
-testsUI\BeforeAfterEach.class
+testsUI/TestAdministrator.class
+testsUI/TestUserDeathApplication.class
+testsAPI/TestRegisterOffice.class
+testsUI/TestUserMarriageApplication.class
+testsUI/BeforeAfterEach.class
+testsUI/TestUserBirthApplication.class

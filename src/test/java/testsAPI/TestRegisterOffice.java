@@ -10,13 +10,11 @@ import io.restassured.specification.RequestSpecification;
 import org.junit.jupiter.api.*;
 import utils.Log;
 import utils.RegisterOfficeSpecification;
-import io.restassured.response.Response;
+
 import java.io.File;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
+
 import static io.restassured.RestAssured.given;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchema;
-import static org.hamcrest.Matchers.equalTo;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -31,28 +29,65 @@ public class TestRegisterOffice {
 
     protected User userMarriege = new User( "wedding", "Ealon","Mask",
             "James", "3333333", "1234567", "Ivanov", "Ivan",
-            "Ivanovich", "02021992", "2222222", "male", "08082022", "Mask",
+            "Ivanovich", "02021992", "2222222", "male", "08082022", "",
             "Petrova", "Olga", "Petrovna", "2021-12-23",
-            "4444444", "string", "string", "string",
-            "string", "string");
+            "4444444", "", "", "",
+            "", "");
     Administrator administrator = new Administrator("Sergei", "Sergeev",
             "Sergeevich", "5555555", "7777777", "2021-12-23");
-    protected Response response = null;
+
+
+    String jsonBodyUser = "{\n" +
+            "  \"mode\": \"wedding\",\n" +
+            "  \"personalFirstName\":\t\"zzzzzzzzzzz\",\n" +
+            "  \"personalLastName\": \"cruz\",\n" +
+            "  \"personalMiddleName\": \"bob\",\n" +
+            "  \"personalPhoneNumber\": \"3333333\",\n" +
+            "  \"personalNumberOfPassport\": \"444444\",\n" +
+            "  \"citizenLastName\": \"fiona\",\n" +
+            "  \"citizenFirstName\": \"fiona\",\n" +
+            "  \"citizenMiddleName\": \"fiona\",\n" +
+            "  \"citizenBirthDate\": \"2021-11-22\",\n" +
+            "  \"citizenNumberOfPassport\": \"string\",\n" +
+            "  \"citizenGender\": \"string\",\n" +
+            "  \"dateOfMarriage\": \"2021-11-22\",\n" +
+            "  \"newLastName\": null,\n" +
+            "  \"anotherPersonLastName\": \"qaaaa\",\n" +
+            "  \"anotherPersonFirstName\": \"string\",\n" +
+            "  \"anotherPersonMiddleName\": \"string\",\n" +
+            "  \"birth_of_anotoherPerson\": \"2021-11-22\",\n" +
+            "  \"anotherPersonPassport\": \"string\",\n" +
+            "  \"birth_place\": \"\",\n" +
+            "  \"birth_mother\": \"\",\n" +
+            "  \"birth_father\": \"\",\n" +
+            "  \"death_dateOfDeath\": \"\",\n" +
+            "  \"death_placeOfDeath\": \"\"\n" +
+            "}";
+
+    String jsonbodyAdmin = "{\n" +
+            "  \"dateofbirth\": \"4444\",\n" +
+            "  \"personalFirstName\": \"tim\",\n" +
+            "  \"personalLastName\": \"tim\",\n" +
+            "  \"personalMiddleName\": \"tim\",\n" +
+            "  \"personalNumberOfPassport\": \"33333\",\n" +
+            "  \"personalPhoneNumber\": \"222222\"\n" +
+            "}";
 
     @Test
     @Order(1)
     @Description("Проверка создания заявки на регистрацию брака, валидация jsonSchema")
     public void testCreateUserValidationJsonScheme() {
 
-        String jsonBody = "";
+      /*  String jsonBody = "";
         try {
             jsonBody = new ObjectMapper().writeValueAsString(userMarriege);
         } catch (JsonProcessingException e) {
             Log.error("Can't create jsonBody", e);
-        }
-      given().spec(requestSpec)
+        }*/
+
+        given().spec(requestSpec)
                 .when()
-                .body(jsonBody)
+                .body(jsonBodyUser)
                 .post(RegisterOfficeEndpoints.CREATE_USER)
                 .then()
                 .assertThat()
@@ -64,15 +99,16 @@ public class TestRegisterOffice {
     @Description("Проверка регистрации администратора, валидация jsonSchema")
     public void testCreateAdminValidationJsonScheme() {
 
-        String jsonBody = "";
+      /*  String jsonBody = "";
         try {
             jsonBody = new ObjectMapper().writeValueAsString(administrator);
         } catch (JsonProcessingException e) {
             Log.error("Can't create jsonBody", e);
-        }
+        }*/
+
        given().spec(requestSpec)
                 .when()
-                .body(jsonBody)
+                .body(jsonbodyAdmin)
                 .post(RegisterOfficeEndpoints.CREATE_ADMIN)
                 .then()
                 .assertThat()
@@ -83,11 +119,24 @@ public class TestRegisterOffice {
     @Order(3)
     @Description("Проверка статуса заявки")
     public void testGetApplicationStatus() {
-
-        response = given().spec(requestSpec)
+       int applicationid= given().spec(requestSpec)
                 .when()
-                .get(RegisterOfficeEndpoints.GET_APPLICATION_STATUS + "6000");
-        Assertions.assertTrue( response.getBody().asString().contains("under consideration"));
+                .body(jsonBodyUser)
+                .post(RegisterOfficeEndpoints.CREATE_USER)
+                .then()
+               .statusCode(200)
+                .extract()
+                .path ("data.applicationid");
+       Log.info("applicationid is " + applicationid);
+
+        String status = given().spec(requestSpec)
+                .when()
+                .get(RegisterOfficeEndpoints.GET_APPLICATION_STATUS + applicationid)
+                .then()
+                .statusCode(200)
+                .extract()
+                .path ("data.statusofapplication");
+        Assertions.assertEquals("under consideration", status);
     }
 
     @Test
@@ -100,8 +149,6 @@ public class TestRegisterOffice {
                 .prettyPeek()
                 .then()
                 .statusCode(200);
-
-
     }
 
 }

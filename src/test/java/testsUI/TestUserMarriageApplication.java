@@ -5,6 +5,9 @@ import data.User;
 import dataBaseConnect.JDBCConnection;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import static org.junit.Assert.assertNull;
@@ -194,6 +197,21 @@ public class TestUserMarriageApplication extends BeforeAfterEach {
 
     @Test
     @Order(13)
+    @DisplayName("Удаление данных из таблицы merrigecertificates")
+    public void testDeleteRequestMarriagesertificatesSchema() throws SQLException {
+
+        try {
+            citizenid = getCitizenID(userApplicant.getApplicantLastName());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        String query = "DELETE FROM merrigecertificates where citizenid=" + citizenid;
+        int actualResult = JDBCConnection.deleteFromTable(query);
+        assertEquals(1, actualResult);
+    }
+
+    @Test
+    @Order(14)
     @DisplayName("Удаление данных из таблицы application")
     public void testDeleteRequestFromApplicationSchema() {
 
@@ -203,16 +221,12 @@ public class TestUserMarriageApplication extends BeforeAfterEach {
             e.printStackTrace();
         }
         String query = "DELETE FROM applications WHERE applicantid =" +applicantid;
-        JDBCConnection.deleteFromTable(query);
-        String selectQuery = "SELECT * FROM applications WHERE applicantid =" +applicantid;
-        ResultSet rs = JDBCConnection.selectFromTable(selectQuery);
-          assertAll("Should return null data",
-                () -> assertNull(rs.getString("statusofapplication")),
-                () -> assertNull(rs.getString("kindofapplication")));
+        int actualResult = JDBCConnection.deleteFromTable(query);
+        assertEquals(1, actualResult);
     }
 
     @Test
-    @Order(14)
+    @Order(15)
     @DisplayName("Удаление данных из таблицы citizens")
     public void testDeleteRequestFromCitizensSchema() {
 
@@ -222,19 +236,12 @@ public class TestUserMarriageApplication extends BeforeAfterEach {
             e.printStackTrace();
         }
         String query = "DELETE FROM citizens c where citizenid=" +citizenid;
-        JDBCConnection.deleteFromTable(query);
-        String selectQuery = "select * from citizens c where citizenid =" +citizenid;
-        ResultSet rs = JDBCConnection.selectFromTable(selectQuery);
-        assertAll("Should return null data",
-                () -> assertNull(rs.getString("surname")),
-                () -> assertNull(rs.getString("name")),
-                () -> assertNull(rs.getString("middlename")),
-                () -> assertNull(rs.getString("passportnumber")),
-                () -> assertNull(rs.getString("gender")));
+        int actualResult = JDBCConnection.deleteFromTable(query);
+        assertEquals(1, actualResult);
     }
 
     @Test
-    @Order(15)
+    @Order(16)
     @DisplayName("Удаление данных из таблицы applicants")
     public void testDeleteRequestFromApplicantsSchema() {
 
@@ -245,45 +252,16 @@ public class TestUserMarriageApplication extends BeforeAfterEach {
         }
 
         String query = "DELETE FROM applicants where applicantid=" +applicantid;
-        JDBCConnection.deleteFromTable(query);
-        String selectQuery = "select * from applicants where applicantid=" +applicantid;
-        ResultSet rs = JDBCConnection.selectFromTable(selectQuery);
-        assertAll("Should return null data",
-                () -> assertNull(rs.getString("surname")),
-                () -> assertNull(rs.getString("name")),
-                () -> assertNull(rs.getString("middlename")),
-                () -> assertNull(rs.getString("passportnumber")),
-                () -> assertNull(rs.getString("phonenumber")));
+        int actualResult = JDBCConnection.deleteFromTable(query);
+        assertEquals(1, actualResult);
     }
 
-    @Test
-    @Order(16)
-    @DisplayName("Удаление данных из таблицы merrigecertificates")
-    public void testDeleteRequestMarriagesertificatesSchema() {
 
-        try {
-            citizenid = getCitizenID(userApplicant.getApplicantLastName());
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        String query = "DELETE FROM merrigecertificates where citizenid=" +citizenid;
-        JDBCConnection.deleteFromTable(query);
-        String selectQuery = "select * from merrigecertificates where citizenid=" +citizenid;
-        ResultSet rs = JDBCConnection.selectFromTable(selectQuery);
-        assertAll("Should return null data",
-                () -> Assertions.assertNull(rs.getString("dateofmerrige")),
-                () -> Assertions.assertNull(rs.getString("surnameofspouse")),
-                () -> Assertions.assertNull(rs.getString("newsurnameofspouse")),
-                () -> Assertions.assertNull(rs.getString("nameofspouse")),
-                () -> Assertions.assertNull(rs.getString("middlenameofspouse")),
-                () -> Assertions.assertNull(rs.getString("dateofbirthofspouse")),
-                () -> Assertions.assertNull(rs.getString("passportnumberofspouse")));
-    }
     @Test
     @Description("Тест: создать новую заявку со страницы Статус заявки ")
     @Feature("Регистрация")
     @Severity(SeverityLevel.NORMAL)
-    @Order(13)
+    @Order(17)
     public void testCreateNewApplication() {
         applicationStatusPage.clickCreateNewApplicationButton();
         applicantDataPage.getApplicantLastName().should(Condition.exist);

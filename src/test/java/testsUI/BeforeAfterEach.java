@@ -8,12 +8,16 @@ import dataBaseConnect.JDBCConnection;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import pages.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.webdriver;
 import static com.codeborne.selenide.WebDriverConditions.url;
+
 
 public class BeforeAfterEach {
 
@@ -40,6 +44,8 @@ public class BeforeAfterEach {
 
     protected int applicantid;
     protected int citizenid;
+    protected WebDriver driver;
+
 
     public  int getApplicantID(String applicantSurname) throws SQLException {
         String selectQuery ="select * from applicants where surname='" + applicantSurname+ "' order by applicantid desc limit 1";
@@ -60,7 +66,15 @@ public class BeforeAfterEach {
         SelenideLogger.addListener("AllureSelenide",
                 new AllureSelenide().screenshots(true).savePageSource(false));
         Configuration.startMaximized = true;
-        authorizationPage.openAuthorizationPage();
+
+
+//        Configuration.browserCapabilities.setCapability("useAutomationExtension", false);
+//        Configuration.browserCapabilities.setCapability("--no-sandbox",false);
+//        Configuration.browserCapabilities.setCapability("--disable-dev-shm-usage",false);
+//        Configuration.browserCapabilities.setCapability("--headless",false);
+
+
+       authorizationPage.openAuthorizationPage(); // здесь вызов метода open(url)
         webdriver().shouldHave(url(authorizationPage.getUrl()));
     }
 
@@ -69,3 +83,15 @@ public class BeforeAfterEach {
         closeWebDriver();
     }
 }
+
+
+//   System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver2.exe");
+
+//       options.addArguments("--no-sandbox");
+//        options.addArguments("--disable-dev-shm-usage");
+//        options.addArguments("--headless");
+//        options.addArguments("start-maximized");
+//        options.addArguments("disable-infobars");
+//        options.addArguments("--disable-extensions");
+
+//        driver.get("https://user:senlatest@regoffice.senla.eu/");
