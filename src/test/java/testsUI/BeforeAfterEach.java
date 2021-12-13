@@ -74,8 +74,8 @@ public class BeforeAfterEach {
 //        System.setProperty("-Dselenide.browserBinary=/usr/bin/google-chrome-beta");
 //        Configuration.browserBinary() = "/usr/bin/google-chrome-beta";
 //Configuration.browser = "chrome";
-        Configuration.browserVersion = "97";
-//        Configuration.browserCapabilities.setCapability("browserVersion", "97");
+//        Configuration.browserVersion = "97";
+        Configuration.browserCapabilities.setCapability("browserVersion", "97");
         Configuration.browserCapabilities.setCapability("--headless",true);
         Configuration.browserCapabilities.setCapability("--no-sandbox",true);
         Configuration.browserCapabilities.setCapability("useAutomationExtension", true);
