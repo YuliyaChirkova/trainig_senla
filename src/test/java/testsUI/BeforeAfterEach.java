@@ -72,7 +72,7 @@ public class BeforeAfterEach {
        // System.setProperty("webdriver.chrome.driver","/usr/bin/google-chrome-beta");
 //        ChromeDriverManager.getInstance().setup();
 //        System.setProperty("-Dselenide.browserBinary=/usr/bin/google-chrome-beta");
-//        Configuration.browserBinary() = "/usr/bin/google-chrome-beta";
+        Configuration.browserBinary = "/usr/bin/google-chrome-beta";
 //Configuration.browser = "chrome";
 //        Configuration.browserVersion = "97";
         Configuration.browserCapabilities.setCapability("browserVersion", "97");
