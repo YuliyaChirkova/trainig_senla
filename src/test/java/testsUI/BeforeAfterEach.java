@@ -71,7 +71,7 @@ public class BeforeAfterEach {
         Configuration.startMaximized = true;
 
 //        Configuration.browserBinary = "/usr/bin/google-chrome-beta";
-        Configuration.browserVersion = "97.0";
+        Configuration.browserVersion = "96.0";
 
         Configuration.browserCapabilities.setCapability("--headless",true);
         Configuration.browserCapabilities.setCapability("--no-sandbox",true);
