@@ -68,11 +68,12 @@ public class BeforeAfterEach {
         Configuration.startMaximized = true;
 
 
-        Configuration.browserCapabilities.setCapability("--headless",false);
-        Configuration.browserCapabilities.setCapability("--no-sandbox",false);
-        Configuration.browserCapabilities.setCapability("useAutomationExtension", false);
+        Configuration.browserCapabilities.setCapability("--headless",true);
+        Configuration.browserCapabilities.setCapability("--no-sandbox",true);
+        Configuration.browserCapabilities.setCapability("useAutomationExtension", true);
+        Configuration.browserCapabilities.setCapability("/usr/bin/google-chrome", true);
 //        Configuration.browserCapabilities.setCapability("--no-sandbox",false);
-//        Configuration.browserCapabilities.setCapability("--disable-dev-shm-usage",false);
+        Configuration.browserCapabilities.setCapability("--disable-dev-shm-usage",true);
 //        Configuration.browserCapabilities.setCapability("--headless",false);
 
 
@@ -87,13 +88,3 @@ public class BeforeAfterEach {
 }
 
 
-//   System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver2.exe");
-
-//       options.addArguments("--no-sandbox");
-//        options.addArguments("--disable-dev-shm-usage");
-//        options.addArguments("--headless");
-//        options.addArguments("start-maximized");
-//        options.addArguments("disable-infobars");
-//        options.addArguments("--disable-extensions");
-
-//        driver.get("https://user:senlatest@regoffice.senla.eu/");
