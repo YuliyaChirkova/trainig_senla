@@ -67,7 +67,7 @@ public class BeforeAfterEach {
         SelenideLogger.addListener("AllureSelenide",
                 new AllureSelenide().screenshots(true).savePageSource(false));
         Configuration.startMaximized = true;
-        System.setProperty("webdriver.chrome.driver","/usr/bin/google-chrome-beta");
+        System.setProperty("webdriver.chrome.driver","/usr/bin/google-chrome");
 //        ChromeDriverManager.getInstance().setup();
         Configuration.browserCapabilities.setCapability("--headless",true);
         Configuration.browserCapabilities.setCapability("--no-sandbox",true);
