@@ -69,20 +69,16 @@ public class BeforeAfterEach {
         SelenideLogger.addListener("AllureSelenide",
                 new AllureSelenide().screenshots(true).savePageSource(false));
         Configuration.startMaximized = true;
-       // System.setProperty("webdriver.chrome.driver","/usr/bin/google-chrome-beta");
-//        ChromeDriverManager.getInstance().setup();
-//        System.setProperty("-Dselenide.browserBinary=/usr/bin/google-chrome-beta");
-        Configuration.browserBinary = "/usr/bin/google-chrome-beta";
-//Configuration.browser = "chrome";
-//        Configuration.browserVersion = "97";
-        Configuration.browserCapabilities.setCapability("browserVersion", "97");
+
+//        Configuration.browserBinary = "/usr/bin/google-chrome-beta";
+        Configuration.browserVersion = "96";
+
         Configuration.browserCapabilities.setCapability("--headless",true);
         Configuration.browserCapabilities.setCapability("--no-sandbox",true);
         Configuration.browserCapabilities.setCapability("useAutomationExtension", true);
         Configuration.browserCapabilities.setCapability("/usr/bin/google-chrome", true);
-//        Configuration.browserCapabilities.setCapability("--no-sandbox",false);
         Configuration.browserCapabilities.setCapability("--disable-dev-shm-usage",true);
-//        Configuration.browserCapabilities.setCapability("--headless",false);
+
 
 
        authorizationPage.openAuthorizationPage(); // здесь вызов метода open(url)
