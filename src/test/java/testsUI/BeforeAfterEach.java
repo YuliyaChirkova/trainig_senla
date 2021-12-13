@@ -5,6 +5,7 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import data.Administrator;
 import data.User;
 import dataBaseConnect.JDBCConnection;
+import io.github.bonigarcia.wdm.managers.ChromeDriverManager;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -66,8 +67,8 @@ public class BeforeAfterEach {
         SelenideLogger.addListener("AllureSelenide",
                 new AllureSelenide().screenshots(true).savePageSource(false));
         Configuration.startMaximized = true;
-
-
+        System.setProperty("webdriver.chrome.driver","/usr/bin/google-chrome-beta");
+//        ChromeDriverManager.getInstance().setup();
         Configuration.browserCapabilities.setCapability("--headless",true);
         Configuration.browserCapabilities.setCapability("--no-sandbox",true);
         Configuration.browserCapabilities.setCapability("useAutomationExtension", true);
