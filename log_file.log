@@ -4215,6 +4215,10 @@ ERROR: update or delete on table "citizens" violates foreign key constraint "fk_
 2021-12-10 16:13:28 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
 2021-12-10 16:13:28 INFO  Log:25 - Connection to DB successful!
 2021-12-10 16:13:28 INFO  Log:25 - Data from table was deleted successfully
+2021-12-11 23:51:48 INFO  Log:25 - applicationid is 6770
+2021-12-11 23:57:22 INFO  Log:25 - applicationid is 6775
+2021-12-11 23:59:05 INFO  Log:25 - applicationid is 6777
+2021-12-12 00:02:15 INFO  Log:25 - applicationid is 6779
 2021-12-10 16:40:49 INFO  Log:25 - applicationid is 6597
 2021-12-10 16:40:51 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
 2021-12-10 16:40:51 INFO  Log:25 - Connection to DB successful!
