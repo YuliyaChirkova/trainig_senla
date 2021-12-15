@@ -76,7 +76,7 @@ public class BeforeAfterEach {
                 new AllureSelenide().screenshots(true).savePageSource(false));
         Configuration.startMaximized = true;
 
-        Configuration.browserBinary = "/usr/bin/google-chrome";
+        Configuration.browserBinary = "/opt/google/chrome/google-chrome";//"/usr/bin/google-chrome";
         Configuration.browserVersion = "96.0";
 
         Configuration.browserCapabilities.setCapability("--headless", true);
