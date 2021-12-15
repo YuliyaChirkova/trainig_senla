@@ -12,9 +12,15 @@ import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import pages.*;
+
+import java.net.MalformedURLException;
+import java.net.URI;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Map;
 
 import static com.codeborne.selenide.Configuration.browserVersion;
 import static com.codeborne.selenide.Selenide.closeWebDriver;
@@ -65,25 +71,47 @@ public class BeforeAfterEach {
     }
 
     @BeforeAll
-    public void setUp() {
+    public void setUp() throws MalformedURLException {
         SelenideLogger.addListener("AllureSelenide",
                 new AllureSelenide().screenshots(true).savePageSource(false));
         Configuration.startMaximized = true;
 
-//        Configuration.browserBinary = "/usr/bin/google-chrome-beta";
+        Configuration.browserBinary = "/usr/bin/google-chrome-stable";
         Configuration.browserVersion = "96.0";
 
-        Configuration.browserCapabilities.setCapability("--headless",true);
-        Configuration.browserCapabilities.setCapability("--no-sandbox",true);
+        Configuration.browserCapabilities.setCapability("--headless", true);
+        Configuration.browserCapabilities.setCapability("--no-sandbox", true);
         Configuration.browserCapabilities.setCapability("useAutomationExtension", true);
         Configuration.browserCapabilities.setCapability("/usr/bin/google-chrome", true);
-        Configuration.browserCapabilities.setCapability("--disable-dev-shm-usage",true);
-
-
-
-       authorizationPage.openAuthorizationPage(); // здесь вызов метода open(url)
+        Configuration.browserCapabilities.setCapability("--disable-dev-shm-usage", true);
+        authorizationPage.openAuthorizationPage(); // здесь вызов метода open(url)
         webdriver().shouldHave(url(authorizationPage.getUrl()));
     }
+
+
+
+//    @BeforeAll
+//    public void setUp() throws MalformedURLException {
+//        SelenideLogger.addListener("AllureSelenide",
+//                new AllureSelenide().screenshots(true).savePageSource(false));
+//       // Url удалённого веб драйвера
+//        Configuration.remote = "http://10.0.75.1:4444/wd/hub";
+//        //Определяем какой браузер будем использовать
+//        Configuration.browser = "chrome";
+//        //Размер окна браузера
+//        Configuration.browserSize = "1920x1080";
+//        //Создаём объект класса DesiredCapabilities, используется как настройка  вашей конфигурации с помощью пары ключ-значение
+//        DesiredCapabilities capabilities = new DesiredCapabilities();
+//        //Включить поддержку отображения экрана браузера во время выполнения теста
+//        capabilities.setCapability( "enableVNC",  true);
+//        //Включение записи видео в процессе выполнения тестов
+//        capabilities.setCapability( "enableVideo",  true);
+//        //Переопределяем Browser capabilities
+//        Configuration.browserCapabilities = capabilities;
+//
+//        authorizationPage.openAuthorizationPage(); // здесь вызов метода open(url)
+//      //  webdriver().shouldHave(url(authorizationPage.getUrl()));
+//    }
 
     @AfterAll
     public void tearDown() {
