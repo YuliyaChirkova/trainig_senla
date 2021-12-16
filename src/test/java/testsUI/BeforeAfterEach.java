@@ -64,54 +64,47 @@ public class BeforeAfterEach {
     }
 
     public  int getCitizenID(String applicantSurname) throws SQLException {
-        String selectQuery ="select citizenid from applications where applicantid=(select applicantid from applicants where surname='" + applicantSurname + "' order by applicantid desc limit 1) order by applicantid desc limit 1";
+        String selectQuery ="select citizenid from applications where applicantid=(select applicantid from applicants where surname='" + applicantSurname + "' order by applicantid desc limit 1)";// order by applicantid desc limit 1
         ResultSet rs = JDBCConnection.selectFromTable(selectQuery);
         citizenid = rs.getInt("citizenid");
         return citizenid;
     }
 
-    @BeforeAll
-    public void setUp() throws MalformedURLException {
-        SelenideLogger.addListener("AllureSelenide",
-                new AllureSelenide().screenshots(true).savePageSource(false));
-        Configuration.startMaximized = true;
-
-        Configuration.browserBinary = "/usr/bin/google-chrome";
-     //   Configuration.browserVersion = "96.0";
-
-        Configuration.browserCapabilities.setCapability("--headless", true);
-        Configuration.browserCapabilities.setCapability("--no-sandbox", true);
-        Configuration.browserCapabilities.setCapability("useAutomationExtension", true);
-        Configuration.browserCapabilities.setCapability("/usr/bin/google-chrome", true);
-        Configuration.browserCapabilities.setCapability("--disable-dev-shm-usage", true);
-        authorizationPage.openAuthorizationPage(); // здесь вызов метода open(url)
-        webdriver().shouldHave(url(authorizationPage.getUrl()));
-    }
-
-
-
 //    @BeforeAll
 //    public void setUp() throws MalformedURLException {
 //        SelenideLogger.addListener("AllureSelenide",
 //                new AllureSelenide().screenshots(true).savePageSource(false));
-//       // Url удалённого веб драйвера
-//        Configuration.remote = "http://10.0.75.1:4444/wd/hub";
-//        //Определяем какой браузер будем использовать
-//        Configuration.browser = "chrome";
-//        //Размер окна браузера
-//        Configuration.browserSize = "1920x1080";
-//        //Создаём объект класса DesiredCapabilities, используется как настройка  вашей конфигурации с помощью пары ключ-значение
-//        DesiredCapabilities capabilities = new DesiredCapabilities();
-//        //Включить поддержку отображения экрана браузера во время выполнения теста
-//        capabilities.setCapability( "enableVNC",  true);
-//        //Включение записи видео в процессе выполнения тестов
-//        capabilities.setCapability( "enableVideo",  true);
-//        //Переопределяем Browser capabilities
-//        Configuration.browserCapabilities = capabilities;
+//        Configuration.startMaximized = true;
 //
+//        Configuration.browserBinary = "/usr/bin/google-chrome";
+//        Configuration.browserVersion = "96.0";
+//
+//        Configuration.browserCapabilities.setCapability("--headless", true);
+//        Configuration.browserCapabilities.setCapability("--no-sandbox", true);
+//        Configuration.browserCapabilities.setCapability("useAutomationExtension", true);
+//        Configuration.browserCapabilities.setCapability("/usr/bin/google-chrome", true);
+//        Configuration.browserCapabilities.setCapability("--disable-dev-shm-usage", true);
 //        authorizationPage.openAuthorizationPage(); // здесь вызов метода open(url)
-//      //  webdriver().shouldHave(url(authorizationPage.getUrl()));
+//        webdriver().shouldHave(url(authorizationPage.getUrl()));
 //    }
+
+
+
+    @BeforeAll
+    public void setUp() throws MalformedURLException {
+        SelenideLogger.addListener("AllureSelenide",
+                new AllureSelenide().screenshots(true).savePageSource(false));
+
+        Configuration.remote ="http://localhost:4444/wd/hub";
+        Configuration.browser = "chrome";
+        Configuration.browserSize = "1920x1080";
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability( "enableVNC",  true);
+        capabilities.setCapability( "enableVideo",  true);
+        Configuration.browserCapabilities = capabilities;
+        authorizationPage.openAuthorizationPage(); // здесь вызов метода open(url)
+        webdriver().shouldHave(url(authorizationPage.getUrl()));
+    }
 
     @AfterAll
     public void tearDown() {
