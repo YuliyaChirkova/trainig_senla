@@ -20,13 +20,13 @@ public class TestUserMarriageApplication extends BeforeAfterEach {
 
 
     @Test
-    @Description("Тест: войти как пользователь")
+    @DisplayName("Тест: войти как пользователь")
     @Feature("Авторизация")
     @Severity(SeverityLevel.BLOCKER)
     @Order(1)
     public void testUser() {
         authorizationPage.clickUserButton()
-                .checkMessageText();
+                .getUserMessage().shouldHave(Condition.exactText("Вы вошли как пользователь"));
         applicantDataPage.getApplicantLastName().should(Condition.exist);
         applicantDataPage.getApplicantFirstName().should(Condition.exist);
         applicantDataPage.getApplicantMiddleName().should(Condition.exist);
@@ -35,7 +35,7 @@ public class TestUserMarriageApplication extends BeforeAfterEach {
     }
 
     @Test
-    @Description("Тест: заполнить обязательные поля в форме Данные заявителя")
+    @DisplayName("Тест: заполнить обязательные поля в форме Данные заявителя")
     @Feature("Регистрация")
     @Severity(SeverityLevel.CRITICAL)
     @Order(2)
@@ -45,7 +45,7 @@ public class TestUserMarriageApplication extends BeforeAfterEach {
     }
 
     @Test
-    @Description("Тест: перейти на страницу Выбора услуги")
+    @DisplayName("Тест: перейти на страницу Выбора услуги")
     @Feature("Регистрация")
     @Severity(SeverityLevel.CRITICAL)
     @Order(3)
@@ -57,7 +57,7 @@ public class TestUserMarriageApplication extends BeforeAfterEach {
     }
 
     @Test
-    @Description("Тест: выбрать услугу Регистрация брака")
+    @DisplayName("Тест: выбрать услугу Регистрация брака")
     @Feature("Регистрация")
     @Severity(SeverityLevel.CRITICAL)
     @Order(4)
@@ -72,7 +72,7 @@ public class TestUserMarriageApplication extends BeforeAfterEach {
     }
 
     @Test
-    @Description("Тест: заполнить все поля в форме Данные гражданина / регистрация брака")
+    @DisplayName("Тест: заполнить все поля в форме Данные гражданина / регистрация брака")
     @Feature("Регистрация")
     @Severity(SeverityLevel.CRITICAL)
     @Order(5)
@@ -82,7 +82,7 @@ public class TestUserMarriageApplication extends BeforeAfterEach {
     }
 
     @Test
-    @Description("Тест: перейти на страницу Данные услуги / регистрация брака")
+    @DisplayName("Тест: перейти на страницу Данные услуги / регистрация брака")
     @Feature("Регистрация")
     @Severity(SeverityLevel.CRITICAL)
     @Order(6)
@@ -97,7 +97,7 @@ public class TestUserMarriageApplication extends BeforeAfterEach {
     }
 
     @Test
-    @Description("Тест: заполнить все поля в форме Данные услуги / регистрация брака")
+    @DisplayName("Тест: заполнить все поля в форме Данные услуги / регистрация брака")
     @Feature("Регистрация")
     @Severity(SeverityLevel.CRITICAL)
     @Order(7)
@@ -107,7 +107,7 @@ public class TestUserMarriageApplication extends BeforeAfterEach {
     }
 
     @Test
-    @Description("Тест: отправить заявку на регистрацию брака ")
+    @DisplayName("Тест: отправить заявку на регистрацию брака ")
     @Feature("Регистрация")
     @Severity(SeverityLevel.CRITICAL)
     @Order(8)
@@ -116,7 +116,7 @@ public class TestUserMarriageApplication extends BeforeAfterEach {
        .getStatusMessage().shouldHave(Condition.exactText("Ваша заявка отправлена на рассмотрение. "));
     }
 
-      @Test
+    @Test
     @Order(9)
     @DisplayName("Проверка статуса заявки, типа заявки")
     public void testSelectDataFromApplicationSchema() {

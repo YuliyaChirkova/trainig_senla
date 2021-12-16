@@ -81,7 +81,7 @@ public class ServiceDataPage {
         return applicationStatusPage;
     }
 
-    @Step("Заполнить все поля формы Данные гражданина / регистрация брака")
+    @Step("Заполнить все поля формы Данные услуги / регистрация брака")
     public void setAllMarriageServiceData(User user) {
         marriageDataRegistration.val(user.getMarriageRegistrationDate());
         spouseNewLastName.val(user.getSpouseNewLastName());
@@ -92,14 +92,14 @@ public class ServiceDataPage {
         spousePassportNumber.val(user.getSpousePassportNumber());
     }
 
-    @Step("Заполнить все поля формы Данные гражданина / регистрация рождения")
+    @Step("Заполнить все поля формы Данные услуги / регистрация рождения")
     public void setAllBirthServiceData(User user) {
         birthPlace.val(user.getBirthPlace());
         motherName.val(user.getMotherName());
         fatherName.val(user.getFatherName());
     }
 
-    @Step("Заполнить все поля формы Данные гражданина / регистрация смерти")
+    @Step("Заполнить все поля формы Данные услуги / регистрация смерти")
     public void setAllDeathServiceData(User user) {
         deathPlace.val(user.getDeathPlace());
         deathDate.val(user.getDeathDate());

@@ -5,15 +5,24 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import data.Administrator;
 import data.User;
 import dataBaseConnect.JDBCConnection;
+import io.github.bonigarcia.wdm.managers.ChromeDriverManager;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import pages.*;
+
+import java.net.MalformedURLException;
+import java.net.URI;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Map;
+
+import static com.codeborne.selenide.Configuration.browserVersion;
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.webdriver;
 import static com.codeborne.selenide.WebDriverConditions.url;
@@ -55,26 +64,45 @@ public class BeforeAfterEach {
     }
 
     public  int getCitizenID(String applicantSurname) throws SQLException {
-        String selectQuery ="select citizenid from applications where applicantid=(select applicantid from applicants where surname='" + applicantSurname + "' order by applicantid desc limit 1) order by applicantid desc limit 1";
+        String selectQuery ="select citizenid from applications where applicantid=(select applicantid from applicants where surname='" + applicantSurname + "' order by applicantid desc limit 1)";// order by applicantid desc limit 1
         ResultSet rs = JDBCConnection.selectFromTable(selectQuery);
         citizenid = rs.getInt("citizenid");
         return citizenid;
     }
 
+//    @BeforeAll
+//    public void setUp() throws MalformedURLException {
+//        SelenideLogger.addListener("AllureSelenide",
+//                new AllureSelenide().screenshots(true).savePageSource(false));
+//        Configuration.startMaximized = true;
+//
+//        Configuration.browserBinary = "/usr/bin/google-chrome";
+//        Configuration.browserVersion = "96.0";
+//
+//        Configuration.browserCapabilities.setCapability("--headless", true);
+//        Configuration.browserCapabilities.setCapability("--no-sandbox", true);
+//        Configuration.browserCapabilities.setCapability("useAutomationExtension", true);
+//        Configuration.browserCapabilities.setCapability("/usr/bin/google-chrome", true);
+//        Configuration.browserCapabilities.setCapability("--disable-dev-shm-usage", true);
+//        authorizationPage.openAuthorizationPage(); // здесь вызов метода open(url)
+//        webdriver().shouldHave(url(authorizationPage.getUrl()));
+//    }
+
+
+
     @BeforeAll
-    public void setUp() {
+    public void setUp() throws MalformedURLException {
         SelenideLogger.addListener("AllureSelenide",
                 new AllureSelenide().screenshots(true).savePageSource(false));
-        Configuration.startMaximized = true;
 
-
-//        Configuration.browserCapabilities.setCapability("useAutomationExtension", false);
-//        Configuration.browserCapabilities.setCapability("--no-sandbox",false);
-//        Configuration.browserCapabilities.setCapability("--disable-dev-shm-usage",false);
-//        Configuration.browserCapabilities.setCapability("--headless",false);
-
-
-       authorizationPage.openAuthorizationPage(); // здесь вызов метода open(url)
+        Configuration.remote ="http://localhost:4444/wd/hub";
+        Configuration.browser = "chrome";
+        Configuration.browserSize = "1920x1080";
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability( "enableVNC",  true);
+        capabilities.setCapability( "enableVideo",  true);
+        Configuration.browserCapabilities = capabilities;
+        authorizationPage.openAuthorizationPage(); // здесь вызов метода open(url)
         webdriver().shouldHave(url(authorizationPage.getUrl()));
     }
 
@@ -85,13 +113,3 @@ public class BeforeAfterEach {
 }
 
 
-//   System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver2.exe");
-
-//       options.addArguments("--no-sandbox");
-//        options.addArguments("--disable-dev-shm-usage");
-//        options.addArguments("--headless");
-//        options.addArguments("start-maximized");
-//        options.addArguments("disable-infobars");
-//        options.addArguments("--disable-extensions");
-
-//        driver.get("https://user:senlatest@regoffice.senla.eu/");

@@ -53,7 +53,7 @@ public class ApplicantDataPage {
         applicantLastName.val(user.getApplicantLastName());
         applicantFirstName.val(user.getApplicantFirstName());
         applicantMiddleName.val(user.getApplicantMiddleName());
-        applicantPhoneNumber.val(user.getUserPhoneNumber());
+        applicantPhoneNumber.val(user.getApplicantPhoneNumber());
         applicantPassportNumber.val(user.getApplicantPassportNumber());
         return this;
     }
