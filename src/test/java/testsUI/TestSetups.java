@@ -1,4 +1,3 @@
-/*
 package testsUI;
 
 import dataBaseConnect.JDBCConnection;
@@ -21,4 +20,3 @@ public class TestSetups {
         Log.info("------- Finished test: " + testInfo.getDisplayName() + " -------");
     }
 }
-*/
