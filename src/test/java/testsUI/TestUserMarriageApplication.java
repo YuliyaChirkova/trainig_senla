@@ -1,12 +1,9 @@
 package testsUI;
 
 import com.codeborne.selenide.Condition;
-import data.User;
 import dataBaseConnect.JDBCConnection;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
-import org.junit.jupiter.api.parallel.Execution;
-import org.junit.jupiter.api.parallel.ExecutionMode;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -40,7 +37,7 @@ public class TestUserMarriageApplication extends BeforeAfterEach {
     @Severity(SeverityLevel.CRITICAL)
     @Order(2)
     public void testSetApplicantData() {
-        applicantDataPage.setAllApplicantData(userApplicant)
+        applicantDataPage.setAllApplicantData(marriageApplicationUser)
                 .getNextButton().shouldBe(Condition.enabled);
     }
 
@@ -77,7 +74,7 @@ public class TestUserMarriageApplication extends BeforeAfterEach {
     @Severity(SeverityLevel.CRITICAL)
     @Order(5)
     public void testSetCitizenDataMarriage() {
-        citizenDataPage.setAllCitizenData(userCitizen);
+        citizenDataPage.setAllCitizenData(marriageApplicationUser);
         citizenDataPage.getNextButton().shouldBe(Condition.enabled);
     }
 
@@ -102,7 +99,7 @@ public class TestUserMarriageApplication extends BeforeAfterEach {
     @Severity(SeverityLevel.CRITICAL)
     @Order(7)
     public void testSetServiceDataMarriage() {
-        serviceDataPage.setAllMarriageServiceData(userService);
+        serviceDataPage.setAllMarriageServiceData(marriageApplicationUser);
         serviceDataPage.getFinishButton().shouldBe(Condition.enabled);
     }
 
@@ -122,7 +119,7 @@ public class TestUserMarriageApplication extends BeforeAfterEach {
     public void testSelectDataFromApplicationSchema() {
 
         try {
-            applicantid = getApplicantID(userApplicant.getApplicantLastName());
+            applicantid = getApplicantID(marriageApplicationUser.getPersonalLastName());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -131,6 +128,7 @@ public class TestUserMarriageApplication extends BeforeAfterEach {
         assertAll("Should return inserted data",
                 () -> assertEquals("under consideration", rs.getString("statusofapplication")),
                 () -> assertEquals("Получение свидетельства о браке", rs.getString("kindofapplication")));
+        JDBCConnection.closeConnection();
     }
 
     @Test
@@ -139,18 +137,19 @@ public class TestUserMarriageApplication extends BeforeAfterEach {
     public void testSelectDataFromCitizensSchema() {
 
         try {
-            citizenid = getCitizenID(userApplicant.getApplicantLastName());
+            citizenid = getCitizenID(marriageApplicationUser.getPersonalLastName());
         } catch (SQLException e) {
             e.printStackTrace();
         }
         String selectQuery = "select * from citizens c where citizenid=" + citizenid;
         ResultSet rs = JDBCConnection.selectFromTable(selectQuery);
         assertAll("Should return inserted data",
-                () -> assertEquals("Ivan", rs.getString("surname")),
-                () -> assertEquals("Ivanov", rs.getString("name")),
-                () -> assertEquals("Ivanovich", rs.getString("middlename")),
+                () -> assertEquals("Klimt", rs.getString("surname")),
+                () -> assertEquals("Gustav", rs.getString("name")),
+                () -> assertEquals("Klimt", rs.getString("middlename")),
                 () -> assertEquals("2222222", rs.getString("passportnumber")),
-                () -> assertEquals("male", rs.getString("gender")));
+                () -> assertEquals("Male", rs.getString("gender")));
+        JDBCConnection.closeConnection();
     }
 
     @Test
@@ -159,18 +158,19 @@ public class TestUserMarriageApplication extends BeforeAfterEach {
     public void testSelectDataFromApplicantsSchema() {
 
         try {
-            applicantid = getApplicantID(userApplicant.getApplicantLastName());
+            applicantid = getApplicantID(marriageApplicationUser.getPersonalLastName());
         } catch (SQLException e) {
             e.printStackTrace();
         }
         String selectQuery = "select * from applicants where applicantid=" +applicantid;
         ResultSet rs = JDBCConnection.selectFromTable(selectQuery);
         assertAll("Should return inserted data",
-                () -> assertEquals("Mask", rs.getString("surname")),
-                () -> assertEquals("Ealon", rs.getString("name")),
-                () -> assertEquals("James", rs.getString("middlename")),
-                () -> assertEquals("1234567", rs.getString("passportnumber")),
-                () -> assertEquals("3333333", rs.getString("phonenumber")));
+                () -> assertEquals("Klimt", rs.getString("surname")),
+                () -> assertEquals("Gustav", rs.getString("name")),
+                () -> assertEquals("Klimt", rs.getString("middlename")),
+                () -> assertEquals("2222222", rs.getString("passportnumber")),
+                () -> assertEquals("1111111", rs.getString("phonenumber")));
+        JDBCConnection.closeConnection();
     }
 
     @Test
@@ -179,89 +179,88 @@ public class TestUserMarriageApplication extends BeforeAfterEach {
     public void testSelectDataFromMarriagesertificatesSchema() {
 
         try {
-            citizenid = getCitizenID(userApplicant.getApplicantLastName());
+            citizenid = getCitizenID(marriageApplicationUser.getPersonalLastName());
         } catch (SQLException e) {
             e.printStackTrace();
         }
         String selectQuery = "select * from merrigecertificates where citizenid=" +citizenid;
         ResultSet rs = JDBCConnection.selectFromTable(selectQuery);
         assertAll("Should return inserted data",
-                () -> assertEquals("2022-08-08", rs.getString("dateofmerrige")),
-                () -> assertEquals("Petrova", rs.getString("surnameofspouse")),
-                () -> assertEquals("Mask", rs.getString("newsurnameofspouse")),
-                () -> assertEquals("Olga", rs.getString("nameofspouse")),
-                () -> assertEquals("Petrovna", rs.getString("middlenameofspouse")),
-                () -> assertEquals("1996-12-13", rs.getString("dateofbirthofspouse")),
-                () -> assertEquals("4444444", rs.getString("passportnumberofspouse")));
+                () -> assertEquals("1933-03-03", rs.getString("dateofmerrige")),
+                () -> assertEquals("Brown", rs.getString("surnameofspouse")),
+                () -> assertEquals("Klimt", rs.getString("newsurnameofspouse")),
+                () -> assertEquals("Adele", rs.getString("nameofspouse")),
+                () -> assertEquals("B", rs.getString("middlenameofspouse")),
+                () -> assertEquals("1904-01-01", rs.getString("dateofbirthofspouse")),
+                () -> assertEquals("333333", rs.getString("passportnumberofspouse")));
+        JDBCConnection.closeConnection();
     }
 
-    @Test
-    @Order(13)
-    @DisplayName("Удаление данных из таблицы merrigecertificates")
-    public void testDeleteRequestMarriagesertificatesSchema() throws SQLException {
-
-        try {
-            citizenid = getCitizenID(userApplicant.getApplicantLastName());
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        String query = "DELETE FROM merrigecertificates where citizenid=" + citizenid;
-        int actualResult = JDBCConnection.deleteFromTable(query);
-        assertEquals(1, actualResult);
-    }
+//    @Test
+//    @Order(13)
+//    @DisplayName("Удаление данных из таблицы merrigecertificates")
+//    public void testDeleteRequestMarriagesertificatesSchema() throws SQLException {
+//
+//        try {
+//            citizenid = getCitizenID(marriageApplicationUser.getPersonalLastName());
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//        String query = "DELETE FROM merrigecertificates where citizenid=" + citizenid;
+//        int actualResult = JDBCConnection.deleteFromTable(query);
+//        assertEquals(1, actualResult);
+//        JDBCConnection.closeConnection();
+//    }
 
     @Test
     @Order(14)
-    @DisplayName("Удаление данных из таблицы application")
+    @DisplayName("Удаление данных из таблицы application и таблицы citizens")
     public void testDeleteRequestFromApplicationSchema() {
 
         try {
-            applicantid = getApplicantID(userApplicant.getApplicantLastName());
+            applicantid = getApplicantID(marriageApplicationUser.getPersonalLastName());
+            citizenid = getCitizenID(marriageApplicationUser.getPersonalLastName());
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        String queryMer = "DELETE FROM merrigecertificates where citizenid=" + citizenid;
         String query = "DELETE FROM applications WHERE applicantid =" +applicantid;
+        String queryCitizen = "DELETE FROM citizens c where citizenid=" +citizenid;
+        String queryAppl = "DELETE FROM applicants where applicantid=" +applicantid;
+        int actualResultMer = JDBCConnection.deleteFromTable(queryMer);
         int actualResult = JDBCConnection.deleteFromTable(query);
+        int citizenResult = JDBCConnection.deleteFromTable(queryCitizen);
+        int actualResultAppl = JDBCConnection.deleteFromTable(queryAppl);
+        assertEquals(1, actualResultMer);
         assertEquals(1, actualResult);
+        assertEquals(1, citizenResult);
+        assertEquals(1, actualResultAppl);
+        JDBCConnection.closeConnection();
     }
 
-    @Test
-    @Order(15)
-    @DisplayName("Удаление данных из таблицы citizens")
-    public void testDeleteRequestFromCitizensSchema() {
-
-        try {
-            citizenid = getCitizenID(userApplicant.getApplicantLastName());
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        String query = "DELETE FROM citizens c where citizenid=" +citizenid;
-        int actualResult = JDBCConnection.deleteFromTable(query);
-        assertEquals(1, actualResult);
-    }
-
-    @Test
-    @Order(16)
-    @DisplayName("Удаление данных из таблицы applicants")
-    public void testDeleteRequestFromApplicantsSchema() {
-
-        try {
-            applicantid = getApplicantID(userApplicant.getApplicantLastName());
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        String query = "DELETE FROM applicants where applicantid=" +applicantid;
-        int actualResult = JDBCConnection.deleteFromTable(query);
-        assertEquals(1, actualResult);
-    }
+//    @Test
+//    @Order(15)
+//    @DisplayName("Удаление данных из таблицы applicants")
+//    public void testDeleteRequestFromApplicantsSchema() {
+//
+//        try {
+//            applicantid = getApplicantID(marriageApplicationUser.getPersonalLastName());
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//
+//        String query = "DELETE FROM applicants where applicantid=" +applicantid;
+//        int actualResult = JDBCConnection.deleteFromTable(query);
+//        assertEquals(1, actualResult);
+//        JDBCConnection.closeConnection();
+//    }
 
 
     @Test
-    @Description("Тест: создать новую заявку со страницы Статус заявки ")
+    @DisplayName("Тест: создать новую заявку со страницы Статус заявки ")
     @Feature("Регистрация")
     @Severity(SeverityLevel.NORMAL)
-    @Order(17)
+    @Order(16)
     public void testCreateNewApplication() {
         applicationStatusPage.clickCreateNewApplicationButton();
         applicantDataPage.getApplicantLastName().should(Condition.exist);
@@ -269,5 +268,6 @@ public class TestUserMarriageApplication extends BeforeAfterEach {
         applicantDataPage.getApplicantMiddleName().should(Condition.exist);
         applicantDataPage.getApplicantPhoneNumber().should(Condition.exist);
         applicantDataPage.getApplicantPassportNumber().should(Condition.exist);
+        JDBCConnection.closeConnection();
     }
 }

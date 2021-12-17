@@ -8,6 +8,7 @@ pages/ApplicationStatusPage.class
 data/Administrator.class
 endpoints/RegisterOfficeEndpoints.class
 pages/ApplicationListPage.class
+data/User$Builder.class
 pages/CitizenDataPage.class
 data/User.class
 utils/Log.class

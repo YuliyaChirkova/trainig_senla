@@ -64,7 +64,7 @@ public class JDBCConnection {
 
     public static ResultSet selectFromTable(String query) {
         try {
-            stmt = connectToDB().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            stmt = connectToDB().createStatement();   //ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE
             Log.info("Send request to DB: " + query);
             rs = stmt.executeQuery(query);
             rs.next();

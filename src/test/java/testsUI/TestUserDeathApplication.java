@@ -39,7 +39,7 @@ public class TestUserDeathApplication extends BeforeAfterEach {
     @Severity(SeverityLevel.CRITICAL)
     @Order(2)
     public void testSetApplicantData() {
-        applicantDataPage.setAllApplicantData(userApplicant)
+        applicantDataPage.setAllApplicantData(deathApplicationUser)
                 .getNextButton().shouldBe(Condition.enabled);
     }
 
@@ -76,7 +76,7 @@ public class TestUserDeathApplication extends BeforeAfterEach {
     @Severity(SeverityLevel.CRITICAL)
     @Order(5)
     public void testSetCitizenDataDeath() {
-        citizenDataPage.setAllCitizenData(userCitizen);
+        citizenDataPage.setAllCitizenData(deathApplicationUser);
         citizenDataPage.getNextButton().shouldBe(Condition.enabled);
     }
 
@@ -97,7 +97,7 @@ public class TestUserDeathApplication extends BeforeAfterEach {
     @Severity(SeverityLevel.CRITICAL)
     @Order(7)
     public void testSetServiceDataDeath() {
-        serviceDataPage.setAllDeathServiceData(userService);
+        serviceDataPage.setAllDeathServiceData(deathApplicationUser);
         serviceDataPage.getFinishButton().shouldBe(Condition.enabled);
     }
 
@@ -117,7 +117,7 @@ public class TestUserDeathApplication extends BeforeAfterEach {
     public void testSelectDataFromApplicationSchema() {
 
         try {
-            applicantid = getApplicantID(userApplicant.getApplicantLastName());
+            applicantid = getApplicantID(deathApplicationUser.getPersonalLastName());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -126,6 +126,7 @@ public class TestUserDeathApplication extends BeforeAfterEach {
         assertAll("Should return inserted data",
                 () -> assertEquals("under consideration", rs.getString("statusofapplication")),
                 () -> assertEquals("Получение свидетельства о смерти", rs.getString("kindofapplication")));
+        JDBCConnection.closeConnection();
     }
 
     @Test
@@ -134,18 +135,19 @@ public class TestUserDeathApplication extends BeforeAfterEach {
     public void testSelectDataFromCitizensSchema() {
 
         try {
-            citizenid = getCitizenID(userApplicant.getApplicantLastName());
+            citizenid = getCitizenID(deathApplicationUser.getPersonalLastName());
         } catch (SQLException e) {
             e.printStackTrace();
         }
         String selectQuery = "select * from citizens c where citizenid=" + citizenid;
         ResultSet rs = JDBCConnection.selectFromTable(selectQuery);
         assertAll("Should return inserted data",
-                () -> assertEquals("Ivan", rs.getString("surname")),
-                () -> assertEquals("Ivanov", rs.getString("name")),
-                () -> assertEquals("Ivanovich", rs.getString("middlename")),
-                () -> assertEquals("2222222", rs.getString("passportnumber")),
-                () -> assertEquals("male", rs.getString("gender")));
+                () -> assertEquals("Kahlo", rs.getString("surname")),
+                () -> assertEquals("Frida", rs.getString("name")),
+                () -> assertEquals("Frida", rs.getString("middlename")),
+                () -> assertEquals("8888888", rs.getString("passportnumber")),
+                () -> assertEquals("Female", rs.getString("gender")));
+        JDBCConnection.closeConnection();
     }
 
     @Test
@@ -154,18 +156,19 @@ public class TestUserDeathApplication extends BeforeAfterEach {
     public void testSelectDataFromApplicantsSchema() {
 
         try {
-            applicantid = getApplicantID(userApplicant.getApplicantLastName());
+            applicantid = getApplicantID(deathApplicationUser.getPersonalLastName());
         } catch (SQLException e) {
             e.printStackTrace();
         }
         String selectQuery = "select * from applicants where applicantid=" +applicantid;
         ResultSet rs = JDBCConnection.selectFromTable(selectQuery);
         assertAll("Should return inserted data",
-                () -> assertEquals("Mask", rs.getString("surname")),
-                () -> assertEquals("Ealon", rs.getString("name")),
-                () -> assertEquals("James", rs.getString("middlename")),
-                () -> assertEquals("1234567", rs.getString("passportnumber")),
-                () -> assertEquals("3333333", rs.getString("phonenumber")));
+                () -> assertEquals("Kahlo", rs.getString("surname")),
+                () -> assertEquals("Frida", rs.getString("name")),
+                () -> assertEquals("Frida", rs.getString("middlename")),
+                () -> assertEquals("8888888", rs.getString("passportnumber")),
+                () -> assertEquals("7777777", rs.getString("phonenumber")));
+        JDBCConnection.closeConnection();
     }
 
     @Test
@@ -174,84 +177,83 @@ public class TestUserDeathApplication extends BeforeAfterEach {
     public void testSelectDataFromDeathcertificatesSchema() {
 
         try {
-            citizenid = getCitizenID(userApplicant.getApplicantLastName());
+            citizenid = getCitizenID(deathApplicationUser.getPersonalLastName());
         } catch (SQLException e) {
             e.printStackTrace();
         }
         String selectQuery = "select * from deathcertificates where citizenid=" +citizenid;
         ResultSet rs = JDBCConnection.selectFromTable(selectQuery);
         assertAll("Should return inserted data",
-                () -> assertEquals("2011-01-01", rs.getString("dateofdeath")),
-                () -> assertEquals("Deli", rs.getString("placeofdeath")));
+                () -> assertEquals("1954-12-07", rs.getString("dateofdeath")),
+                () -> assertEquals("Madrid", rs.getString("placeofdeath")));
+        JDBCConnection.closeConnection();
     }
 
-    @Test
-    @Order(13)
-    @DisplayName("Удаление данных из таблицы deathcertificates")
-    public void testDeleteRequestDeathcertificatesSchema() throws SQLException {
-
-        try {
-            citizenid = getCitizenID(userApplicant.getApplicantLastName());
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        String query = "DELETE FROM deathcertificates where citizenid=" + citizenid;
-        int actualResult = JDBCConnection.deleteFromTable(query);
-        assertEquals(1, actualResult);
-    }
+//    @Test
+//    @Order(13)
+//    @DisplayName("Удаление данных из таблицы deathcertificates")
+//    public void testDeleteRequestDeathcertificatesSchema() throws SQLException {
+//
+//        try {
+//            citizenid = getCitizenID(deathApplicationUser.getPersonalLastName());
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//        String query = "DELETE FROM deathcertificates where citizenid=" + citizenid;
+//        int actualResult = JDBCConnection.deleteFromTable(query);
+//        assertEquals(1, actualResult);
+//        JDBCConnection.closeConnection();
+//    }
 
     @Test
     @Order(14)
-    @DisplayName("Удаление данных из таблицы application")
+    @DisplayName("Удаление данных из таблицы application и таблицы citizens")
     public void testDeleteRequestFromApplicationSchema() {
 
         try {
-            applicantid = getApplicantID(userApplicant.getApplicantLastName());
+            applicantid = getApplicantID(deathApplicationUser.getPersonalLastName());
+            citizenid = getCitizenID(deathApplicationUser.getPersonalLastName());
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        String queryDeath = "DELETE FROM deathcertificates where citizenid=" + citizenid;
         String query = "DELETE FROM applications WHERE applicantid =" +applicantid;
+        String queryCitizen = "DELETE FROM citizens c where citizenid=" +citizenid;
+        String queryAppl = "DELETE FROM applicants where applicantid=" +applicantid;
+        int deathResult = JDBCConnection.deleteFromTable(queryDeath);
         int actualResult = JDBCConnection.deleteFromTable(query);
+        int citizenResult = JDBCConnection.deleteFromTable(queryCitizen);
+        int actualResultAppl = JDBCConnection.deleteFromTable(queryAppl);
+        assertEquals(1, deathResult);
         assertEquals(1, actualResult);
+        assertEquals(1, citizenResult);
+        assertEquals(1, actualResultAppl);
+        JDBCConnection.closeConnection();
     }
 
-    @Test
-    @Order(15)
-    @DisplayName("Удаление данных из таблицы citizens")
-    public void testDeleteRequestFromCitizensSchema() {
-
-        try {
-            citizenid = getCitizenID(userApplicant.getApplicantLastName());
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        String query = "DELETE FROM citizens c where citizenid=" +citizenid;
-        int actualResult = JDBCConnection.deleteFromTable(query);
-        assertEquals(1, actualResult);
-    }
-
-    @Test
-    @Order(16)
-    @DisplayName("Удаление данных из таблицы applicants")
-    public void testDeleteRequestFromApplicantsSchema() {
-
-        try {
-            applicantid = getApplicantID(userApplicant.getApplicantLastName());
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        String query = "DELETE FROM applicants where applicantid=" +applicantid;
-        int actualResult = JDBCConnection.deleteFromTable(query);
-        assertEquals(1, actualResult);
-    }
+//    @Test
+//    @Order(15)
+//    @DisplayName("Удаление данных из таблицы applicants")
+//    public void testDeleteRequestFromApplicantsSchema() {
+//
+//        try {
+//            applicantid = getApplicantID(deathApplicationUser.getPersonalLastName());
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//
+//        String query = "DELETE FROM applicants where applicantid=" +applicantid;
+//        int actualResult = JDBCConnection.deleteFromTable(query);
+//        assertEquals(1, actualResult);
+//        JDBCConnection.closeConnection();
+//    }
 
 
     @Test
-    @Description("Тест: создать новую заявку со страницы Статус заявки ")
+    @DisplayName("Тест: создать новую заявку со страницы Статус заявки ")
     @Feature("Регистрация")
     @Severity(SeverityLevel.NORMAL)
-    @Order(17)
+    @Order(16)
     public void testCreateNewApplication() {
         applicationStatusPage.clickCreateNewApplicationButton();
         applicantDataPage.getApplicantLastName().should(Condition.exist);
