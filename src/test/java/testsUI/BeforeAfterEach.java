@@ -82,8 +82,14 @@ public class BeforeAfterEach {
             .withDeathDate("13071954")
             .build();
 
-    Administrator administrator = new Administrator("Sergei", "Sergeev",
-            "Sergeevich", "5555555", "7777777", "03031993");
+    Administrator administrator = new Administrator.Builder()
+            .withName("Sergei")
+            .withSurname("Sergeev")
+            .withMiddleName("Sergeevich")
+            .withPhoneNumber("5555555")
+            .withPassportNumber("7777777")
+            .withDateofbirth("2021-12-23")
+            .build();
 
     protected int applicantid;
     protected int citizenid;
@@ -121,8 +127,6 @@ public class BeforeAfterEach {
 //        authorizationPage.openAuthorizationPage();
 //        webdriver().shouldHave(url(authorizationPage.getUrl()));
 //    }
-
-
 
     @BeforeAll
     public void setUp()  {

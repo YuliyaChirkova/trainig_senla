@@ -7,10 +7,10 @@ import java.sql.*;
 public class JDBCConnection {
 
     private static final String HOST = "86.57.161.116";
-    private static final String DB_NANE = "register_office";
+    private static final String DB_NAME = "register_office";
     private static final String SCHEMA_NAME = "reg_office";
-    private static final String URL = "jdbc:postgresql://" + HOST + ":50432/" + DB_NANE + "?currentSchema=" + SCHEMA_NAME;
-    private static final String user = "user";
+    private static final String URL = "jdbc:postgresql://" + HOST + ":50432/" + DB_NAME + "?currentSchema=" + SCHEMA_NAME;
+    private static final String USER = "user";
     private static final String PASSWORD = "user_senla";
 
     private static Connection con = null;
@@ -18,11 +18,11 @@ public class JDBCConnection {
     private static ResultSet rs = null;
 
     public static Connection connectToDB() {
-        Log.info("Connect to DB " + URL + " by user " + user);
+        Log.info("Connect to DB " + URL + " by user " + USER);
 
         try {
             Class.forName("org.postgresql.Driver");
-            con = DriverManager.getConnection(URL, user, PASSWORD);
+            con = DriverManager.getConnection(URL, USER, PASSWORD);
             Log.info("Connection to DB successful!");
         } catch (ClassNotFoundException e) {
             Log.error(e.getMessage());
@@ -76,11 +76,11 @@ public class JDBCConnection {
     }
 
     public static int deleteFromTable(String query) {
-        int row=0;
+        int row = 0;
         try {
             Log.info("Send request to DB: " + query);
             stmt = connectToDB().createStatement();
-            row= stmt.executeUpdate(query);
+            row = stmt.executeUpdate(query);
             Log.info("Data from table was deleted successfully");
         } catch (SQLException se) {
             Log.error("Data from table was not deleted. Reason:\n" + se.getMessage());

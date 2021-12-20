@@ -1,7 +1,6 @@
 package testsUI;
 
 import com.codeborne.selenide.Condition;
-import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
@@ -12,10 +11,9 @@ import org.junit.jupiter.api.*;
 public class TestAdministrator extends BeforeAfterEach {
 
     @Test
-    @Description("Тест: войти как администратор")
+    @DisplayName("Тест: войти как администратор")
     @Feature("Авторизация")
     @Severity(SeverityLevel.BLOCKER)
-    @Tag("SkipConnection")
     @Order(1)
     public void testAdmin() {
         authorizationPage.clickAdminButton();
@@ -29,10 +27,9 @@ public class TestAdministrator extends BeforeAfterEach {
     }
 
     @Test
-    @Description("Тест: заполнить данные администратора валидными данными")
+    @DisplayName("Тест: заполнить данные администратора валидными данными")
     @Feature("Регистрация админа")
     @Severity(SeverityLevel.CRITICAL)
-    @Tag("SkipConnection")
     @Order(2)
     public void testSetAdminData() {
         adminDataPage.setAllAdminData(administrator);
@@ -40,10 +37,9 @@ public class TestAdministrator extends BeforeAfterEach {
     }
 
     @Test
-    @Description("Тест: отправить заявку на регистрацию администратора")
+    @DisplayName("Тест: отправить заявку на регистрацию администратора")
     @Feature("Регистрация админа")
     @Severity(SeverityLevel.CRITICAL)
-    @Tag("SkipConnection")
     @Order(3)
     public void testSendAdminApplication() {
         adminDataPage.clickNextButton();

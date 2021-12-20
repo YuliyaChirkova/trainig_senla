@@ -2,43 +2,84 @@ package data;
 
 public class Administrator {
 
-    private String adminFirstName;
-    private String adminLastName;
-    private String adminMiddleName;
-    private String adminPhoneNumber;
-    private String adminPassportNumber;
-    private String adminBirthDate;
+    private String personalFirstName;
+    private String personalLastName;
+    private String personalMiddleName;
+    private String personalPhoneNumber;
+    private String personalNumberOfPassport;
+    private String dateofbirth;
 
-    public Administrator(String adminFirstName, String adminLastName, String adminMiddleName, String adminPhoneNumber, String adminPassportNumber, String adminBirthDate) {
-        this.adminFirstName = adminFirstName;
-        this.adminLastName = adminLastName;
-        this.adminMiddleName = adminMiddleName;
-        this.adminPhoneNumber = adminPhoneNumber;
-        this.adminPassportNumber = adminPassportNumber;
-        this.adminBirthDate = adminBirthDate;
+//    public Administrator(String adminFirstName, String adminLastName, String adminMiddleName, String adminPhoneNumber, String adminPassportNumber, String dateofbirth) {
+//        this.personalFirstName = adminFirstName;
+//        this.personalLastName = adminLastName;
+//        this.personalMiddleName = adminMiddleName;
+//        this.personalPhoneNumber = adminPhoneNumber;
+//        this.personalNumberOfPassport = adminPassportNumber;
+//        this.dateofbirth = dateofbirth;
+//    }
+
+    public String getPersonalFirstName() {
+        return personalFirstName;
     }
 
-    public String getAdminFirstName() {
-        return adminFirstName;
+    public String getPersonalLastName() {
+        return personalLastName;
     }
 
-    public String getAdminLastName() {
-        return adminLastName;
+    public String getPersonalMiddleName() {
+        return personalMiddleName;
     }
 
-    public String getAdminMiddleName() {
-        return adminMiddleName;
+    public String getPersonalPhoneNumber() {
+        return personalPhoneNumber;
     }
 
-    public String getAdminPhoneNumber() {
-        return adminPhoneNumber;
+    public String getPersonalNumberOfPassport() {
+        return personalNumberOfPassport;
     }
 
-    public String getAdminPassportNumber() {
-        return adminPassportNumber;
+    public String getDateofbirth() {
+        return dateofbirth;
     }
 
-    public String getAdminBirthDate() {
-        return adminBirthDate;
+    public static class Builder {
+        private Administrator newAdministrator;
+
+        public Builder() {
+            newAdministrator = new Administrator();
+        }
+
+        public Administrator.Builder withName(String name) {
+            newAdministrator.personalFirstName = name;
+            return this;
+        }
+
+        public Administrator.Builder withSurname(String surname) {
+            newAdministrator.personalLastName = surname;
+            return this;
+        }
+
+        public Administrator.Builder withMiddleName(String middleName) {
+            newAdministrator.personalMiddleName = middleName;
+            return this;
+        }
+
+        public Administrator.Builder withPhoneNumber(String phoneNumber) {
+            newAdministrator.personalPhoneNumber = phoneNumber;
+            return this;
+        }
+
+        public Administrator.Builder withPassportNumber(String passportNumber) {
+            newAdministrator.personalNumberOfPassport = passportNumber;
+            return this;
+        }
+
+        public Administrator.Builder withDateofbirth(String dateofbirth) {
+            newAdministrator.dateofbirth = dateofbirth;
+            return this;
+        }
+        public Administrator build(){
+            return newAdministrator;
+        }
     }
 }

@@ -9644,3 +9644,4 @@ ERROR: update or delete on table "applicants" violates foreign key constraint "f
 2021-12-20 16:43:18 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
 2021-12-20 16:43:18 INFO  Log:25 - Connection to DB successful!
 2021-12-20 16:43:18 INFO  Log:25 - Data from table was deleted successfully
+2021-12-20 23:21:51 INFO  Log:25 - applicationid is 8028

@@ -54,12 +54,12 @@ public class AdminDataPage {
 
     @Step("Заполнить все поля формы Данные регистрации")
     public void setAllAdminData(Administrator administrator) {
-        adminLastName.val(administrator.getAdminLastName());
-        adminFirstName.val(administrator.getAdminFirstName());
-        adminMiddleName.val(administrator.getAdminMiddleName());
-        adminPhoneNumber.val(administrator.getAdminPhoneNumber());
-        adminPassportNumber.val(administrator.getAdminPassportNumber());
-        adminBirthDate.val(administrator.getAdminBirthDate());
+        adminLastName.val(administrator.getPersonalLastName());
+        adminFirstName.val(administrator.getPersonalFirstName());
+        adminMiddleName.val(administrator.getPersonalMiddleName());
+        adminPhoneNumber.val(administrator.getPersonalPhoneNumber());
+        adminPassportNumber.val(administrator.getPersonalNumberOfPassport());
+        adminBirthDate.val(administrator.getDateofbirth());
     }
 
     @Step("Нажать кнопку Далее")
