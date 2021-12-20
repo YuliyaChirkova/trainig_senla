@@ -102,41 +102,41 @@ public class BeforeAfterEach {
         return citizenid;
     }
 
-    @BeforeAll
-    public void setUp() {
-        SelenideLogger.addListener("AllureSelenide",
-                new AllureSelenide().screenshots(true).savePageSource(false));
-        Configuration.startMaximized = true;
-
-        Configuration.browserBinary = "/usr/bin/google-chrome";
-        Configuration.browserVersion = "96.0";
-
-        Configuration.browserCapabilities.setCapability("--headless", true);
-        Configuration.browserCapabilities.setCapability("--no-sandbox", true);
-        Configuration.browserCapabilities.setCapability("useAutomationExtension", true);
-        Configuration.browserCapabilities.setCapability("/usr/bin/google-chrome", true);
-        Configuration.browserCapabilities.setCapability("--disable-dev-shm-usage", true);
-        authorizationPage.openAuthorizationPage(); // здесь вызов метода open(url)
-        webdriver().shouldHave(url(authorizationPage.getUrl()));
-    }
-
-
-
 //    @BeforeAll
-//    public void setUp()  {
+//    public void setUp() {
 //        SelenideLogger.addListener("AllureSelenide",
 //                new AllureSelenide().screenshots(true).savePageSource(false));
+//        Configuration.startMaximized = true;
 //
-//        Configuration.remote ="http://localhost:4444/wd/hub";
-//        Configuration.browser = "chrome";
-//        Configuration.browserSize = "1920x1080";
-//        DesiredCapabilities capabilities = new DesiredCapabilities();
-//        capabilities.setCapability( "enableVNC",  true);
-//        capabilities.setCapability( "enableVideo",  true);
-//        Configuration.browserCapabilities = capabilities;
+//        Configuration.browserBinary = "/usr/bin/google-chrome";
+//        Configuration.browserVersion = "96.0";
+//
+//        Configuration.browserCapabilities.setCapability("--headless", true);
+//        Configuration.browserCapabilities.setCapability("--no-sandbox", true);
+//        Configuration.browserCapabilities.setCapability("useAutomationExtension", true);
+//        Configuration.browserCapabilities.setCapability("/usr/bin/google-chrome", true);
+//        Configuration.browserCapabilities.setCapability("--disable-dev-shm-usage", true);
 //        authorizationPage.openAuthorizationPage();
 //        webdriver().shouldHave(url(authorizationPage.getUrl()));
 //    }
+
+
+
+    @BeforeAll
+    public void setUp()  {
+        SelenideLogger.addListener("AllureSelenide",
+                new AllureSelenide().screenshots(true).savePageSource(false));
+
+        Configuration.remote ="http://localhost:4444/wd/hub";
+        Configuration.browser = "chrome";
+        Configuration.browserSize = "1920x1080";
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability( "enableVNC",  true);
+        capabilities.setCapability( "enableVideo",  true);
+        Configuration.browserCapabilities = capabilities;
+        authorizationPage.openAuthorizationPage();
+        webdriver().shouldHave(url(authorizationPage.getUrl()));
+    }
 
 //    @AfterAll
 //    public void tearDown() {
