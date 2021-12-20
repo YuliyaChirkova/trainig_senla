@@ -10,9 +10,7 @@ import io.restassured.specification.RequestSpecification;
 import org.junit.jupiter.api.*;
 import utils.Log;
 import utils.RegisterOfficeSpecification;
-
 import java.io.File;
-
 import static io.restassured.RestAssured.given;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchema;
 
@@ -109,7 +107,7 @@ public class TestRegisterOffice {
 
         given().spec(requestSpec)
                 .when()
-                .body(jsonBodyUser)
+                .body(jsonBody)
                 .post(RegisterOfficeEndpoints.CREATE_USER)
                 .then()
                 .assertThat()
@@ -172,5 +170,4 @@ public class TestRegisterOffice {
                 .then()
                 .statusCode(200);
     }
-
 }

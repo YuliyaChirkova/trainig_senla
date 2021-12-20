@@ -5,6 +5,7 @@ import utils.Log;
 import java.sql.*;
 
 public class JDBCConnection {
+
     private static final String HOST = "86.57.161.116";
     private static final String DB_NANE = "register_office";
     private static final String SCHEMA_NAME = "reg_office";
@@ -15,7 +16,6 @@ public class JDBCConnection {
     private static Connection con = null;
     private static Statement stmt = null;
     private static ResultSet rs = null;
-
 
     public static Connection connectToDB() {
         Log.info("Connect to DB " + URL + " by user " + user);
@@ -64,7 +64,7 @@ public class JDBCConnection {
 
     public static ResultSet selectFromTable(String query) {
         try {
-            stmt = connectToDB().createStatement();   //ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE
+            stmt = connectToDB().createStatement();
             Log.info("Send request to DB: " + query);
             rs = stmt.executeQuery(query);
             rs.next();

@@ -4,10 +4,8 @@ import com.codeborne.selenide.Condition;
 import dataBaseConnect.JDBCConnection;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import static org.junit.Assert.assertNull;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -110,7 +108,7 @@ public class TestUserMarriageApplication extends BeforeAfterEach {
     @Order(8)
     public void testSendMarriageApplication() {
         serviceDataPage.clickFinishButton()
-       .getStatusMessage().shouldHave(Condition.exactText("Ваша заявка отправлена на рассмотрение. "));
+            .getStatusMessage().shouldHave(Condition.exactText("Ваша заявка отправлена на рассмотрение. "));
     }
 
     @Test
@@ -196,71 +194,77 @@ public class TestUserMarriageApplication extends BeforeAfterEach {
         JDBCConnection.closeConnection();
     }
 
-//    @Test
-//    @Order(13)
-//    @DisplayName("Удаление данных из таблицы merrigecertificates")
-//    public void testDeleteRequestMarriagesertificatesSchema() throws SQLException {
-//
-//        try {
-//            citizenid = getCitizenID(marriageApplicationUser.getPersonalLastName());
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//        String query = "DELETE FROM merrigecertificates where citizenid=" + citizenid;
-//        int actualResult = JDBCConnection.deleteFromTable(query);
-//        assertEquals(1, actualResult);
-//        JDBCConnection.closeConnection();
-//    }
-
     @Test
-    @Order(14)
-    @DisplayName("Удаление данных из таблицы application и таблицы citizens")
-    public void testDeleteRequestFromApplicationSchema() {
+    @Order(13)
+    @DisplayName("Удаление данных из таблицы merrigecertificates")
+    public void testDeleteRequestMarriagesertificatesSchema() {
 
         try {
-            applicantid = getApplicantID(marriageApplicationUser.getPersonalLastName());
             citizenid = getCitizenID(marriageApplicationUser.getPersonalLastName());
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        String queryMer = "DELETE FROM merrigecertificates where citizenid=" + citizenid;
-        String query = "DELETE FROM applications WHERE applicantid =" +applicantid;
-        String queryCitizen = "DELETE FROM citizens c where citizenid=" +citizenid;
-        String queryAppl = "DELETE FROM applicants where applicantid=" +applicantid;
-        int actualResultMer = JDBCConnection.deleteFromTable(queryMer);
+        String query = "DELETE FROM merrigecertificates where citizenid=" + citizenid;
         int actualResult = JDBCConnection.deleteFromTable(query);
-        int citizenResult = JDBCConnection.deleteFromTable(queryCitizen);
-        int actualResultAppl = JDBCConnection.deleteFromTable(queryAppl);
-        assertEquals(1, actualResultMer);
         assertEquals(1, actualResult);
-        assertEquals(1, citizenResult);
-        assertEquals(1, actualResultAppl);
         JDBCConnection.closeConnection();
     }
 
-//    @Test
-//    @Order(15)
-//    @DisplayName("Удаление данных из таблицы applicants")
-//    public void testDeleteRequestFromApplicantsSchema() {
-//
-//        try {
-//            applicantid = getApplicantID(marriageApplicationUser.getPersonalLastName());
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//
-//        String query = "DELETE FROM applicants where applicantid=" +applicantid;
-//        int actualResult = JDBCConnection.deleteFromTable(query);
-//        assertEquals(1, actualResult);
-//        JDBCConnection.closeConnection();
-//    }
+    @Test
+    @Order(14)
+    @DisplayName("Удаление данных из таблицы application")
+    public void testDeleteRequestApplicationSchema() {
+
+        try {
+            applicantid = getApplicantID(marriageApplicationUser.getPersonalLastName());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        String applicationsQuery = "DELETE FROM applications WHERE applicantid =" +applicantid;
+        int applicationsResult = JDBCConnection.deleteFromTable(applicationsQuery);
+        assertEquals(1, applicationsResult);
+        JDBCConnection.closeConnection();
+    }
+
+    @Test
+    @Order(15)
+    @DisplayName("Удаление данных из таблицы citizens")
+    public void testDeleteRequestFromApplicationSchema() {
+
+        try {
+            citizenid = getCitizenID(marriageApplicationUser.getPersonalLastName());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        String citizensQuery = "DELETE FROM citizens c where citizenid=" +citizenid;
+        int citizenResult = JDBCConnection.deleteFromTable(citizensQuery);
+        assertEquals(1, citizenResult);
+        JDBCConnection.closeConnection();
+    }
+
+    @Test
+    @Order(16)
+    @DisplayName("Удаление данных из таблицы applicants")
+    public void testDeleteRequestFromApplicantsSchema() {
+
+        try {
+            applicantid = getApplicantID(marriageApplicationUser.getPersonalLastName());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        String query = "DELETE FROM applicants where applicantid=" +applicantid;
+        int actualResult = JDBCConnection.deleteFromTable(query);
+        assertEquals(1, actualResult);
+        JDBCConnection.closeConnection();
+    }
 
 
     @Test
     @DisplayName("Тест: создать новую заявку со страницы Статус заявки ")
     @Feature("Регистрация")
     @Severity(SeverityLevel.NORMAL)
-    @Order(16)
+    @Order(17)
     public void testCreateNewApplication() {
         applicationStatusPage.clickCreateNewApplicationButton();
         applicantDataPage.getApplicantLastName().should(Condition.exist);
@@ -268,6 +272,5 @@ public class TestUserMarriageApplication extends BeforeAfterEach {
         applicantDataPage.getApplicantMiddleName().should(Condition.exist);
         applicantDataPage.getApplicantPhoneNumber().should(Condition.exist);
         applicantDataPage.getApplicantPassportNumber().should(Condition.exist);
-        JDBCConnection.closeConnection();
     }
 }

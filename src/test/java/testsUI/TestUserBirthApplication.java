@@ -6,10 +6,8 @@ import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.*;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -190,71 +188,76 @@ public class TestUserBirthApplication extends BeforeAfterEach {
         JDBCConnection.closeConnection();
     }
 
-//    @Test
-//    @Order(13)
-//    @DisplayName("Удаление данных из таблицы birthcertificates")
-//    public void testDeleteRequestBirthcertificatesSchema() throws SQLException {
-//
-//        try {
-//            citizenid = getCitizenID(birthApplicationUser.getPersonalLastName());
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//        String query = "DELETE FROM birthcertificates where citizenid=" + citizenid;
-//        int actualResult = JDBCConnection.deleteFromTable(query);
-//        assertEquals(1, actualResult);
-//        JDBCConnection.closeConnection();
-//    }
-
     @Test
-    @Order(14)
-    @DisplayName("Удаление данных из таблицы application и таблицы citizens")
-    public void testDeleteRequestFromApplicationSchema() {
+    @Order(13)
+    @DisplayName("Удаление данных из таблицы birthcertificates")
+    public void testDeleteRequestBirthcertificatesSchema() {
 
         try {
-            applicantid = getApplicantID(birthApplicationUser.getPersonalLastName());
             citizenid = getCitizenID(birthApplicationUser.getPersonalLastName());
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        String birthquery = "DELETE FROM birthcertificates where citizenid=" + citizenid;
-        String query = "DELETE FROM applications WHERE applicantid =" +applicantid;
-        String queryCitizen = "DELETE FROM citizens c where citizenid=" +citizenid;
-        String queryAppl = "DELETE FROM applicants where applicantid=" +applicantid;
-        int birthResult = JDBCConnection.deleteFromTable(birthquery);
+        String query = "DELETE FROM birthcertificates where citizenid=" + citizenid;
         int actualResult = JDBCConnection.deleteFromTable(query);
-        int citizenResult = JDBCConnection.deleteFromTable(queryCitizen);
-        int actualResultAppl = JDBCConnection.deleteFromTable(queryAppl);
-
         assertEquals(1, actualResult);
-        assertEquals(1, citizenResult);
-        assertEquals(1, birthResult);
-        assertEquals(1, actualResultAppl);
         JDBCConnection.closeConnection();
     }
 
-//    @Test
-//    @Order(15)
-//    @DisplayName("Удаление данных из таблицы applicants")
-//    public void testDeleteRequestFromApplicantsSchema() {
-//
-//        try {
-//            applicantid = getApplicantID(birthApplicationUser.getPersonalLastName());
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//
-//        String query = "DELETE FROM applicants where applicantid=" +applicantid;
-//        int actualResult = JDBCConnection.deleteFromTable(query);
-//        assertEquals(1, actualResult);
-//        JDBCConnection.closeConnection();
-//    }
+    @Test
+    @Order(15)
+    @DisplayName("Удаление данных из таблицы citizens")
+    public void testDeleteRequestCitizenSchema() {
+
+        try {
+            citizenid = getCitizenID(birthApplicationUser.getPersonalLastName());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        String citizensQuery = "DELETE FROM citizens c where citizenid=" +citizenid;
+        int citizenResult = JDBCConnection.deleteFromTable(citizensQuery);
+        assertEquals(1, citizenResult);
+         JDBCConnection.closeConnection();
+    }
+
+    @Test
+    @Order(14)
+    @DisplayName("Удаление данных из applications")
+    public void testDeleteRequestFromApplicationSchema() {
+
+        try {
+            applicantid = getApplicantID(birthApplicationUser.getPersonalLastName());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        String applicationsQuery = "DELETE FROM applications WHERE applicantid =" +applicantid;
+        int applicationsResult = JDBCConnection.deleteFromTable(applicationsQuery);
+        assertEquals(1, applicationsResult);
+        JDBCConnection.closeConnection();
+    }
+
+    @Test
+    @Order(16)
+    @DisplayName("Удаление данных из таблицы applicants")
+    public void testDeleteRequestFromApplicantsSchema() {
+
+        try {
+            applicantid = getApplicantID(birthApplicationUser.getPersonalLastName());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        String query = "DELETE FROM applicants where applicantid=" +applicantid;
+        int actualResult = JDBCConnection.deleteFromTable(query);
+        assertEquals(1, actualResult);
+        JDBCConnection.closeConnection();
+    }
 
     @Test
     @DisplayName("Тест: создать новую заявку со страницы Статус заявки ")
     @Feature("Регистрация")
     @Severity(SeverityLevel.NORMAL)
-    @Order(16)
+    @Order(17)
     public void testCreateNewApplication() {
         applicationStatusPage.clickCreateNewApplicationButton();
         applicantDataPage.getApplicantLastName().should(Condition.exist);
