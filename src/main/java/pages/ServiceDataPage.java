@@ -83,26 +83,26 @@ public class ServiceDataPage {
 
     @Step("Заполнить все поля формы Данные услуги / регистрация брака")
     public void setAllMarriageServiceData(User user) {
-        marriageDataRegistration.val(user.getMarriageRegistrationDate());
-        spouseNewLastName.val(user.getSpouseNewLastName());
-        spouseLastName.val(user.getSpouseLastName());
-        spouseFirstName.val(user.getSpouseFirstName());
-        spouseMiddleName.val(user.getSpouseMiddleName());
-        spouseBirthDate.val(user.getSpouseBirthDate());
-        spousePassportNumber.val(user.getSpousePassportNumber());
+        marriageDataRegistration.val(user.getDateOfMarriage());
+        spouseNewLastName.val(user.getNewLastName());
+        spouseLastName.val(user.getAnotherPersonLastName());
+        spouseFirstName.val(user.getAnotherPersonFirstName());
+        spouseMiddleName.val(user.getAnotherPersonMiddleName());
+        spouseBirthDate.val(user.getBirth_of_anotoherPerson());
+        spousePassportNumber.val(user.getAnotherPersonPassport());
     }
 
     @Step("Заполнить все поля формы Данные услуги / регистрация рождения")
     public void setAllBirthServiceData(User user) {
-        birthPlace.val(user.getBirthPlace());
-        motherName.val(user.getMotherName());
-        fatherName.val(user.getFatherName());
+        birthPlace.val(user.getBirth_place());
+        motherName.val(user.getBirth_mother());
+        fatherName.val(user.getBirth_father());
     }
 
     @Step("Заполнить все поля формы Данные услуги / регистрация смерти")
     public void setAllDeathServiceData(User user) {
-        deathPlace.val(user.getDeathPlace());
-        deathDate.val(user.getDeathDate());
+        deathPlace.val(user.getDeath_dateOfDeath());
+        deathDate.val(user.getDeath_placeOfDeath());
     }
 
     @Step("Нажать кнопку Завершить")

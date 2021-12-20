@@ -50,11 +50,11 @@ public class ApplicantDataPage {
 
     @Step("Заполнить все поля формы Данные заявителя")
     public ApplicantDataPage setAllApplicantData(User user) {
-        applicantLastName.val(user.getApplicantLastName());
-        applicantFirstName.val(user.getApplicantFirstName());
-        applicantMiddleName.val(user.getApplicantMiddleName());
-        applicantPhoneNumber.val(user.getApplicantPhoneNumber());
-        applicantPassportNumber.val(user.getApplicantPassportNumber());
+        applicantLastName.val(user.getPersonalLastName());
+        applicantFirstName.val(user.getPersonalFirstName());
+        applicantMiddleName.val(user.getPersonalMiddleName());
+        applicantPhoneNumber.val(user.getPersonalPhoneNumber());
+        applicantPassportNumber.val(user.getPersonalNumberOfPassport());
         return this;
     }
 

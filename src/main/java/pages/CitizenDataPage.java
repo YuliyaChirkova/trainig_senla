@@ -57,7 +57,7 @@ public class CitizenDataPage {
         citizenFirstName.val(user.getCitizenFirstName());
         citizenMiddleName.val(user.getCitizenMiddleName());
         citizenBirthDate.val(user.getCitizenBirthDate());
-        citizenPassportNumber.val(user.getCitizenPassportNumber());
+        citizenPassportNumber.val(user.getCitizenNumberOfPassport());
         citizenGender.val(user.getCitizenGender());
     }
 
