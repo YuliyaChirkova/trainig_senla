@@ -11,6 +11,8 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import pages.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.webdriver;
 import static com.codeborne.selenide.WebDriverConditions.url;
 
@@ -138,10 +140,10 @@ public class BeforeAfterEach {
         webdriver().shouldHave(url(authorizationPage.getUrl()));
     }
 
-//    @AfterAll
-//    public void tearDown() {
-//        closeWebDriver();
-//    }
+    @AfterAll
+    public void tearDown() {
+        closeWebDriver();
+    }
 
 }
 

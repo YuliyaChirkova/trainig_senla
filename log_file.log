@@ -9206,3 +9206,441 @@ ERROR: update or delete on table "citizens" violates foreign key constraint "fk_
 2021-12-20 16:26:47 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
 2021-12-20 16:26:47 INFO  Log:25 - Connection to DB successful!
 2021-12-20 16:26:47 INFO  Log:25 - Data from table was deleted successfully
+2021-12-20 16:37:12 INFO  Log:25 - applicationid is 8016
+2021-12-20 16:37:18 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:37:18 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:37:18 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:37:18 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:37:18 INFO  Log:25 - Send request to DB: select * from applicants where surname='Mone' order by applicantid desc limit 1
+2021-12-20 16:37:18 INFO  Log:25 - Send request to DB: select * from applicants where surname='Kahlo' order by applicantid desc limit 1
+2021-12-20 16:37:18 INFO  Log:25 - Connection to DB closed successfully
+2021-12-20 16:37:18 INFO  Log:25 - Statement closed successfully
+2021-12-20 16:37:18 INFO  Log:25 - ResultSet closed successfully
+2021-12-20 16:37:18 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:37:18 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:37:18 INFO  Log:25 - Send request to DB: SELECT * FROM applications WHERE applicantid =9235
+2021-12-20 16:37:18 INFO  Log:25 - Connection to DB closed successfully
+2021-12-20 16:37:18 INFO  Log:25 - Statement closed successfully
+2021-12-20 16:37:18 INFO  Log:25 - ResultSet closed successfully
+2021-12-20 16:37:18 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:37:19 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:37:19 INFO  Log:25 - Send request to DB: select citizenid from applications where applicantid=(select applicantid from applicants where surname='Kahlo' order by applicantid desc limit 1)
+2021-12-20 16:37:19 INFO  Log:25 - Connection to DB closed successfully
+2021-12-20 16:37:19 INFO  Log:25 - Statement closed successfully
+2021-12-20 16:37:19 INFO  Log:25 - ResultSet closed successfully
+2021-12-20 16:37:19 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:37:19 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:37:19 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:37:19 INFO  Log:25 - Send request to DB: select * from citizens c where citizenid=8278
+2021-12-20 16:37:19 INFO  Log:25 - Connection to DB closed successfully
+2021-12-20 16:37:19 INFO  Log:25 - Statement closed successfully
+2021-12-20 16:37:19 INFO  Log:25 - ResultSet closed successfully
+2021-12-20 16:37:19 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:37:19 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:37:19 INFO  Log:25 - Send request to DB: select * from applicants where surname='Klimt' order by applicantid desc limit 1
+2021-12-20 16:37:19 INFO  Log:25 - Connection to DB closed successfully
+2021-12-20 16:37:19 INFO  Log:25 - Statement closed successfully
+2021-12-20 16:37:19 INFO  Log:25 - ResultSet closed successfully
+2021-12-20 16:37:19 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:37:19 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:37:19 INFO  Log:25 - Send request to DB: select * from applicants where surname='Kahlo' order by applicantid desc limit 1
+2021-12-20 16:37:19 INFO  Log:25 - Connection to DB closed successfully
+2021-12-20 16:37:19 INFO  Log:25 - Statement closed successfully
+2021-12-20 16:37:19 INFO  Log:25 - ResultSet closed successfully
+2021-12-20 16:37:19 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:37:19 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:37:19 INFO  Log:25 - Send request to DB: SELECT * FROM applications WHERE applicantid =9237
+2021-12-20 16:37:19 INFO  Log:25 - Connection to DB closed successfully
+2021-12-20 16:37:19 INFO  Log:25 - Statement closed successfully
+2021-12-20 16:37:19 INFO  Log:25 - ResultSet closed successfully
+2021-12-20 16:37:19 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:37:19 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:37:19 INFO  Log:25 - Send request to DB: select * from applicants where applicantid=9235
+2021-12-20 16:37:19 INFO  Log:25 - Connection to DB closed successfully
+2021-12-20 16:37:19 INFO  Log:25 - Statement closed successfully
+2021-12-20 16:37:19 INFO  Log:25 - ResultSet closed successfully
+2021-12-20 16:37:19 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:37:19 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:37:19 INFO  Log:25 - Send request to DB: select citizenid from applications where applicantid=(select applicantid from applicants where surname='Klimt' order by applicantid desc limit 1)
+2021-12-20 16:37:19 INFO  Log:25 - Connection to DB closed successfully
+2021-12-20 16:37:19 INFO  Log:25 - Statement closed successfully
+2021-12-20 16:37:19 INFO  Log:25 - ResultSet closed successfully
+2021-12-20 16:37:19 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:37:19 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:37:19 INFO  Log:25 - Send request to DB: select * from citizens c where citizenid=8280
+2021-12-20 16:37:19 INFO  Log:25 - Connection to DB closed successfully
+2021-12-20 16:37:19 INFO  Log:25 - Statement closed successfully
+2021-12-20 16:37:19 INFO  Log:25 - ResultSet closed successfully
+2021-12-20 16:37:19 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:37:19 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:37:19 INFO  Log:25 - Send request to DB: select citizenid from applications where applicantid=(select applicantid from applicants where surname='Kahlo' order by applicantid desc limit 1)
+2021-12-20 16:37:19 INFO  Log:25 - Connection to DB closed successfully
+2021-12-20 16:37:19 INFO  Log:25 - Statement closed successfully
+2021-12-20 16:37:19 INFO  Log:25 - ResultSet closed successfully
+2021-12-20 16:37:19 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:37:20 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:37:20 INFO  Log:25 - Send request to DB: select * from applicants where surname='Klimt' order by applicantid desc limit 1
+2021-12-20 16:37:20 INFO  Log:25 - Connection to DB closed successfully
+2021-12-20 16:37:20 INFO  Log:25 - Statement closed successfully
+2021-12-20 16:37:20 INFO  Log:25 - ResultSet closed successfully
+2021-12-20 16:37:20 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:37:20 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:37:20 INFO  Log:25 - Send request to DB: select * from deathcertificates where citizenid=8278
+2021-12-20 16:37:20 INFO  Log:25 - Connection to DB closed successfully
+2021-12-20 16:37:20 INFO  Log:25 - Statement closed successfully
+2021-12-20 16:37:20 INFO  Log:25 - ResultSet closed successfully
+2021-12-20 16:37:20 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:37:20 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:37:20 INFO  Log:25 - Send request to DB: select * from applicants where applicantid=9237
+2021-12-20 16:37:20 INFO  Log:25 - Connection to DB closed successfully
+2021-12-20 16:37:20 INFO  Log:25 - Statement closed successfully
+2021-12-20 16:37:20 INFO  Log:25 - ResultSet closed successfully
+2021-12-20 16:37:20 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:37:20 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:37:20 INFO  Log:25 - Send request to DB: select citizenid from applications where applicantid=(select applicantid from applicants where surname='Kahlo' order by applicantid desc limit 1)
+2021-12-20 16:37:20 INFO  Log:25 - Connection to DB closed successfully
+2021-12-20 16:37:20 INFO  Log:25 - Statement closed successfully
+2021-12-20 16:37:20 INFO  Log:25 - ResultSet closed successfully
+2021-12-20 16:37:20 INFO  Log:25 - Send request to DB: DELETE FROM deathcertificates where citizenid=8278
+2021-12-20 16:37:20 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:37:20 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:37:20 INFO  Log:25 - Send request to DB: select citizenid from applications where applicantid=(select applicantid from applicants where surname='Klimt' order by applicantid desc limit 1)
+2021-12-20 16:37:20 INFO  Log:25 - Connection to DB closed successfully
+2021-12-20 16:37:20 INFO  Log:25 - Statement closed successfully
+2021-12-20 16:37:20 INFO  Log:25 - ResultSet closed successfully
+2021-12-20 16:37:20 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:37:20 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:37:20 INFO  Log:25 - Data from table was deleted successfully
+2021-12-20 16:37:20 INFO  Log:25 - Connection to DB closed successfully
+2021-12-20 16:37:20 INFO  Log:25 - Statement closed successfully
+2021-12-20 16:37:20 INFO  Log:25 - ResultSet closed successfully
+2021-12-20 16:37:20 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:37:20 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:37:20 INFO  Log:25 - Send request to DB: select * from merrigecertificates where citizenid=8280
+2021-12-20 16:37:20 INFO  Log:25 - Connection to DB closed successfully
+2021-12-20 16:37:20 INFO  Log:25 - Statement closed successfully
+2021-12-20 16:37:20 INFO  Log:25 - ResultSet closed successfully
+2021-12-20 16:37:20 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:37:20 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:37:20 INFO  Log:25 - Send request to DB: select * from applicants where surname='Kahlo' order by applicantid desc limit 1
+2021-12-20 16:37:20 INFO  Log:25 - Connection to DB closed successfully
+2021-12-20 16:37:20 INFO  Log:25 - Statement closed successfully
+2021-12-20 16:37:20 INFO  Log:25 - ResultSet closed successfully
+2021-12-20 16:37:20 INFO  Log:25 - Send request to DB: DELETE FROM applications WHERE applicantid =9235
+2021-12-20 16:37:20 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:37:20 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:37:20 INFO  Log:25 - Send request to DB: select citizenid from applications where applicantid=(select applicantid from applicants where surname='Klimt' order by applicantid desc limit 1)
+2021-12-20 16:37:20 INFO  Log:25 - Connection to DB closed successfully
+2021-12-20 16:37:20 INFO  Log:25 - Statement closed successfully
+2021-12-20 16:37:20 INFO  Log:25 - ResultSet closed successfully
+2021-12-20 16:37:20 INFO  Log:25 - Send request to DB: DELETE FROM merrigecertificates where citizenid=8280
+2021-12-20 16:37:20 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:37:20 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:37:20 INFO  Log:25 - Data from table was deleted successfully
+2021-12-20 16:37:20 INFO  Log:25 - Connection to DB closed successfully
+2021-12-20 16:37:20 INFO  Log:25 - Statement closed successfully
+2021-12-20 16:37:20 INFO  Log:25 - ResultSet closed successfully
+2021-12-20 16:37:20 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:37:20 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:37:20 INFO  Log:25 - Data from table was deleted successfully
+2021-12-20 16:37:20 INFO  Log:25 - Connection to DB closed successfully
+2021-12-20 16:37:20 INFO  Log:25 - Statement closed successfully
+2021-12-20 16:37:20 INFO  Log:25 - ResultSet closed successfully
+2021-12-20 16:37:20 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:37:20 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:37:20 INFO  Log:25 - Send request to DB: select citizenid from applications where applicantid=(select applicantid from applicants where surname='Kahlo' order by applicantid desc limit 1)
+2021-12-20 16:37:20 INFO  Log:25 - Send request to DB: DELETE FROM citizens c where citizenid=8278
+2021-12-20 16:37:20 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:37:20 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:37:21 INFO  Log:25 - Send request to DB: select * from applicants where surname='Klimt' order by applicantid desc limit 1
+2021-12-20 16:37:21 INFO  Log:25 - Connection to DB closed successfully
+2021-12-20 16:37:21 INFO  Log:25 - Statement closed successfully
+2021-12-20 16:37:21 INFO  Log:25 - ResultSet closed successfully
+2021-12-20 16:37:21 INFO  Log:25 - Send request to DB: DELETE FROM applications WHERE applicantid =9237
+2021-12-20 16:37:21 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:37:21 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:37:21 INFO  Log:25 - Data from table was deleted successfully
+2021-12-20 16:37:21 INFO  Log:25 - Connection to DB closed successfully
+2021-12-20 16:37:21 INFO  Log:25 - Statement closed successfully
+2021-12-20 16:37:21 INFO  Log:25 - ResultSet closed successfully
+2021-12-20 16:37:21 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:37:21 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:37:21 INFO  Log:25 - Data from table was deleted successfully
+2021-12-20 16:37:21 INFO  Log:25 - Connection to DB closed successfully
+2021-12-20 16:37:21 INFO  Log:25 - Statement closed successfully
+2021-12-20 16:37:21 INFO  Log:25 - ResultSet closed successfully
+2021-12-20 16:37:21 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:37:21 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:37:21 INFO  Log:25 - Send request to DB: select * from applicants where surname='Kahlo' order by applicantid desc limit 1
+2021-12-20 16:37:21 INFO  Log:25 - Connection to DB closed successfully
+2021-12-20 16:37:21 INFO  Log:25 - Statement closed successfully
+2021-12-20 16:37:21 INFO  Log:25 - ResultSet closed successfully
+2021-12-20 16:37:21 INFO  Log:25 - Send request to DB: DELETE FROM applicants where applicantid=9235
+2021-12-20 16:37:21 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:37:21 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:37:21 INFO  Log:25 - Send request to DB: select citizenid from applications where applicantid=(select applicantid from applicants where surname='Klimt' order by applicantid desc limit 1)
+2021-12-20 16:37:21 INFO  Log:25 - Send request to DB: DELETE FROM citizens c where citizenid=8280
+2021-12-20 16:37:21 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:37:21 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:37:21 INFO  Log:25 - Data from table was deleted successfully
+2021-12-20 16:37:21 INFO  Log:25 - Connection to DB closed successfully
+2021-12-20 16:37:21 INFO  Log:25 - Statement closed successfully
+2021-12-20 16:37:21 INFO  Log:25 - ResultSet closed successfully
+2021-12-20 16:37:21 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:37:21 INFO  Log:25 - Data from table was deleted successfully
+2021-12-20 16:37:21 INFO  Log:25 - Connection to DB closed successfully
+2021-12-20 16:37:21 INFO  Log:25 - Statement closed successfully
+2021-12-20 16:37:21 INFO  Log:25 - ResultSet closed successfully
+2021-12-20 16:37:21 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:37:21 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:37:21 INFO  Log:25 - Send request to DB: select * from applicants where surname='Klimt' order by applicantid desc limit 1
+2021-12-20 16:37:21 INFO  Log:25 - Connection to DB closed successfully
+2021-12-20 16:37:21 INFO  Log:25 - Statement closed successfully
+2021-12-20 16:37:21 INFO  Log:25 - ResultSet closed successfully
+2021-12-20 16:37:21 INFO  Log:25 - Send request to DB: DELETE FROM applicants where applicantid=9237
+2021-12-20 16:37:21 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:37:21 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:37:21 INFO  Log:25 - Data from table was deleted successfully
+2021-12-20 16:37:21 INFO  Log:25 - Connection to DB closed successfully
+2021-12-20 16:37:21 INFO  Log:25 - Statement closed successfully
+2021-12-20 16:37:21 INFO  Log:25 - ResultSet closed successfully
+2021-12-20 16:39:29 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:39:30 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:39:30 INFO  Log:25 - Send request to DB: select * from applicants where surname='Mone' order by applicantid desc limit 1
+2021-12-20 16:39:30 INFO  Log:25 - Connection to DB closed successfully
+2021-12-20 16:39:30 INFO  Log:25 - Statement closed successfully
+2021-12-20 16:39:30 INFO  Log:25 - ResultSet closed successfully
+2021-12-20 16:39:30 INFO  Log:25 - Send request to DB: DELETE FROM applicants where applicantid=9236
+2021-12-20 16:39:30 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:39:30 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:39:30 ERROR Log:46 - Data from table was not deleted. Reason:
+ERROR: update or delete on table "applicants" violates foreign key constraint "fk_applicant_id_1" on table "applications"
+  Detail: Key (applicantid)=(9236) is still referenced from table "applications".
+2021-12-20 16:39:58 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:39:58 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:39:58 INFO  Log:25 - Send request to DB: select * from applicants where surname='Klimt' order by applicantid desc limit 1
+2021-12-20 16:39:58 INFO  Log:25 - Connection to DB closed successfully
+2021-12-20 16:39:58 INFO  Log:25 - Statement closed successfully
+2021-12-20 16:39:58 INFO  Log:25 - ResultSet closed successfully
+2021-12-20 16:39:58 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:39:58 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:39:58 INFO  Log:25 - Send request to DB: SELECT * FROM applications WHERE applicantid =9233
+2021-12-20 16:40:08 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:40:08 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:40:08 INFO  Log:25 - Send request to DB: select citizenid from applications where applicantid=(select applicantid from applicants where surname='Klimt' order by applicantid desc limit 1)
+2021-12-20 16:40:08 INFO  Log:25 - Send request to DB: DELETE FROM merrigecertificates where citizenid=0
+2021-12-20 16:40:08 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:40:08 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:40:08 INFO  Log:25 - Data from table was deleted successfully
+2021-12-20 16:40:16 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:40:16 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:40:16 INFO  Log:25 - Send request to DB: select * from applicants where surname='Klimt' order by applicantid desc limit 1
+2021-12-20 16:40:16 INFO  Log:25 - Connection to DB closed successfully
+2021-12-20 16:40:16 INFO  Log:25 - Statement closed successfully
+2021-12-20 16:40:16 INFO  Log:25 - ResultSet closed successfully
+2021-12-20 16:40:16 INFO  Log:25 - Send request to DB: DELETE FROM applications WHERE applicantid =9233
+2021-12-20 16:40:16 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:40:16 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:40:16 INFO  Log:25 - Data from table was deleted successfully
+2021-12-20 16:40:26 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:40:26 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:40:26 INFO  Log:25 - Send request to DB: select citizenid from applications where applicantid=(select applicantid from applicants where surname='Klimt' order by applicantid desc limit 1)
+2021-12-20 16:40:26 INFO  Log:25 - Send request to DB: DELETE FROM citizens c where citizenid=0
+2021-12-20 16:40:26 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:40:27 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:40:27 INFO  Log:25 - Data from table was deleted successfully
+2021-12-20 16:40:44 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:40:44 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:40:44 INFO  Log:25 - Send request to DB: select * from applicants where surname='Klimt' order by applicantid desc limit 1
+2021-12-20 16:40:44 INFO  Log:25 - Connection to DB closed successfully
+2021-12-20 16:40:44 INFO  Log:25 - Statement closed successfully
+2021-12-20 16:40:44 INFO  Log:25 - ResultSet closed successfully
+2021-12-20 16:40:44 INFO  Log:25 - Send request to DB: DELETE FROM applicants where applicantid=9233
+2021-12-20 16:40:44 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:40:44 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:40:44 INFO  Log:25 - Data from table was deleted successfully
+2021-12-20 16:40:44 INFO  Log:25 - Connection to DB closed successfully
+2021-12-20 16:40:44 INFO  Log:25 - Statement closed successfully
+2021-12-20 16:40:44 INFO  Log:25 - ResultSet closed successfully
+2021-12-20 16:40:53 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:40:53 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:40:53 INFO  Log:25 - Send request to DB: select * from applicants where surname='Klimt' order by applicantid desc limit 1
+2021-12-20 16:40:53 INFO  Log:25 - Connection to DB closed successfully
+2021-12-20 16:40:53 INFO  Log:25 - Statement closed successfully
+2021-12-20 16:40:53 INFO  Log:25 - ResultSet closed successfully
+2021-12-20 16:40:53 INFO  Log:25 - Send request to DB: DELETE FROM applicants where applicantid=9228
+2021-12-20 16:40:53 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:40:53 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:40:53 INFO  Log:25 - Data from table was deleted successfully
+2021-12-20 16:40:53 INFO  Log:25 - Connection to DB closed successfully
+2021-12-20 16:40:53 INFO  Log:25 - Statement closed successfully
+2021-12-20 16:40:53 INFO  Log:25 - ResultSet closed successfully
+2021-12-20 16:41:01 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:41:02 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:41:02 INFO  Log:25 - Send request to DB: select * from applicants where surname='Klimt' order by applicantid desc limit 1
+2021-12-20 16:41:02 INFO  Log:25 - Connection to DB closed successfully
+2021-12-20 16:41:02 INFO  Log:25 - Statement closed successfully
+2021-12-20 16:41:02 INFO  Log:25 - ResultSet closed successfully
+2021-12-20 16:41:02 INFO  Log:25 - Send request to DB: DELETE FROM applicants where applicantid=9226
+2021-12-20 16:41:02 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:41:02 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:41:02 INFO  Log:25 - Data from table was deleted successfully
+2021-12-20 16:41:02 INFO  Log:25 - Connection to DB closed successfully
+2021-12-20 16:41:02 INFO  Log:25 - Statement closed successfully
+2021-12-20 16:41:02 INFO  Log:25 - ResultSet closed successfully
+2021-12-20 16:41:09 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:41:10 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:41:10 INFO  Log:25 - Send request to DB: select * from applicants where surname='Klimt' order by applicantid desc limit 1
+2021-12-20 16:41:10 INFO  Log:25 - Connection to DB closed successfully
+2021-12-20 16:41:10 INFO  Log:25 - Statement closed successfully
+2021-12-20 16:41:10 INFO  Log:25 - ResultSet closed successfully
+2021-12-20 16:41:10 INFO  Log:25 - Send request to DB: DELETE FROM applicants where applicantid=9224
+2021-12-20 16:41:10 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:41:10 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:41:10 INFO  Log:25 - Data from table was deleted successfully
+2021-12-20 16:41:10 INFO  Log:25 - Connection to DB closed successfully
+2021-12-20 16:41:10 INFO  Log:25 - Statement closed successfully
+2021-12-20 16:41:10 INFO  Log:25 - ResultSet closed successfully
+2021-12-20 16:41:17 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:41:17 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:41:17 INFO  Log:25 - Send request to DB: select * from applicants where surname='Klimt' order by applicantid desc limit 1
+2021-12-20 16:41:18 INFO  Log:25 - Connection to DB closed successfully
+2021-12-20 16:41:18 INFO  Log:25 - Statement closed successfully
+2021-12-20 16:41:18 INFO  Log:25 - ResultSet closed successfully
+2021-12-20 16:41:18 INFO  Log:25 - Send request to DB: DELETE FROM applicants where applicantid=9202
+2021-12-20 16:41:18 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:41:18 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:41:18 INFO  Log:25 - Data from table was deleted successfully
+2021-12-20 16:41:18 INFO  Log:25 - Connection to DB closed successfully
+2021-12-20 16:41:18 INFO  Log:25 - Statement closed successfully
+2021-12-20 16:41:18 INFO  Log:25 - ResultSet closed successfully
+2021-12-20 16:41:26 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:41:27 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:41:27 INFO  Log:25 - Send request to DB: select * from applicants where surname='Klimt' order by applicantid desc limit 1
+2021-12-20 16:41:27 INFO  Log:25 - Connection to DB closed successfully
+2021-12-20 16:41:27 INFO  Log:25 - Statement closed successfully
+2021-12-20 16:41:27 INFO  Log:25 - ResultSet closed successfully
+2021-12-20 16:41:27 INFO  Log:25 - Send request to DB: DELETE FROM applicants where applicantid=9197
+2021-12-20 16:41:27 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:41:27 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:41:27 INFO  Log:25 - Data from table was deleted successfully
+2021-12-20 16:41:27 INFO  Log:25 - Connection to DB closed successfully
+2021-12-20 16:41:27 INFO  Log:25 - Statement closed successfully
+2021-12-20 16:41:27 INFO  Log:25 - ResultSet closed successfully
+2021-12-20 16:41:35 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:41:35 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:41:35 INFO  Log:25 - Send request to DB: select * from applicants where surname='Klimt' order by applicantid desc limit 1
+2021-12-20 16:41:35 INFO  Log:25 - Connection to DB closed successfully
+2021-12-20 16:41:35 INFO  Log:25 - Statement closed successfully
+2021-12-20 16:41:35 INFO  Log:25 - ResultSet closed successfully
+2021-12-20 16:41:35 INFO  Log:25 - Send request to DB: DELETE FROM applicants where applicantid=9187
+2021-12-20 16:41:35 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:41:35 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:41:35 INFO  Log:25 - Data from table was deleted successfully
+2021-12-20 16:41:35 INFO  Log:25 - Connection to DB closed successfully
+2021-12-20 16:41:35 INFO  Log:25 - Statement closed successfully
+2021-12-20 16:41:35 INFO  Log:25 - ResultSet closed successfully
+2021-12-20 16:41:42 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:41:42 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:41:42 INFO  Log:25 - Send request to DB: select * from applicants where surname='Klimt' order by applicantid desc limit 1
+2021-12-20 16:41:42 INFO  Log:25 - Send request to DB: DELETE FROM applicants where applicantid=0
+2021-12-20 16:41:42 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:41:43 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:41:43 INFO  Log:25 - Data from table was deleted successfully
+2021-12-20 16:41:50 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:41:50 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:41:50 INFO  Log:25 - Send request to DB: select * from applicants where surname='Klimt' order by applicantid desc limit 1
+2021-12-20 16:41:50 INFO  Log:25 - Send request to DB: DELETE FROM applicants where applicantid=0
+2021-12-20 16:41:50 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:41:50 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:41:50 INFO  Log:25 - Data from table was deleted successfully
+2021-12-20 16:42:09 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:42:09 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:42:09 INFO  Log:25 - Send request to DB: select citizenid from applications where applicantid=(select applicantid from applicants where surname='Kahlo' order by applicantid desc limit 1)
+2021-12-20 16:42:09 INFO  Log:25 - Connection to DB closed successfully
+2021-12-20 16:42:09 INFO  Log:25 - Statement closed successfully
+2021-12-20 16:42:09 INFO  Log:25 - ResultSet closed successfully
+2021-12-20 16:42:09 INFO  Log:25 - Send request to DB: DELETE FROM deathcertificates where citizenid=8274
+2021-12-20 16:42:09 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:42:09 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:42:09 INFO  Log:25 - Data from table was deleted successfully
+2021-12-20 16:42:09 INFO  Log:25 - Connection to DB closed successfully
+2021-12-20 16:42:09 INFO  Log:25 - Statement closed successfully
+2021-12-20 16:42:09 INFO  Log:25 - ResultSet closed successfully
+2021-12-20 16:42:16 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:42:17 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:42:17 INFO  Log:25 - Send request to DB: select citizenid from applications where applicantid=(select applicantid from applicants where surname='Kahlo' order by applicantid desc limit 1)
+2021-12-20 16:42:17 INFO  Log:25 - Connection to DB closed successfully
+2021-12-20 16:42:17 INFO  Log:25 - Statement closed successfully
+2021-12-20 16:42:17 INFO  Log:25 - ResultSet closed successfully
+2021-12-20 16:42:17 INFO  Log:25 - Send request to DB: DELETE FROM deathcertificates where citizenid=8274
+2021-12-20 16:42:17 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:42:17 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:42:17 INFO  Log:25 - Data from table was deleted successfully
+2021-12-20 16:42:24 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:42:24 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:42:24 INFO  Log:25 - Send request to DB: select citizenid from applications where applicantid=(select applicantid from applicants where surname='Kahlo' order by applicantid desc limit 1)
+2021-12-20 16:42:24 INFO  Log:25 - Connection to DB closed successfully
+2021-12-20 16:42:24 INFO  Log:25 - Statement closed successfully
+2021-12-20 16:42:24 INFO  Log:25 - ResultSet closed successfully
+2021-12-20 16:42:24 INFO  Log:25 - Send request to DB: DELETE FROM deathcertificates where citizenid=8274
+2021-12-20 16:42:24 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:42:24 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:42:24 INFO  Log:25 - Data from table was deleted successfully
+2021-12-20 16:42:33 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:42:33 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:42:33 INFO  Log:25 - Send request to DB: select * from applicants where surname='Kahlo' order by applicantid desc limit 1
+2021-12-20 16:42:33 INFO  Log:25 - Connection to DB closed successfully
+2021-12-20 16:42:33 INFO  Log:25 - Statement closed successfully
+2021-12-20 16:42:33 INFO  Log:25 - ResultSet closed successfully
+2021-12-20 16:42:33 INFO  Log:25 - Send request to DB: DELETE FROM applications WHERE applicantid =9230
+2021-12-20 16:42:33 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:42:33 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:42:33 INFO  Log:25 - Data from table was deleted successfully
+2021-12-20 16:42:33 INFO  Log:25 - Connection to DB closed successfully
+2021-12-20 16:42:33 INFO  Log:25 - Statement closed successfully
+2021-12-20 16:42:33 INFO  Log:25 - ResultSet closed successfully
+2021-12-20 16:42:41 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:42:41 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:42:41 INFO  Log:25 - Send request to DB: select * from applicants where surname='Kahlo' order by applicantid desc limit 1
+2021-12-20 16:42:41 INFO  Log:25 - Connection to DB closed successfully
+2021-12-20 16:42:41 INFO  Log:25 - Statement closed successfully
+2021-12-20 16:42:41 INFO  Log:25 - ResultSet closed successfully
+2021-12-20 16:42:41 INFO  Log:25 - Send request to DB: DELETE FROM applications WHERE applicantid =9230
+2021-12-20 16:42:41 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:42:41 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:42:41 INFO  Log:25 - Data from table was deleted successfully
+2021-12-20 16:42:54 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:42:54 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:42:54 INFO  Log:25 - Send request to DB: select citizenid from applications where applicantid=(select applicantid from applicants where surname='Kahlo' order by applicantid desc limit 1)
+2021-12-20 16:42:54 INFO  Log:25 - Send request to DB: DELETE FROM citizens c where citizenid=0
+2021-12-20 16:42:54 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:42:55 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:42:55 INFO  Log:25 - Data from table was deleted successfully
+2021-12-20 16:43:03 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:43:03 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:43:03 INFO  Log:25 - Send request to DB: select citizenid from applications where applicantid=(select applicantid from applicants where surname='Kahlo' order by applicantid desc limit 1)
+2021-12-20 16:43:03 INFO  Log:25 - Send request to DB: DELETE FROM citizens c where citizenid=0
+2021-12-20 16:43:03 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:43:03 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:43:04 INFO  Log:25 - Data from table was deleted successfully
+2021-12-20 16:43:10 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:43:10 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:43:10 INFO  Log:25 - Send request to DB: select * from applicants where surname='Kahlo' order by applicantid desc limit 1
+2021-12-20 16:43:11 INFO  Log:25 - Connection to DB closed successfully
+2021-12-20 16:43:11 INFO  Log:25 - Statement closed successfully
+2021-12-20 16:43:11 INFO  Log:25 - ResultSet closed successfully
+2021-12-20 16:43:11 INFO  Log:25 - Send request to DB: DELETE FROM applicants where applicantid=9230
+2021-12-20 16:43:11 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:43:11 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:43:11 INFO  Log:25 - Data from table was deleted successfully
+2021-12-20 16:43:11 INFO  Log:25 - Connection to DB closed successfully
+2021-12-20 16:43:11 INFO  Log:25 - Statement closed successfully
+2021-12-20 16:43:11 INFO  Log:25 - ResultSet closed successfully
+2021-12-20 16:43:18 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:43:18 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:43:18 INFO  Log:25 - Send request to DB: select * from applicants where surname='Kahlo' order by applicantid desc limit 1
+2021-12-20 16:43:18 INFO  Log:25 - Send request to DB: DELETE FROM applicants where applicantid=0
+2021-12-20 16:43:18 INFO  Log:25 - Connect to DB jdbc:postgresql://86.57.161.116:50432/register_office?currentSchema=reg_office by user user
+2021-12-20 16:43:18 INFO  Log:25 - Connection to DB successful!
+2021-12-20 16:43:18 INFO  Log:25 - Data from table was deleted successfully
