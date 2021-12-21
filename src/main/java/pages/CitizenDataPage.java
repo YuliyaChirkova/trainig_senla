@@ -10,14 +10,14 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class CitizenDataPage {
 
-    private SelenideElement message =$(byXpath("//span[text() = 'Регистрация брака']"));
-    private SelenideElement citizenLastName =$(byXpath("//label[text()='Фамилия']/following::input[1]"));
-    private SelenideElement citizenFirstName =$(byXpath("//label[text()='Имя']/following::input[1]"));
-    private SelenideElement citizenMiddleName =$(byXpath("//label[text()='Отчество']/following::input[1]"));
-    private SelenideElement citizenBirthDate =$(byXpath("//label[text()='Дата рождения']/following::input[1]"));
-    private SelenideElement citizenPassportNumber =$(byXpath("//label[text()='Номер паспорта']/following::input[1]"));
-    private SelenideElement citizenGender =$(byXpath("//label[text()='Пол']/following::input[1]"));
-    private SelenideElement nextButton =$(byXpath("//button [text()='Далее']"));
+    private SelenideElement message = $(byXpath("//span[text() = 'Регистрация брака']"));
+    private SelenideElement citizenLastName = $(byXpath("//label[text()='Фамилия']/following::input[1]"));
+    private SelenideElement citizenFirstName = $(byXpath("//label[text()='Имя']/following::input[1]"));
+    private SelenideElement citizenMiddleName = $(byXpath("//label[text()='Отчество']/following::input[1]"));
+    private SelenideElement citizenBirthDate = $(byXpath("//label[text()='Дата рождения']/following::input[1]"));
+    private SelenideElement citizenPassportNumber = $(byXpath("//label[text()='Номер паспорта']/following::input[1]"));
+    private SelenideElement citizenGender = $(byXpath("//label[text()='Пол']/following::input[1]"));
+    private SelenideElement nextButton = $(byXpath("//button [text()='Далее']"));
 
     public SelenideElement getMessage() {
         return message;
@@ -52,7 +52,7 @@ public class CitizenDataPage {
     }
 
     @Step("Заполнить все поля формы Данные гражданина")
-    public void setAllCitizenData(User user){
+    public void setAllCitizenData(User user) {
         citizenLastName.val(user.getCitizenLastName());
         citizenFirstName.val(user.getCitizenFirstName());
         citizenMiddleName.val(user.getCitizenMiddleName());
@@ -62,7 +62,7 @@ public class CitizenDataPage {
     }
 
     @Step("Нажать кнопку Далее")
-    public void clickNextButton(){
+    public void clickNextButton() {
         nextButton.shouldBe(Condition.enabled).click();
     }
 

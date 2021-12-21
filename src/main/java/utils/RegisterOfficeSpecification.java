@@ -10,7 +10,7 @@ public class RegisterOfficeSpecification {
 
     public static RequestSpecification getRequestSpecification() {
         return new RequestSpecBuilder()
-                .setBaseUri(RegisterOfficeEndpoints.BASEURI)
+                .setBaseUri(RegisterOfficeEndpoints.BASE_URI)
                 .setContentType(ContentType.JSON)
                 .log(LogDetail.METHOD)
                 .log(LogDetail.URI)

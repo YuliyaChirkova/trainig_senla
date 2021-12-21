@@ -16,8 +16,6 @@ public class AuthorizationPage {
     private String url = "https://user:senlatest@regoffice.senla.eu/";
     ApplicantDataPage applicantDataPage = new ApplicantDataPage();
 
-    private final static int MAX_RETRY_COUNT = 5;
-
     public String getUrl() {
         return url;
     }
@@ -25,25 +23,6 @@ public class AuthorizationPage {
     @Step("Открытие страницы авторизации")
     public void openAuthorizationPage() {
         open(url);
-//        int retryCount = 0;
-//        while (true) {
-//            try {
-//                open(url);
-//                break;
-//            } catch (WebDriverException e) {
-//                if (retryCount > MAX_RETRY_COUNT) {
-//                    throw new RuntimeException("Too many retries...", e);
-//                }
-//
-//                retryCount++;
-//                try {
-//                    Thread.sleep(2_000);
-//                } catch (InterruptedException interruptedException) {
-//                    interruptedException.printStackTrace();
-//                }
-//                continue;
-//            }
-//        }
     }
 
     @Step("Войти как пользователь")

@@ -126,111 +126,134 @@ public class User {
         return anotherPersonPassport;
     }
 
-    public static class Builder{
+    public static class Builder {
         private User newUser;
 
         public Builder() {
             newUser = new User();
         }
-        public Builder withName(String name){
+
+        public Builder withName(String name) {
             newUser.personalFirstName = name;
             return this;
         }
-        public Builder withSurname(String surname){
+
+        public Builder withSurname(String surname) {
             newUser.personalLastName = surname;
             return this;
         }
-        public Builder withMiddleName(String middleName){
+
+        public Builder withMiddleName(String middleName) {
             newUser.personalMiddleName = middleName;
             return this;
         }
 
-        public Builder withPhoneNumber(String phoneNumber){
+        public Builder withPhoneNumber(String phoneNumber) {
             newUser.personalPhoneNumber = phoneNumber;
             return this;
         }
-        public Builder withPassportNumber(String passportNumber){
+
+        public Builder withPassportNumber(String passportNumber) {
             newUser.personalNumberOfPassport = passportNumber;
             return this;
         }
-        public Builder withCitizenFirstName(String citizenFirstName){
+
+        public Builder withCitizenFirstName(String citizenFirstName) {
             newUser.citizenFirstName = citizenFirstName;
             return this;
         }
-        public Builder withCitizenLastName(String citizenLastName){
+
+        public Builder withCitizenLastName(String citizenLastName) {
             newUser.citizenLastName = citizenLastName;
             return this;
         }
-        public Builder withCitizenMiddleName(String citizenMiddleName){
+
+        public Builder withCitizenMiddleName(String citizenMiddleName) {
             newUser.citizenMiddleName = citizenMiddleName;
             return this;
         }
-        public Builder withCitizenBirthDate(String citizenBirthDate){
+
+        public Builder withCitizenBirthDate(String citizenBirthDate) {
             newUser.citizenBirthDate = citizenBirthDate;
             return this;
         }
-        public Builder withCitizenPassportNumber(String citizenPassportNumber){
+
+        public Builder withCitizenPassportNumber(String citizenPassportNumber) {
             newUser.citizenNumberOfPassport = citizenPassportNumber;
             return this;
         }
-        public Builder withCitizenGender(String citizenGender){
+
+        public Builder withCitizenGender(String citizenGender) {
             newUser.citizenGender = citizenGender;
             return this;
         }
-        public Builder withMarriageRegistrationDate(String marriageRegistrationDate){
+
+        public Builder withMarriageRegistrationDate(String marriageRegistrationDate) {
             newUser.dateOfMarriage = marriageRegistrationDate;
             return this;
         }
-        public Builder withSpouseNewLastName(String spouseNewLastName){
+
+        public Builder withSpouseNewLastName(String spouseNewLastName) {
             newUser.newLastName = spouseNewLastName;
             return this;
         }
-        public Builder withSpouseLastName(String spouseLastName){
+
+        public Builder withSpouseLastName(String spouseLastName) {
             newUser.anotherPersonLastName = spouseLastName;
             return this;
         }
-        public Builder withSpouseFirstName(String spouseFirstName){
+
+        public Builder withSpouseFirstName(String spouseFirstName) {
             newUser.anotherPersonFirstName = spouseFirstName;
             return this;
         }
-        public Builder withSpouseMiddleName(String spouseMiddleName){
+
+        public Builder withSpouseMiddleName(String spouseMiddleName) {
             newUser.anotherPersonMiddleName = spouseMiddleName;
             return this;
         }
-        public Builder withSpouseBirthDate(String spouseBirthDate){
+
+        public Builder withSpouseBirthDate(String spouseBirthDate) {
             newUser.birth_of_anotoherPerson = spouseBirthDate;
             return this;
         }
-        public Builder withSpousePassportNumber(String spousePassportNumber){
+
+        public Builder withSpousePassportNumber(String spousePassportNumber) {
             newUser.anotherPersonPassport = spousePassportNumber;
             return this;
         }
-        public Builder withBirthPlace(String birthPlace){
+
+        public Builder withBirthPlace(String birthPlace) {
             newUser.birth_place = birthPlace;
             return this;
         }
-        public Builder withMotherName(String motherName){
+
+        public Builder withMotherName(String motherName) {
             newUser.birth_mother = motherName;
             return this;
         }
-        public Builder withFatherName(String fatherName){
+
+        public Builder withFatherName(String fatherName) {
             newUser.birth_father = fatherName;
             return this;
         }
-        public Builder withDeathPlace(String deathPlace){
+
+        public Builder withDeathPlace(String deathPlace) {
             newUser.death_dateOfDeath = deathPlace;
             return this;
         }
-        public Builder withDeathDate(String deathDate){
+
+        public Builder withDeathDate(String deathDate) {
             newUser.death_placeOfDeath = deathDate;
             return this;
         }
-        public Builder withMode(String mode){
+
+        public Builder withMode(String mode) {
             newUser.mode = mode;
             return this;
         }
 
-        public User build(){
+        public User build() {
             return newUser;
         }
     }

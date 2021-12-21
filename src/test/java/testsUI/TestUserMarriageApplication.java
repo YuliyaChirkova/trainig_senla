@@ -4,8 +4,10 @@ import com.codeborne.selenide.Condition;
 import dataBaseConnect.JDBCConnection;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -108,7 +110,7 @@ public class TestUserMarriageApplication extends BeforeAfterEach {
     @Order(8)
     public void testSendMarriageApplication() {
         serviceDataPage.clickFinishButton()
-            .getStatusMessage().shouldHave(Condition.exactText("Ваша заявка отправлена на рассмотрение. "));
+                .getStatusMessage().shouldHave(Condition.exactText("Ваша заявка отправлена на рассмотрение. "));
     }
 
     @Test
@@ -121,7 +123,7 @@ public class TestUserMarriageApplication extends BeforeAfterEach {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        String selectQuery = "SELECT * FROM applications WHERE applicantid =" +applicantid;
+        String selectQuery = "SELECT * FROM applications WHERE applicantid =" + applicantid;
         ResultSet rs = JDBCConnection.selectFromTable(selectQuery);
         assertAll("Should return inserted data",
                 () -> assertEquals("under consideration", rs.getString("statusofapplication")),
@@ -160,7 +162,7 @@ public class TestUserMarriageApplication extends BeforeAfterEach {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        String selectQuery = "select * from applicants where applicantid=" +applicantid;
+        String selectQuery = "select * from applicants where applicantid=" + applicantid;
         ResultSet rs = JDBCConnection.selectFromTable(selectQuery);
         assertAll("Should return inserted data",
                 () -> assertEquals("Klimt", rs.getString("surname")),
@@ -181,7 +183,7 @@ public class TestUserMarriageApplication extends BeforeAfterEach {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        String selectQuery = "select * from merrigecertificates where citizenid=" +citizenid;
+        String selectQuery = "select * from merrigecertificates where citizenid=" + citizenid;
         ResultSet rs = JDBCConnection.selectFromTable(selectQuery);
         assertAll("Should return inserted data",
                 () -> assertEquals("1933-03-03", rs.getString("dateofmerrige")),
@@ -220,7 +222,7 @@ public class TestUserMarriageApplication extends BeforeAfterEach {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        String applicationsQuery = "DELETE FROM applications WHERE applicantid =" +applicantid;
+        String applicationsQuery = "DELETE FROM applications WHERE applicantid =" + applicantid;
         int applicationsResult = JDBCConnection.deleteFromTable(applicationsQuery);
         assertEquals(1, applicationsResult);
         JDBCConnection.closeConnection();
@@ -237,7 +239,7 @@ public class TestUserMarriageApplication extends BeforeAfterEach {
             e.printStackTrace();
         }
 
-        String citizensQuery = "DELETE FROM citizens c where citizenid=" +citizenid;
+        String citizensQuery = "DELETE FROM citizens c where citizenid=" + citizenid;
         int citizenResult = JDBCConnection.deleteFromTable(citizensQuery);
         assertEquals(1, citizenResult);
         JDBCConnection.closeConnection();
@@ -253,7 +255,7 @@ public class TestUserMarriageApplication extends BeforeAfterEach {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        String query = "DELETE FROM applicants where applicantid=" +applicantid;
+        String query = "DELETE FROM applicants where applicantid=" + applicantid;
         int actualResult = JDBCConnection.deleteFromTable(query);
         assertEquals(1, actualResult);
         JDBCConnection.closeConnection();

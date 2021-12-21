@@ -12,4 +12,5 @@ data/User$Builder.class
 pages/CitizenDataPage.class
 data/User.class
 utils/Log.class
+data/Administrator$Builder.class
 pages/ServiceDataPage.class

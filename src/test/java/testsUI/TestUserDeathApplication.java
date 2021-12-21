@@ -6,8 +6,10 @@ import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.*;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -118,7 +120,7 @@ public class TestUserDeathApplication extends BeforeAfterEach {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        String selectQuery = "SELECT * FROM applications WHERE applicantid =" +applicantid;
+        String selectQuery = "SELECT * FROM applications WHERE applicantid =" + applicantid;
         ResultSet rs = JDBCConnection.selectFromTable(selectQuery);
         assertAll("Should return inserted data",
                 () -> assertEquals("under consideration", rs.getString("statusofapplication")),
@@ -157,7 +159,7 @@ public class TestUserDeathApplication extends BeforeAfterEach {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        String selectQuery = "select * from applicants where applicantid=" +applicantid;
+        String selectQuery = "select * from applicants where applicantid=" + applicantid;
         ResultSet rs = JDBCConnection.selectFromTable(selectQuery);
         assertAll("Should return inserted data",
                 () -> assertEquals("Kahlo", rs.getString("surname")),
@@ -178,7 +180,7 @@ public class TestUserDeathApplication extends BeforeAfterEach {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        String selectQuery = "select * from deathcertificates where citizenid=" +citizenid;
+        String selectQuery = "select * from deathcertificates where citizenid=" + citizenid;
         ResultSet rs = JDBCConnection.selectFromTable(selectQuery);
         assertAll("Should return inserted data",
                 () -> assertEquals("1954-12-07", rs.getString("dateofdeath")),
@@ -212,7 +214,7 @@ public class TestUserDeathApplication extends BeforeAfterEach {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        String applicationsQuery = "DELETE FROM applications WHERE applicantid =" +applicantid;
+        String applicationsQuery = "DELETE FROM applications WHERE applicantid =" + applicantid;
         int applicationsResult = JDBCConnection.deleteFromTable(applicationsQuery);
         assertEquals(1, applicationsResult);
         JDBCConnection.closeConnection();
@@ -228,7 +230,7 @@ public class TestUserDeathApplication extends BeforeAfterEach {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        String citizensQuery = "DELETE FROM citizens c where citizenid=" +citizenid;
+        String citizensQuery = "DELETE FROM citizens c where citizenid=" + citizenid;
         int citizenResult = JDBCConnection.deleteFromTable(citizensQuery);
         assertEquals(1, citizenResult);
         JDBCConnection.closeConnection();
@@ -245,7 +247,7 @@ public class TestUserDeathApplication extends BeforeAfterEach {
             e.printStackTrace();
         }
 
-        String query = "DELETE FROM applicants where applicantid=" +applicantid;
+        String query = "DELETE FROM applicants where applicantid=" + applicantid;
         int actualResult = JDBCConnection.deleteFromTable(query);
         assertEquals(1, actualResult);
         JDBCConnection.closeConnection();

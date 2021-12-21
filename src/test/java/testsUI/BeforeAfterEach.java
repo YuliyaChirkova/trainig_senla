@@ -9,6 +9,7 @@ import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import pages.*;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -94,51 +95,31 @@ public class BeforeAfterEach {
     protected int applicantid;
     protected int citizenid;
 
-    public  int getApplicantID(String applicantSurname) throws SQLException {
-        String selectQuery ="select * from applicants where surname='" + applicantSurname+ "' order by applicantid desc limit 1";
+    public int getApplicantID(String applicantSurname) throws SQLException {
+        String selectQuery = "select * from applicants where surname='" + applicantSurname + "' order by applicantid desc limit 1";
         ResultSet rs = JDBCConnection.selectFromTable(selectQuery);
         applicantid = rs.getInt("applicantid");
-        JDBCConnection.closeConnection();
         return applicantid;
     }
 
-    public  int getCitizenID(String applicantSurname) throws SQLException {
-        String selectQuery ="select citizenid from applications where applicantid=(select applicantid from applicants where surname='" + applicantSurname + "' order by applicantid desc limit 1)";// order by applicantid desc limit 1
+    public int getCitizenID(String applicantSurname) throws SQLException {
+        String selectQuery = "select citizenid from applications where applicantid=(select applicantid from applicants where surname='" + applicantSurname + "' order by applicantid desc limit 1)";// order by applicantid desc limit 1
         ResultSet rs = JDBCConnection.selectFromTable(selectQuery);
         citizenid = rs.getInt("citizenid");
-        JDBCConnection.closeConnection();
         return citizenid;
     }
 
-//    @BeforeAll
-//    public void setUp() {
-//        SelenideLogger.addListener("AllureSelenide",
-//                new AllureSelenide().screenshots(true).savePageSource(false));
-//        Configuration.startMaximized = true;
-//
-//        Configuration.browserBinary = "/usr/bin/google-chrome";
-//        Configuration.browserVersion = "96.0";
-//
-//        Configuration.browserCapabilities.setCapability("--headless", true);
-//        Configuration.browserCapabilities.setCapability("--no-sandbox", true);
-//        Configuration.browserCapabilities.setCapability("useAutomationExtension", true);
-//        Configuration.browserCapabilities.setCapability("/usr/bin/google-chrome", true);
-//        Configuration.browserCapabilities.setCapability("--disable-dev-shm-usage", true);
-//        authorizationPage.openAuthorizationPage();
-//        webdriver().shouldHave(url(authorizationPage.getUrl()));
-//    }
-
     @BeforeAll
-    public void setUp()  {
+    public void setUp() {
         SelenideLogger.addListener("AllureSelenide",
                 new AllureSelenide().screenshots(true).savePageSource(false));
 
-        Configuration.remote ="http://localhost:4444/wd/hub";
+        Configuration.remote = "http://localhost:4444/wd/hub";
         Configuration.browser = "chrome";
         Configuration.browserSize = "1920x1080";
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability( "enableVNC",  true);
-        capabilities.setCapability( "enableVideo",  true);
+        capabilities.setCapability("enableVNC", true);
+        capabilities.setCapability("enableVideo", true);
         Configuration.browserCapabilities = capabilities;
         authorizationPage.openAuthorizationPage();
         webdriver().shouldHave(url(authorizationPage.getUrl()));

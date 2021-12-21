@@ -9,15 +9,6 @@ public class Administrator {
     private String personalNumberOfPassport;
     private String dateofbirth;
 
-//    public Administrator(String adminFirstName, String adminLastName, String adminMiddleName, String adminPhoneNumber, String adminPassportNumber, String dateofbirth) {
-//        this.personalFirstName = adminFirstName;
-//        this.personalLastName = adminLastName;
-//        this.personalMiddleName = adminMiddleName;
-//        this.personalPhoneNumber = adminPhoneNumber;
-//        this.personalNumberOfPassport = adminPassportNumber;
-//        this.dateofbirth = dateofbirth;
-//    }
-
     public String getPersonalFirstName() {
         return personalFirstName;
     }
@@ -78,7 +69,8 @@ public class Administrator {
             newAdministrator.dateofbirth = dateofbirth;
             return this;
         }
-        public Administrator build(){
+
+        public Administrator build() {
             return newAdministrator;
         }
     }
