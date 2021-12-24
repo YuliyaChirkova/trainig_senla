@@ -1,14 +1,23 @@
 package testsUI;
 
 import com.codeborne.selenide.Condition;
+import dataBaseConnect.JDBCConnection;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.*;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class TestAdministrator extends BeforeAfterEach {
+
+    int staffid;
 
     @Test
     @DisplayName("Тест: войти как администратор")
@@ -50,4 +59,33 @@ public class TestAdministrator extends BeforeAfterEach {
         applicationListPage.getColumnStatus().shouldHave(Condition.exactText("Статус"));
         applicationListPage.getColumnAction().shouldHave(Condition.exactText("Действие"));
     }
+
+    @Test
+    @Order(4)
+    @DisplayName("Проверка Данных администратора")
+    public void testSelectDataFromStaffSchema() throws SQLException {
+
+        String selectQuery = "select * from staff where surname = '"+ administrator.getPersonalLastName() +"' order by staffid desc limit 1";
+        ResultSet rs = JDBCConnection.selectFromTable(selectQuery);
+        staffid = rs.getInt("staffid");
+        assertAll("Should return inserted data",
+                () -> assertEquals("Sergeev", rs.getString("surname")),
+                () -> assertEquals("Sergei", rs.getString("name")),
+                () -> assertEquals("Sergeevich", rs.getString("middlename")),
+                () -> assertEquals("5555555", rs.getString("phonenumber")),
+                () -> assertEquals("7777777", rs.getString("passportnumber")));
+        JDBCConnection.closeConnection();
+    }
+
+    @Test
+    @Order(5)
+    @DisplayName("Удаление данных из таблицы staff")
+    public void testDeleteRequestStaffSchema() {
+
+        String query = "DELETE FROM staff where staffid=" + staffid;
+        int actualResult = JDBCConnection.deleteFromTable(query);
+        assertEquals(1, actualResult);
+        JDBCConnection.closeConnection();
+    }
+
 }

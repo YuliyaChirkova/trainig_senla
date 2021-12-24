@@ -103,7 +103,7 @@ public class BeforeAfterEach {
     }
 
     public int getCitizenID(String applicantSurname) throws SQLException {
-        String selectQuery = "select citizenid from applications where applicantid=(select applicantid from applicants where surname='" + applicantSurname + "' order by applicantid desc limit 1)";// order by applicantid desc limit 1
+        String selectQuery = "select citizenid from applications where applicantid=(select applicantid from applicants where surname='" + applicantSurname + "' order by applicantid desc limit 1)";
         ResultSet rs = JDBCConnection.selectFromTable(selectQuery);
         citizenid = rs.getInt("citizenid");
         return citizenid;
