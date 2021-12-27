@@ -7,5 +7,4 @@ build/
 .allure/
 allure-results
 .log
-/.idea/
-/target/
+
